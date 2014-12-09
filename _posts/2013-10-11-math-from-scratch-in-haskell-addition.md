@@ -14,34 +14,41 @@ Eric did all the hard work of explaining the recursive algorithm for addition.
 
 First thing I&#8217;ll need is an equality operator for Bit. I&#8217;ll just derive that by adding &#8220;deriving Eq&#8221; to the Bit definition.
 
-<pre class="brush: plain; title: ; notranslate" title="">data Bit = ZeroBit | OneBit deriving Eq
-</pre>
+
+{% highlight haskell %}
+data Bit = ZeroBit | OneBit deriving Eq
+{% endhighlight %}
+
 
 Here is the implementation of natural addition:
 
-<pre class="brush: plain; title: ; notranslate" title="">natAdd :: Natural -&gt; Natural -&gt; Natural
+{% highlight haskell linenos %}
+natAdd :: Natural -&gt; Natural -&gt; Natural
 natAdd n Zero = n
 natAdd Zero n = n
 natAdd n1@(Nat h1 t1) n2@(Nat h2 t2)
   | h1 == ZeroBit = createNatural (natAdd t1 t2) h2
   | h2 == ZeroBit = createNatural (natAdd t1 t2) h1
   | otherwise = createNatural (natAdd one (natAdd t1 t2)) ZeroBit
-</pre>
+{% endhighlight %}
+
 
 Then like Eric I added the ability to convert a Natural to a string. In Haskell this is done by implementing instance of Show. I do this for both Bit and Natural:
 
-<pre class="brush: plain; title: ; notranslate" title="">instance Show Bit where
+{% highlight haskell linenos %}
+instance Show Bit where
   show ZeroBit = "0"
   show OneBit = "1"
 
 instance Show Natural where
   show Zero = "0"
   show (Nat h t) = show t ++ show h
-</pre>
+{% endhighlight %}
 
 Finally I added an increment method and exposed the new functions. The whole implementation now looks like this:
 
-<pre class="brush: plain; title: ; notranslate" title="">module Natural (Natural, zero, one, natAdd, natInc) where
+{% highlight haskell linenos %}
+module Natural (Natural, zero, one, natAdd, natInc) where
 
 data Bit = ZeroBit | OneBit deriving Eq
 
@@ -79,7 +86,7 @@ instance Show Natural where
 -- bug guy meets math from scratch: added increment
 natInc :: Natural -&gt; Natural
 natInc = natAdd one
-</pre>
+{% endhighlight %}
 
  [1]: http://loominate.net/2013/10/09/math-from-scratch-in-haskell-zero-and-one/ "Math from scratch in Haskell: zero and one"
  [2]: http://ericlippert.com/2013/09/23/math-from-scratch-part-three/

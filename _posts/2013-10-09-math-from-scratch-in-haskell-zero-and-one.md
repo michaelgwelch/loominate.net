@@ -18,7 +18,8 @@ In [part one][2] and [part two][3] of the series he develops a representation of
 
 Here is my implementation
 
-<pre class="brush: plain; title: ; notranslate" title="">module Natural (Natural, zero, one) where
+{% highlight haskell linenos %}
+module Natural (Natural, zero, one) where
 
 data Bit = ZeroBit | OneBit 
 
@@ -30,11 +31,12 @@ one = Nat OneBit Zero
 -- Creates a natural number. Keeps the invariant that 
 -- Naturals always end with Zero and never end with 
 -- a ZeroBit followed by Zero
-createNatural :: Natural -&gt; Bit -&gt; Natural
+createNatural :: Natural -> Bit -> Natural
 createNatural Zero ZeroBit = Zero
 createNatural Zero OneBit = one
 createNatural n b = Nat b n
-</pre>
+{% endhighlight %}
+
 
 On line 1 we expose the new type and two public values: zero and one.
 
