@@ -35,7 +35,7 @@ The following table presents the eight instructions.
         
         <tr>
           <td>
-            <code>&gt;</code>
+            <code>></code>
           </td>
           
           <td>
@@ -43,7 +43,7 @@ The following table presents the eight instructions.
             
             <tr>
               <td>
-                <code>&lt;</code>
+                <code><</code>
               </td>
               
               <td>
@@ -113,28 +113,28 @@ The following table presents the eight instructions.
                     
                     <pre>
 ++++++++        Initialize cell 0 to the number 8
-[>+++++++++&lt;-]  While cell 0 is not 0 add 9 to cell 1 and decrement cell 0
+[>+++++++++<-]  While cell 0 is not 0 add 9 to cell 1 and decrement cell 0
 >               Move to cell 1 which now has the value of 72
 .               Output 'H' 
-&lt;+++++          Go back to cell 0 and set its value to 5
-[>++++++&lt;-]     While cell 0 is not 0 add 6 to cell 1 and decrement cell 0 so cell 1 has value 102
+<+++++          Go back to cell 0 and set its value to 5
+[>++++++<-]     While cell 0 is not 0 add 6 to cell 1 and decrement cell 0 so cell 1 has value 102
 >-              Move to cell 1 and decrement it so it now has value 101
 .               Output 'e'
 +++++++         Add 7 to cell 1
 ..              Output 'll' (Adding 7 to 101 makes 108)
 +++             Add 3 to cell 1
 .               Output 'o' (Adding 3 to 108 makes 111)
-&lt;++++++++       Set cell 0 to 8 
-[>>++++&lt;&lt;-]     While cell 0 is not 0 add 4 to cell 2 which results in 32 in cell 2
+<++++++++       Set cell 0 to 8 
+[>>++++<<-]     While cell 0 is not 0 add 4 to cell 2 which results in 32 in cell 2
 >>              Move to cell 2
 .               Output ' ' 
-&lt;&lt;              Move to cell 0
+<<              Move to cell 0
 ++++            Set cell 0 to 4
-[>------&lt;-]     Subtracts 24 from cell 1 leaving a value of 87
+[>------<-]     Subtracts 24 from cell 1 leaving a value of 87
 >               Move to cell 1
 .               Output 'W'
-&lt;++++           Move to cell 0 and set its value to 4
-[>++++++&lt;-]     Add 24 to cell 1 resulting in value 111
+<++++           Move to cell 0 and set its value to 4
+[>++++++<-]     Add 24 to cell 1 resulting in value 111
 >               Move to cell 1
 .               Output 'o'
 +++             Add 3 to cell 1 resulting in value 114

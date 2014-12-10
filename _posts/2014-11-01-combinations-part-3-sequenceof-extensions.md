@@ -18,7 +18,7 @@ First I wanted some way to create an empty sequence. This would play the same ro
 So here is the method:
 
 <pre class="brush: swift; title: ; notranslate" title="">extension SequenceOf {
-    public static func empty() -&gt; SequenceOf&lt;T&gt; {
+    public static func empty() -> SequenceOf<T> {
         return SequenceOf([]);
     }
 }
@@ -27,7 +27,7 @@ So here is the method:
 Next, I wanted an extensions method for creating a singleton sequence.
 
 <pre class="brush: swift; title: ; notranslate" title="">extension SequenceOf {
-    public static func singleton(t:T) -&gt; SequenceOf&lt;T&gt; {
+    public static func singleton(t:T) -> SequenceOf<T> {
         return SequenceOf([t]);
     }
 }
@@ -37,15 +37,15 @@ As you can see this are rather simple one liners. However, I still think they ar
 
 Both of these methods are static methods so here is how you would invoke them:
 
-<pre class="brush: swift; title: ; notranslate" title="">let emptySequence = SequenceOf&lt;Int&gt;.empty();
-let singletonSequence = SequenceOf&lt;String&gt;.singleton("hello");
+<pre class="brush: swift; title: ; notranslate" title="">let emptySequence = SequenceOf<Int>.empty();
+let singletonSequence = SequenceOf<String>.singleton("hello");
 </pre>
 
 Finally, I could not find anyway to concatenate two sequences. I looked for concat, append, join, extend methods. While these exist for arrays, collections, strings, etc. I couldn&#8217;t find anything that applied to sequences; which seems very strange to me. So I created the method. It&#8217;s fairly simple but definitely provides value.
 
 <pre class="brush: swift; title: ; notranslate" title="">extension SequenceOf {
-    public func extend&lt;S1:SequenceType where S1.Generator.Element == T&gt;(s1:S1) -&gt; SequenceOf&lt;T&gt; {
-        return SequenceOf{ () -&gt; GeneratorOf&lt;T&gt; in
+    public func extend<S1:SequenceType where S1.Generator.Element == T>(s1:S1) -> SequenceOf<T> {
+        return SequenceOf{ () -> GeneratorOf<T> in
             var g0 = self.generate();
             var g1 = s1.generate();
             return GeneratorOf {
@@ -65,12 +65,12 @@ Next we see the arguments for this method. It takes one, s1 of type S1. Finally,
 
 The rest of the method is a little complicated so I&#8217;m going to rewrite the method and be explicit:
 
-<pre class="brush: swift; title: ; notranslate" title="">func extend&lt;S1:SequenceType where S1.Generator.Element == T&gt;(s1:S1) -&gt; SequenceOf&lt;T&gt; {
+<pre class="brush: swift; title: ; notranslate" title="">func extend<S1:SequenceType where S1.Generator.Element == T>(s1:S1) -> SequenceOf<T> {
 
-    return SequenceOf&lt;T&gt;({ () -&gt; GeneratorOf&lt;T&gt; in
+    return SequenceOf<T>({ () -> GeneratorOf<T> in
         var g0 = self.generate();
         var g1 = s1.generate();
-        return GeneratorOf&lt;T&gt;({ () -&gt; T? in
+        return GeneratorOf<T>({ () -> T? in
             g0.next() ?? g1.next();
         })
     })
@@ -86,13 +86,13 @@ If I would have called generate on g0 and g1 inside the nested closure then the 
 
 <pre class="brush: swift; title: ; notranslate" title="">// Error #1. Sequence doesn't "reset" after it's been enumerated
 extension SequenceOf {
-    func extend3&lt;S1:SequenceType where S1.Generator.Element == T&gt;(s1:S1) -&gt; SequenceOf&lt;T&gt; {
+    func extend3<S1:SequenceType where S1.Generator.Element == T>(s1:S1) -> SequenceOf<T> {
 
         var g0 = self.generate();
         var g1 = s1.generate();
 
-        return SequenceOf&lt;T&gt;({ () -&gt; GeneratorOf&lt;T&gt; in
-            return GeneratorOf&lt;T&gt;({ () -&gt; T? in
+        return SequenceOf<T>({ () -> GeneratorOf<T> in
+            return GeneratorOf<T>({ () -> T? in
                 return g0.next() ?? g1.next();
             })
         })
@@ -131,10 +131,10 @@ Now let&#8217;s try the other mistake
 
 <pre class="brush: swift; title: ; notranslate" title="">// Error #2, we never make any progress
 extension SequenceOf {
-    func extend4&lt;S1:SequenceType where S1.Generator.Element == T&gt;(s1:S1) -&gt; SequenceOf&lt;T&gt; {
+    func extend4<S1:SequenceType where S1.Generator.Element == T>(s1:S1) -> SequenceOf<T> {
 
-        return SequenceOf&lt;T&gt;({ () -&gt; GeneratorOf&lt;T&gt; in
-            return GeneratorOf&lt;T&gt;({ () -&gt; T? in
+        return SequenceOf<T>({ () -> GeneratorOf<T> in
+            return GeneratorOf<T>({ () -> T? in
                 var g0 = self.generate();
                 var g1 = s1.generate();
                 return g0.next() ?? g1.next();

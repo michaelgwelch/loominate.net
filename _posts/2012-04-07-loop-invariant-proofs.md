@@ -24,20 +24,20 @@ Here is the code from the previous post (with some variables renamed).
 
 <pre class="brush: csharp; title: ; notranslate" title="">public static class StringExtensions
 {
-    /// &lt;summary&gt;
+    /// <summary>
     /// Finds the match for the bracket pointed to by
     /// pc in the program. Increment tells the algorithm
     /// which way to search.
-    /// &lt;/summary&gt;
-    /// &lt;param name="value"&gt;&lt;/param&gt;
-    /// &lt;param name="index"&gt;&lt;/param&gt;
-    /// &lt;param name="increment"&gt;&lt;/param&gt;
-    /// &lt;returns&gt;&lt;/returns&gt;
+    /// </summary>
+    /// <param name="value"></param>
+    /// <param name="index"></param>
+    /// <param name="increment"></param>
+    /// <returns></returns>
     private static int FindMatch(this string value, int index, int increment)
     {
         int nestLevel = 1;
         index += increment;
-        while (nestLevel &gt; 0)
+        while (nestLevel > 0)
         {
             char instruction = value[index];
             if (instruction == '[') nestLevel += increment;

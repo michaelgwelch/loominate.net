@@ -63,10 +63,10 @@ This leaves our `Run` method looking like this:
         char instruction = _program.Fetch();
         switch(instruction)
         {
-            case '&gt;':
+            case '>':
                 MoveForward();
                 break;
-            case '&lt;':
+            case '<':
                 MoveBackward();
                 break;
             case '+':
@@ -154,10 +154,10 @@ Leaving the `Run` method looking like this.
         char instruction = _program.Fetch();
         switch(instruction)
         {
-            case '&gt;':
+            case '>':
                 _tape.MoveForward();
                 break;
-            case '&lt;':
+            case '<':
                 _tape.MoveBackward();
                 break;
             case '+':

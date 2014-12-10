@@ -45,16 +45,16 @@ So I created a constructor and converted them to instance variables. I left Main
     
     public void Run() 
     {
-        while(pc &lt; program.Length)
+        while(pc < program.Length)
         {
             char instruction = program[pc];
             pc++;
             switch(instruction)
             {
-            case '&gt;': 
+            case '>': 
                 tc++;
                 break;
-            case '&lt;':
+            case '<':
                 tc--;
                 break;
             case '+':
@@ -114,7 +114,7 @@ bool EndOfProgram
 {
     get
     {
-        return (pc &gt;= program.Length);
+        return (pc >= program.Length);
     }
 }
 </pre>
@@ -128,10 +128,10 @@ And this is the new Run method:
         char instruction = Fetch();
         switch(instruction)
         {
-        case '&gt;': 
+        case '>': 
             tc++;
             break;
-        case '&lt;':
+        case '<':
             tc--;
             break;
         case '+':
@@ -188,7 +188,7 @@ namespace BrainmessShort
         {
             get
             {
-                return pc &gt;= program.Length;
+                return pc >= program.Length;
             }
         }
         
@@ -244,10 +244,10 @@ namespace BrainmessShort
                 char instruction = _program.Fetch();
                 switch(instruction)
                 {
-                case '&gt;': 
+                case '>': 
                     tc++;
                     break;
-                case '&lt;':
+                case '<':
                     tc--;
                     break;
                 case '+':
@@ -350,13 +350,13 @@ namespace BrainmessShort
         {
             // Arrange
             //                                   0123456789
-            Program program = Program.LoadState("++[&gt;&gt;.&gt;&gt;&gt;abc]   ", 4);
+            Program program = Program.LoadState("++[>>.>>>abc]   ", 4);
 
             // Act
             var instruction = program.Fetch();
 
             // Assert
-            Assert.AreEqual('&gt;', instruction);
+            Assert.AreEqual('>', instruction);
         }
 
     }

@@ -43,7 +43,7 @@ The methods look like this:
 <pre class="brush: csharp; title: ; notranslate" title="">private static int JumpForward(string program, int pc)
 {
    int nestLevel = 1;
-   while (nestLevel &gt; 0)
+   while (nestLevel > 0)
    {
        char instruction = program[pc];
        if (instruction == '[')
@@ -63,7 +63,7 @@ private static int JumpBackward(string program, int pc)
 {
    pc -= 2;
    int nestLevel = 1;
-   while (nestLevel &gt; 0)
+   while (nestLevel > 0)
    {
        char instruction = program[pc];
        if (instruction == '[')
@@ -105,16 +105,16 @@ private static int JumpBackward(string program, int pc)
    return FindMatch(program, pc - 1, increment);
 }
 
-/// &lt;summary&gt;
+/// <summary>
 /// Finds the match for the bracket pointed to by
 /// pc in the program. Increment tells the algorithm
 /// which way to search.
-/// &lt;/summary&gt;
+/// </summary>
 private static int FindMatch(string program, int pc, int increment)
 {
    int nestLevel = 1;
    pc += increment;
-   while (nestLevel &gt; 0)
+   while (nestLevel > 0)
    {
        char instruction = program[pc];
        if (instruction == '[') nestLevel += increment;
@@ -161,20 +161,20 @@ namespace BrainmessShort
 {
     public static class StringExtensions
     {
-        /// &lt;summary&gt;
+        /// <summary>
         /// Finds the match for the bracket pointed to by
         /// pc in the program. Increment tells the algorithm
         /// which way to search.
-        /// &lt;/summary&gt;
-        /// &lt;param name="program"&gt;&lt;/param&gt;
-        /// &lt;param name="pc"&gt;&lt;/param&gt;
-        /// &lt;param name="increment"&gt;&lt;/param&gt;
-        /// &lt;returns&gt;&lt;/returns&gt;
+        /// </summary>
+        /// <param name="program"></param>
+        /// <param name="pc"></param>
+        /// <param name="increment"></param>
+        /// <returns></returns>
         private static int FindMatch(this string program, int pc, int increment)
         {
             int nestLevel = 1;
             pc += increment;
-            while (nestLevel &gt; 0)
+            while (nestLevel > 0)
             {
                 char instruction = program[pc];
                 if (instruction == '[') nestLevel += increment;

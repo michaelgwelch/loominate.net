@@ -23,7 +23,7 @@ and this is how it was called from the `Run` method:
 <pre class="brush: csharp; title: ; notranslate" title="">switch(instruction)
 // ... snip
 {
-case '&gt;': 
+case '>': 
     MoveForward();
     break;
 

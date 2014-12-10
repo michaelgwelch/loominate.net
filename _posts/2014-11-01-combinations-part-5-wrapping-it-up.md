@@ -19,11 +19,11 @@ My complete solution is stored as a [gist here][2].
 First I&#8217;ll create a zipWhere method like he did.
 
 <pre class="brush: swift; title: ; notranslate" title="">extension SequenceOf {
-    func zipWhere&lt;S:SequenceType where S.Generator.Element == Bool&gt;(bools:S) -&gt; SequenceOf&lt;T&gt; {
+    func zipWhere<S:SequenceType where S.Generator.Element == Bool>(bools:S) -> SequenceOf<T> {
 
-        return SequenceOf { () -&gt; GeneratorOf&lt;T&gt; in
+        return SequenceOf { () -> GeneratorOf<T> in
             var generator = Zip2(self, bools).generate();
-            return GeneratorOf&lt;T&gt; {
+            return GeneratorOf<T> {
                 var next = generator.next();
 
                 while (next != nil) {
@@ -48,7 +48,7 @@ Then I return a new SequenceOf that only returns the elements from self that are
 
 Now we can write the final function. It relies on my custom map function mentioned in last post. First we generate all the boolean combinations using the combinations function from last time. Then we use the map function to transform each boolean combination into a combination of the elements in s.
 
-<pre class="brush: swift; title: ; notranslate" title="">func combinations&lt;S:SequenceType&gt;(s:S,k:UInt) -&gt; SequenceOf&lt;SequenceOf&lt;S.Generator.Element&gt;&gt; {
+<pre class="brush: swift; title: ; notranslate" title="">func combinations<S:SequenceType>(s:S,k:UInt) -> SequenceOf<SequenceOf<S.Generator.Element>> {
     let sArray = Array(s);
     let sseq = SequenceOf(s);
 

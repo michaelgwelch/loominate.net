@@ -20,7 +20,7 @@ Today I wanted to step back and explain the implementation of Brainmess that I p
 
 The `Main` method expects that the path to a script is passed in as the first argument to the program. So the expected usage of this program is to invoke it from the command line with one parameter that is the script to execute:
 
-<pre>&gt; brainmess script.bm</pre>
+<pre>> brainmess script.bm</pre>
 
 So in the preceding case, brainmess would attempt to open up a file named `script.bm` and interpret it as a Brainmess program.
 

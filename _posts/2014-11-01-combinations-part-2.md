@@ -17,7 +17,7 @@ We&#8217;ll be working a lot with `SequenceType`, `SequenceOf`, `GeneratorType` 
 Let&#8217;s look at the code from last time again:
 
 <pre class="brush: swift; title: ; notranslate" title="">extension ImmutableStack : SequenceType {
-    public func generate() -&gt; GeneratorOf&lt;T&gt; {
+    public func generate() -> GeneratorOf<T> {
         var stack = self;
 
         return GeneratorOf {
@@ -37,7 +37,7 @@ How does a user of this stack know that it enumerates `T` values? Well, in addit
 
 <pre class="brush: swift; title: ; notranslate" title="">protocol SequenceType : _Sequence_Type {
     typealias Generator : GeneratorType
-    func generate() -&gt; Generator
+    func generate() -> Generator
 }
 </pre>
 
@@ -45,7 +45,7 @@ It says that I need to define a type alias for a type that implements GeneratorT
 
 <pre class="brush: swift; title: ; notranslate" title="">protocol GeneratorType {
     typealias Element
-    mutating func next() -&gt; Element?
+    mutating func next() -> Element?
 }
 </pre>
 
@@ -53,11 +53,11 @@ Finally we see an &#8220;element&#8221; type mentioned. The `GeneratorType` prot
 
 Now I didn&#8217;t define any type aliases, so what is going on? Using inference the compiler can often figure out what the associated type is, even if the developer doesn&#8217;t specify it. In my case the return type of my `generate` method is `GeneratorOf(T)`, and therefore the compiler knows that the associated type for my stack is `GeneratorOf(T)`. If you then look at the signature for `GeneratorOf(T)` you&#8217;ll see that it has a next method that returns a `T?`. 
 
-<pre class="brush: swift; title: ; notranslate" title="">struct GeneratorOf&lt;T&gt; : GeneratorType, SequenceType {
-    init(_ nextElement: () -&gt; T?)
-    init&lt;G : GeneratorType where T == T&gt;(_ base: G)
-    mutating func next() -&gt; T?
-    func generate() -&gt; GeneratorOf&lt;T&gt;
+<pre class="brush: swift; title: ; notranslate" title="">struct GeneratorOf<T> : GeneratorType, SequenceType {
+    init(_ nextElement: () -> T?)
+    init<G : GeneratorType where T == T>(_ base: G)
+    mutating func next() -> T?
+    func generate() -> GeneratorOf<T>
 }
 </pre>
 

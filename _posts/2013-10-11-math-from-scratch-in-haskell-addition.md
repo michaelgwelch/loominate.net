@@ -23,7 +23,7 @@ data Bit = ZeroBit | OneBit deriving Eq
 Here is the implementation of natural addition:
 
 {% highlight haskell linenos %}
-natAdd :: Natural -&gt; Natural -&gt; Natural
+natAdd :: Natural -> Natural -> Natural
 natAdd n Zero = n
 natAdd Zero n = n
 natAdd n1@(Nat h1 t1) n2@(Nat h2 t2)
@@ -59,7 +59,7 @@ one = Nat OneBit Zero
 
 -- Creates a natural number. Keeps the invariant that
 -- Naturals always end with Zero and never end with ZeroBit followed by Zero
-createNatural :: Natural -&gt; Bit -&gt; Natural
+createNatural :: Natural -> Bit -> Natural
 createNatural Zero ZeroBit = Zero
 createNatural Zero OneBit = one
 createNatural n b = Nat b n
@@ -67,7 +67,7 @@ createNatural n b = Nat b n
 
 -- part three: addition and toString (show in Haskell)
 -- Also added derived implementation of Eq to Bit above
-natAdd :: Natural -&gt; Natural -&gt; Natural
+natAdd :: Natural -> Natural -> Natural
 natAdd n Zero = n
 natAdd Zero n = n
 natAdd n1@(Nat h1 t1) n2@(Nat h2 t2)
@@ -84,7 +84,7 @@ instance Show Natural where
   show (Nat h t) = show t ++ show h
 
 -- bug guy meets math from scratch: added increment
-natInc :: Natural -&gt; Natural
+natInc :: Natural -> Natural
 natInc = natAdd one
 {% endhighlight %}
 

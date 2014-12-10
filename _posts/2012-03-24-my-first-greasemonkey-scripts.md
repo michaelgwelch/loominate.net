@@ -18,7 +18,7 @@ tags:
 
 I&#8217;m using Github and Pivotal Tracker. You can easily [configure][1] Github to notify Pivotal Tracker of commits. Once you have done that, then whenever you want to commit something that is related to a story you simply embed the tracker story id in your commit message. Something like:
 
-<pre>&gt; git commit -m "[#87654321] Finish the new story"</pre>
+<pre>> git commit -m "[#87654321] Finish the new story"</pre>
 
 <!--more-->
 
@@ -65,7 +65,7 @@ function createLinksToStories(className, elementFilter)
         if (elementFilter(element)) {
             var matches = regex.exec(element.innerHTML);
             if (matches) {
-                element.innerHTML = element.innerHTML + "&lt;a href='https://www.pivotaltracker.com/story/show/" + matches[1] + "'&gt;&lt;img src='https://www.pivotaltracker.com/favicon.ico'/&gt;&lt;/a&gt;"
+                element.innerHTML = element.innerHTML + "<a href='https://www.pivotaltracker.com/story/show/" + matches[1] + "'><img src='https://www.pivotaltracker.com/favicon.ico'/></a>"
             }
         }
     }

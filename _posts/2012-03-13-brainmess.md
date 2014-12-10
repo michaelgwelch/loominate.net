@@ -50,16 +50,16 @@ namespace BrainmessShort
             int[] tape = new int[5000];
             int tc = 2500;
             int nestLevel;
-            while(pc &lt; program.Length)
+            while(pc < program.Length)
             {
                 char instruction = program[pc];
                 pc++;
                 switch(instruction)
                 {
-                case '&gt;': 
+                case '>': 
                     tc++;
                     break;
-                case '&lt;':
+                case '<':
                     tc--;
                     break;
                 case '+':
@@ -78,7 +78,7 @@ namespace BrainmessShort
                     if (tape[tc] == 0)
                     {
                         nestLevel = 1;
-                        while(nestLevel &gt; 0)
+                        while(nestLevel > 0)
                         {
                             instruction = program[pc];
                             if (instruction == '[') nestLevel++;
@@ -92,7 +92,7 @@ namespace BrainmessShort
                     {
                         pc -= 2;
                         nestLevel = 1;
-                        while(nestLevel &gt; 0)
+                        while(nestLevel > 0)
                         {
                             instruction = program[pc];
                             if (instruction == '[') nestLevel--;

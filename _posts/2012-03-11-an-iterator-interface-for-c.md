@@ -19,17 +19,17 @@ The `IEnumerator` interface of C# is usually fine for visiting a collection of e
 
 namespace CollectionsExtensions
 {
-    /// &lt;summary&gt;
+    /// <summary>
     /// Defines methods for iteratating over a collection.
-    /// &lt;/summary&gt;
-    /// &lt;remarks&gt;
+    /// </summary>
+    /// <remarks>
     /// Sometimes it's advantageous to have a HasCurrent property. This 
-    /// interface differs from &lt;see cref="IEnumerator{T}&gt;"/&gt; in that
-    /// &lt;see cref="MoveNext"/&gt; has no return value, and the value it would
-    /// have returned is accessible from &lt;see cref="HasCurrent"/&gt;
+    /// interface differs from <see cref="IEnumerator{T}>"/> in that
+    /// <see cref="MoveNext"/> has no return value, and the value it would
+    /// have returned is accessible from <see cref="HasCurrent"/>
     /// property.
-    /// &lt;/remarks&gt;
-    public interface IIterator&lt;out T&gt; : IDisposable
+    /// </remarks>
+    public interface IIterator<out T> : IDisposable
     {
         bool HasCurrent { get; }
         T Current { get; }
@@ -47,14 +47,14 @@ None of the collection classes implement this interface. However, it it trivial 
 
 namespace CollectionsExtensions
 {
-    /// &lt;summary&gt;
-    /// Defines an implementation of &lt;see cref="IIterator{T}"/&gt; that
-    /// works on any &lt;see cref="IEnumerable{T}"/&gt; instance by wrapping
+    /// <summary>
+    /// Defines an implementation of <see cref="IIterator{T}"/> that
+    /// works on any <see cref="IEnumerable{T}"/> instance by wrapping
     /// its enumerator.
-    /// &lt;/summary&gt;
-    public class EnumeratorIterator&lt;T&gt; : IIterator&lt;T&gt;
+    /// </summary>
+    public class EnumeratorIterator<T> : IIterator<T>
     {
-        private readonly IEnumerator&lt;T&gt; enumerator;
+        private readonly IEnumerator<T> enumerator;
         private bool hasCurrent;
 
         public bool HasCurrent
@@ -72,20 +72,20 @@ namespace CollectionsExtensions
             hasCurrent = enumerator.MoveNext();
         }
 
-        private EnumeratorIterator(IEnumerator&lt;T&gt; enumerator)
+        private EnumeratorIterator(IEnumerator<T> enumerator)
         {
             this.enumerator = enumerator;
             this.hasCurrent = enumerator.MoveNext();
         }
 
-        /// &lt;summary&gt;
+        /// <summary>
         /// Gets an iterator for the specified enumerable.
-        /// &lt;/summary&gt;
-        /// &lt;param name="enumerable"&gt;&lt;/param&gt;
-        /// &lt;returns&gt;&lt;/returns&gt;
-        public static IIterator&lt;T&gt; GetIterator(IEnumerable&lt;T&gt; enumerable)
+        /// </summary>
+        /// <param name="enumerable"></param>
+        /// <returns></returns>
+        public static IIterator<T> GetIterator(IEnumerable<T> enumerable)
         {
-            return new EnumeratorIterator&lt;T&gt;(enumerable.GetEnumerator());
+            return new EnumeratorIterator<T>(enumerable.GetEnumerator());
         }
 
         public void Dispose()
@@ -107,17 +107,17 @@ namespace CollectionsExtensions
 {
     public static class EnumerableExtensions
     {
-        /// &lt;summary&gt;
+        /// <summary>
         /// Provides an extension method that gets an iterator for
         /// IEnumerables. This makes it as easy to get an iterator as it 
         /// is to get an enumerator.
-        /// &lt;/summary&gt;
-        /// &lt;typeparam name="T"&gt;&lt;/typeparam&gt;
-        /// &lt;param name="enumerable"&gt;&lt;/param&gt;
-        /// &lt;returns&gt;&lt;/returns&gt;
-        public static IIterator&lt;T&gt; GetIterator&lt;T&gt;(this IEnumerable&lt;T&gt; enumerable)
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="enumerable"></param>
+        /// <returns></returns>
+        public static IIterator<T> GetIterator<T>(this IEnumerable<T> enumerable)
         {
-            return EnumeratorIterator&lt;T&gt;.GetIterator(enumerable);
+            return EnumeratorIterator<T>.GetIterator(enumerable);
         }
     }
 }</code></pre>
@@ -148,7 +148,7 @@ namespace CollectionsExtensions
             }
 
 
-            iterator = Enumerable.Empty&lt;int&gt;().GetIterator();
+            iterator = Enumerable.Empty<int>().GetIterator();
             while (iterator.HasCurrent)
             {
                 Console.WriteLine(iterator.Current);
