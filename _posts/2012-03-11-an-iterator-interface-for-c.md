@@ -8,11 +8,11 @@ categories:
 tags:
   - patterns
 ---
-The `IEnumerator` interface of C# is usually fine for visiting a collection of elements. However, often times when I&#8217;m doing something more complicated I want to split up the functionality of `MoveNext`<sup class='footnote'><a href='http://loominate.net/2012/03/11/an-iterator-interface-for-c/#fn-156-1' id='fnref-156-1' onclick='return fdfootnote_show(156)'>1</a></sup>. In this post I&#8217;ll define a new interface and show how to employ the Adapter pattern to implement it.
+The `IEnumerator` interface of C# is usually fine for visiting a collection of elements. However, often times when I'm doing something more complicated I want to split up the functionality of `MoveNext`<sup class='footnote'><a href='http://loominate.net/2012/03/11/an-iterator-interface-for-c/#fn-156-1' id='fnref-156-1' onclick='return fdfootnote_show(156)'>1</a></sup>. In this post I'll define a new interface and show how to employ the Adapter pattern to implement it.
 
 <!--more-->
 
-`MoveNext` does two things: 1) it moves the cursor forward one position and 2) returns a `bool` value that indicates if there is an element at the current position. There are occasions where I want that boolean persisted. This requires me to keep a local variable (or a member variable) to maintain this piece of information. I&#8217;ve done this enough times that I decided that the iterator should store this for me. So I defined the interface `IIterator`.
+`MoveNext` does two things: 1) it moves the cursor forward one position and 2) returns a `bool` value that indicates if there is an element at the current position. There are occasions where I want that boolean persisted. This requires me to keep a local variable (or a member variable) to maintain this piece of information. I've done this enough times that I decided that the iterator should store this for me. So I defined the interface `IIterator`.
 
 <noscript>
   <pre><code class="language-c# c#">using System;

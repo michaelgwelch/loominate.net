@@ -10,13 +10,13 @@ tags:
   - immutable
   - swift
 ---
-The original problem as posed by Eric Lippert was to write a function to produce all the combinations of k elements from a collection of n elements. So far I&#8217;ve ported the code to product all the combinations of k true booleans in a collection of n booleans where k <= n.
+The original problem as posed by Eric Lippert was to write a function to produce all the combinations of k elements from a collection of n elements. So far I've ported the code to product all the combinations of k true booleans in a collection of n booleans where k <= n.
 
 We can use the work we've done so far to solve the original problem. See [Lippert Part 3][1] to follow along with his post.
 
 My complete solution is stored as a [gist here][2].
 
-First I&#8217;ll create a zipWhere method like he did.
+First I'll create a zipWhere method like he did.
 
 <pre class="brush: swift; title: ; notranslate" title="">extension SequenceOf {
     func zipWhere<S:SequenceType where S.Generator.Element == Bool>(bools:S) -> SequenceOf<T> {

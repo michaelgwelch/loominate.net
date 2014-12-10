@@ -16,15 +16,15 @@ tags:
 ---
 # Link Github Commit to Pivotal Tracker Story
 
-I&#8217;m using Github and Pivotal Tracker. You can easily [configure][1] Github to notify Pivotal Tracker of commits. Once you have done that, then whenever you want to commit something that is related to a story you simply embed the tracker story id in your commit message. Something like:
+I'm using Github and Pivotal Tracker. You can easily [configure][1] Github to notify Pivotal Tracker of commits. Once you have done that, then whenever you want to commit something that is related to a story you simply embed the tracker story id in your commit message. Something like:
 
 <pre>> git commit -m "[#87654321] Finish the new story"</pre>
 
 <!--more-->
 
-It&#8217;s necessary that you put it in square brackets and use the pound sign. If you do this, then a comment will be added to your Pivotal Tracker story with a url that links back to the commit. This is cool.
+It's necessary that you put it in square brackets and use the pound sign. If you do this, then a comment will be added to your Pivotal Tracker story with a url that links back to the commit. This is cool.
 
-However, this doesn&#8217;t generate any link from Github to Pivotal Tracker. Sure you could either a) copy the story id and switch over to Pivotal Tracker and do a search or b) embed the URL every time you do a commit.
+However, this doesn't generate any link from Github to Pivotal Tracker. Sure you could either a) copy the story id and switch over to Pivotal Tracker and do a search or b) embed the URL every time you do a commit.
 
 But there is something easier you can do. You can install my new Greasemonkey script. (This works in Firefox if you have Greasemonkey installed, and it works in Chrome natively.)
 
@@ -92,7 +92,7 @@ if (isPullRequestPage()) {
 </code></pre>
 </noscript>
 
-Here&#8217;s a screenshot of my commits in my mbasic99 project. The most recent commit was related to a story on Pivotal Tracker.
+Here's a screenshot of my commits in my mbasic99 project. The most recent commit was related to a story on Pivotal Tracker.
 
 <div id="attachment_324" style="width: 1025px" class="wp-caption aligncenter">
   <a href="http://www.loominate.net/wp-content/uploads/2012/03/LinkToStory.png"><img class="size-full wp-image-324" title="LinkToStory" src="http://www.loominate.net/wp-content/uploads/2012/03/LinkToStory.png" alt="Shows Pivotal Tracker icon and URL to Pivotal Tracker" width="1015" height="633" /></a>

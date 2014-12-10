@@ -10,15 +10,15 @@ tags:
   - functional programming
   - immutable
 ---
-During the last few years I&#8217;ve become more familiar with functional languages. My current favorite is Haskell. During this same time period, I&#8217;ve also become more familiar with the existence of efficient immutable data structures which are pretty much a necessity for doing pure functional programming.
+During the last few years I've become more familiar with functional languages. My current favorite is Haskell. During this same time period, I've also become more familiar with the existence of efficient immutable data structures which are pretty much a necessity for doing pure functional programming.
 
 <!--more-->
 
-I plan to talk a little bit about immutable data structures on this blog. But to introduce you to the topic I first wanted to just provide a list of links to posts I&#8217;ve previously read by other bloggers.
+I plan to talk a little bit about immutable data structures on this blog. But to introduce you to the topic I first wanted to just provide a list of links to posts I've previously read by other bloggers.
 
 Eric Lippert blogs at Fabulous Adventures in Coding and has a whole host of posts tagged with [immutability][1]. A good starting is his blog on how to implement an [immutable stack][2]. I recommend you read the others as well.
 
-Mark Chu-Carroll writes at &#8220;Good Math Bad Math&#8221; and has done posts on zippers and finger trees among many other structures. Here&#8217;s a post on [zippers][3].
+Mark Chu-Carroll writes at &#8220;Good Math Bad Math&#8221; and has done posts on zippers and finger trees among many other structures. Here's a post on [zippers][3].
 
 And from Edward Z. Yang another perspective on [zippers][4]. I especially like the template &#8220;You could have invented &#8230;&#8221; that he employs.
 

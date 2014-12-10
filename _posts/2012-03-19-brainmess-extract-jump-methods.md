@@ -14,7 +14,7 @@ tags:
   - clean code
   - refactoring
 ---
-Today, I&#8217;ll start to refactor the Brainmess program. In the first [post][1] I gave an &#8220;all-in-one&#8221; solution. [Next][2] I added some automated tests to give me some confidence that I don&#8217;t break anything during the process. The last [time][3] that I spoke about Brainmess, I just explained my implementation.
+Today, I'll start to refactor the Brainmess program. In the first [post][1] I gave an &#8220;all-in-one&#8221; solution. [Next][2] I added some automated tests to give me some confidence that I don't break anything during the process. The last [time][3] that I spoke about Brainmess, I just explained my implementation.
 
 <!--more-->
 
@@ -83,7 +83,7 @@ private static int JumpBackward(string program, int pc)
 
 You can see the change I made (and the full files) by visiting my GitHub repository and viewing commit [4b15b4ca][4]. After I made these changes, I ran my tests and found that they still passed.
 
-Now, I&#8217;m not totally satisfied with the new methods. The first problem I want to address is that the two methods look almost identical. The main differences between the two is whether we increment or decrement a variable. 
+Now, I'm not totally satisfied with the new methods. The first problem I want to address is that the two methods look almost identical. The main differences between the two is whether we increment or decrement a variable. 
 
 The second problem has to do with the `pc -= 2` in the `JumpBackward` method. What is going on there? And why is the `nestLevel` initialized to 1 in both cases? 
 
@@ -91,7 +91,7 @@ In the `Run` method we always increment the `pc` variable before executing the i
 
 The third problem with this code, is that the jump instructions have this strange pre-condition that the `pc` variable needs to be positioned 1 after the bracket that caused the jump. That seems odd.
 
-I&#8217;m going to create one new method named `FindMatch` that fixes all of these problems.
+I'm going to create one new method named `FindMatch` that fixes all of these problems.
 
 <pre class="brush: csharp; title: ; notranslate" title="">private static int JumpForward(string program, int pc)
 {
@@ -125,17 +125,17 @@ private static int FindMatch(string program, int pc, int increment)
 }
 </pre>
 
-It solves the first problem because it takes a `increment` variable that indicates which way to search thru the program string. This allows us to have just one method that knows how to find matching strings. (I still don&#8217;t like this exactly, but I&#8217;ll talk more about this later.)
+It solves the first problem because it takes a `increment` variable that indicates which way to search thru the program string. This allows us to have just one method that knows how to find matching strings. (I still don't like this exactly, but I'll talk more about this later.)
 
 It solves the second and third problems by stating the fact that it expects `pc` to point to an actual bracket. This method then finds the matching bracket. Like before we know that the `nestLevel` is 1. This is only true however, because on the next line we either move forward (or backward) to get &#8220;inside&#8221; of the loop.
 
-I then updated the jump methods to delegate to `FindMatch`. They pass in 1 or -1 as appropriate for the `increment` parameter. In addition they don&#8217;t pass in the current `pc` value. They pass in `pc - 1` which makes sure we are telling FindMatch to start with a bracket.
+I then updated the jump methods to delegate to `FindMatch`. They pass in 1 or -1 as appropriate for the `increment` parameter. In addition they don't pass in the current `pc` value. They pass in `pc - 1` which makes sure we are telling FindMatch to start with a bracket.
 
 This change can be found at commit [abe37577][5]. Again, I ran my tests and they passed.
 
 Now the last refactoring for this post.
 
-I&#8217;m going to convert FindMatch into an extension method that can be used on any string, and I&#8217;m going to remove the `increment` parameter. This is what the `Run` method looks after the change.
+I'm going to convert FindMatch into an extension method that can be used on any string, and I'm going to remove the `increment` parameter. This is what the `Run` method looks after the change.
 
 <pre class="brush: csharp; title: ; notranslate" title="">// skip lines
 case '[':
@@ -153,7 +153,7 @@ case ']':
 // skip lines
 </pre>
 
-Why did I remove the `increment` parameter? It didn&#8217;t make sense to me. The method `FindMatch` should find the the match and determine which way to search. So here is the implementation.
+Why did I remove the `increment` parameter? It didn't make sense to me. The method `FindMatch` should find the the match and determine which way to search. So here is the implementation.
 
 <pre class="brush: csharp; title: ; notranslate" title="">using System;
 

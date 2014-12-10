@@ -13,7 +13,7 @@ tags:
   - brainmess
 ---
   
-It occurred to me that since the [links][1] I&#8217;ve provided so far include a NSFW word, I should take the time to describe the Brainmess language on my blog so readers need not click on those links. This description is obviously not going to be completely original as I&#8217;ve stolen most of it from Mark Chu-Carroll&#8217;s blog and Wikipedia.
+It occurred to me that since the [links][1] I've provided so far include a NSFW word, I should take the time to describe the Brainmess language on my blog so readers need not click on those links. This description is obviously not going to be completely original as I've stolen most of it from Mark Chu-Carroll's blog and Wikipedia.
 
 <!--more-->
 
@@ -95,7 +95,7 @@ The following table presents the eight instructions.
                   </td>
                   
                   <td>
-                    Test the value of the current cell. If it <em>is</em> \(0\) then move the program ahead to the instruction immediately after the <em>matching</em> <code>]</code>. (Note the emphases on the word &#8216;matching&#8217;. Nested brackets are supported and a Brainmess program should have balanced brackets.)
+                    Test the value of the current cell. If it <em>is</em> \(0\) then move the program ahead to the instruction immediately after the <em>matching</em> <code>]</code>. (Note the emphases on the word &#8216;matching'. Nested brackets are supported and a Brainmess program should have balanced brackets.)
                   </td>
                 </tr>
                 
@@ -108,7 +108,7 @@ The following table presents the eight instructions.
                     Test the value of the current cell. If it <em>is not</em> \(0\) then move the program back to the matching <code>[</code> instruction.<br /> </tr> </table> 
                     
                     <p>
-                      And that&#8217;s it! Here is a &#8216;Hello, World&#8217; program written in Brainmess. (Remember any character besides the 8 instructions can be used as a comment.
+                      And that's it! Here is a &#8216;Hello, World' program written in Brainmess. (Remember any character besides the 8 instructions can be used as a comment.
                     </p>
                     
                     <pre>
@@ -148,7 +148,7 @@ The following table presents the eight instructions.
 </pre>
                     
                     <p>
-                      Mark&#8217;s <a href="http://scienceblogs.com/goodmath/2009/09/the_one_the_only_brainfck.php" title="The One the Only">post</a> on this also links to another <a href="http://www.muppetlabs.com/~breadbox/bf/" title="Brainmess">site</a> that gives a very concise description of Brainmess in terms of the C programming language.
+                      Mark's <a href="http://scienceblogs.com/goodmath/2009/09/the_one_the_only_brainfck.php" title="The One the Only">post</a> on this also links to another <a href="http://www.muppetlabs.com/~breadbox/bf/" title="Brainmess">site</a> that gives a very concise description of Brainmess in terms of the C programming language.
                     </p>
                     
                     <p>
@@ -248,7 +248,7 @@ The following table presents the eight instructions.
                     </table>
                     
                     <p>
-                      While this appears to be correct to me, it is actually a little different than the Brainmess specification. Brainmess specifies that the <code>]</code> instruction test the current cell. This C implementation doesn&#8217;t do that. It just jumps back to the beginning of the loop and relies on the fact that the current cell will be tested as part of the <code>while</code> condition.
+                      While this appears to be correct to me, it is actually a little different than the Brainmess specification. Brainmess specifies that the <code>]</code> instruction test the current cell. This C implementation doesn't do that. It just jumps back to the beginning of the loop and relies on the fact that the current cell will be tested as part of the <code>while</code> condition.
                     </p>
 
  [1]: http://www.loominate.net/2012/03/13/brainmess/ "Brainmess"

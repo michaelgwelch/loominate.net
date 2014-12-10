@@ -10,7 +10,7 @@ tags:
   - math
   - software development
 ---
-I&#8217;ve been following a set of posts written by [Eric Lippert][1] where he is implementing arbitrary size Naturals and the corresponding arithmetic in C#. As I follow along I&#8217;m writing an implementation in Haskell (one that I hope is idiomatic to Haskell).  
+I've been following a set of posts written by [Eric Lippert][1] where he is implementing arbitrary size Naturals and the corresponding arithmetic in C#. As I follow along I'm writing an implementation in Haskell (one that I hope is idiomatic to Haskell).  
 <!--more-->
 
   
@@ -42,11 +42,11 @@ On line 1 we expose the new type and two public values: zero and one.
 
 I define two new types: Bit and Natural. The definition of Bit is straightforward. I simply define two constructors: ZeroBit and OneBit. Likewise the definition of Natural follows directly from the recursive definition given by Eric. I can construct a Natural by using the Zero constructor or by using the Nat constructor (which adds a new least significant bit onto an existing Natural).
 
-Like Eric&#8217;s implementation I use a helper function to maintain the invariant he mentions that a Natural never ends in a ZeroBit followed by a Zero.
+Like Eric's implementation I use a helper function to maintain the invariant he mentions that a Natural never ends in a ZeroBit followed by a Zero.
 
-The definitions of zero and one are straightforward as well. That&#8217;s it. 
+The definitions of zero and one are straightforward as well. That's it. 
 
-I&#8217;ll continue to add posts that follow Eric&#8217;s posts. The next post will show how to implement addition.
+I'll continue to add posts that follow Eric's posts. The next post will show how to implement addition.
 
  [1]: http://ericlippert.com
  [2]: http://ericlippert.com/2013/09/16/math-from-scratch-part-one/

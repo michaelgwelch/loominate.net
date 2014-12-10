@@ -68,11 +68,11 @@ The loop invariant proof technique is useful when an algorithm involves looping.
 
 The publicly exposed `FindMatch` method is called with a string and an integer. The string (<var>value</var>) contains some series of characters and presumably some matched pairs of potentially nested brackets. The number (<var>index</var>) is the zero based index of the string that contains a bracket (either a left or a right bracket). The job of `FindMatch` is to find that brackets match and return the index value of that match.
 
-You can see the public method is very short. It&#8217;s just checking to make sure the method was called appropriately and that <var>index</var> actually points to a bracket. If it does the private method is called with the same two parameters plus a third number that is either 1 or -1 to control which way we will search the string. If the current char is a &#8216;[&#8216; then we want to search right and use an increment of 1. Otherwise, we want to search left and use an increment of -1.
+You can see the public method is very short. It's just checking to make sure the method was called appropriately and that <var>index</var> actually points to a bracket. If it does the private method is called with the same two parameters plus a third number that is either 1 or -1 to control which way we will search the string. If the current char is a &#8216;[&#8216; then we want to search right and use an increment of 1. Otherwise, we want to search left and use an increment of -1.
 
-The real work is done in the private `FindMatch` method. Starting with the specified index it either moves forward or backward thru the string looking for a match. It keeps track of nested brackets by maintaining a <var>nestLevel</var> variable. This variable is initialized to 1 to indicate that when we start out we are 1 level deep relative to the specified bracket character (we might actually be nested much deeper relative to the overall string, but we don&#8217;t need to care about that).
+The real work is done in the private `FindMatch` method. Starting with the specified index it either moves forward or backward thru the string looking for a match. It keeps track of nested brackets by maintaining a <var>nestLevel</var> variable. This variable is initialized to 1 to indicate that when we start out we are 1 level deep relative to the specified bracket character (we might actually be nested much deeper relative to the overall string, but we don't need to care about that).
 
-As we move to the right, as we encounter &#8216;[&#8216; characters the nestLevel increases and as we encounter &#8216;]&#8217; characters the nestLevel decreases. When the nestLevel hits 0 we know we have moved past the matching &#8216;] character. Conversely, if need to move to the left, each &#8216;]&#8217; character increases the nest level and each &#8216;[&#8216; character decreases the nest level.
+As we move to the right, as we encounter &#8216;[&#8216; characters the nestLevel increases and as we encounter &#8216;]' characters the nestLevel decreases. When the nestLevel hits 0 we know we have moved past the matching &#8216;] character. Conversely, if need to move to the left, each &#8216;]' character increases the nest level and each &#8216;[&#8216; character decreases the nest level.
 
 **The Invariant**  
 The invariant in our algorithm is that the <var>nestLevel</var> variables always tells us how many levels deep we are nested within matching brackets (relative to the starting bracket). So if <var>nestLevel == 2</var> then we are nested within two levels of matching brackets.
@@ -83,7 +83,7 @@ For example, assume we have the following string
 "[++[>[-]]]"
 </pre>
 
-And assume we call `FindMatch` with an index of 3. The public method will determine that we need to search right with an <var>increment=1</var> and will call the private `FindMatch`. This method will move the index to 4 and set the <var>nestLevel</var> equal to 1. This means we are 1 level deep relative to the bracket at index 3. Note if we look at the entire string we can see that at index 4 we are actually nested 2 levels deep because there is an opening bracket at position 0 and position 3. We don&#8217;t care about the nesting level globally. Just relative to the starting bracket.
+And assume we call `FindMatch` with an index of 3. The public method will determine that we need to search right with an <var>increment=1</var> and will call the private `FindMatch`. This method will move the index to 4 and set the <var>nestLevel</var> equal to 1. This means we are 1 level deep relative to the bracket at index 3. Note if we look at the entire string we can see that at index 4 we are actually nested 2 levels deep because there is an opening bracket at position 0 and position 3. We don't care about the nesting level globally. Just relative to the starting bracket.
 
 **Initialization**  
 In the first two lines of the private `FindMatch` method we move the index 1 position (either forward or backward depending on the value of <var>increment</var>). This means that we are nested within one pair of matching brackets. (relative to the starting bracket). So we know that the invariant is true before the first iteration and after initialization is complete.
@@ -92,7 +92,7 @@ In the first two lines of the private `FindMatch` method we move the index 1 pos
 Assuming that the <var>nestLevel is correct at the beginning of an iteration we want to show that it is correct at the end of an iteration. This will tell us that we are properly maintaining the invariant. </p> 
 
 <p>
-  In this algorithm we examine the character pointed to by the current index value, examine it to see what to do with the nestLevel, and then increment the index. We increment the nest level if we encounter a new &#8216;[&#8216; character and we decrement the nest level if we encounter a new &#8216;]&#8217; character. In this way we guarantee that <var>nestLevel</var> always reflects the nesting level relative to the starting bracket.
+  In this algorithm we examine the character pointed to by the current index value, examine it to see what to do with the nestLevel, and then increment the index. We increment the nest level if we encounter a new &#8216;[&#8216; character and we decrement the nest level if we encounter a new &#8216;]' character. In this way we guarantee that <var>nestLevel</var> always reflects the nesting level relative to the starting bracket.
 </p>
 
 <p>
@@ -100,15 +100,15 @@ Assuming that the <var>nestLevel is correct at the beginning of an iteration we 
 </p>
 
 <p>
-  Notice I said, &#8220;if the brackets are matched&#8221;. Even if the brackets aren&#8217;t matched we are guaranteed to terminate. Eventually we&#8217;ll get an index out of bounds exception which will terminate the algorithm. But the point is, the algorithm will terminate and return the right result if the inputs are good. So it&#8217;s important that we state a pre-condition of our method is that the brackets must be matched. It doesn&#8217;t really make sense to ask for the matching bracket if we aren&#8217;t even sure there is a matching bracket.
+  Notice I said, &#8220;if the brackets are matched&#8221;. Even if the brackets aren't matched we are guaranteed to terminate. Eventually we'll get an index out of bounds exception which will terminate the algorithm. But the point is, the algorithm will terminate and return the right result if the inputs are good. So it's important that we state a pre-condition of our method is that the brackets must be matched. It doesn't really make sense to ask for the matching bracket if we aren't even sure there is a matching bracket.
 </p>
 
 <p>
-  <b>Proof</b><br /> Ok, now I just want to put it all together. So we know that we terminate when the nestLevel is 0. And if you look at the loop you&#8217;ll see that we moved the index 1 past the bracket that caused us to decrement the nestLevel to 0. So the matching bracket is at position <code>index - increment</code>.
+  <b>Proof</b><br /> Ok, now I just want to put it all together. So we know that we terminate when the nestLevel is 0. And if you look at the loop you'll see that we moved the index 1 past the bracket that caused us to decrement the nestLevel to 0. So the matching bracket is at position <code>index - increment</code>.
 </p>
 
 <p>
-  And that&#8217;s it. A simple proof that the algorithm for finding matching brackets is correct.
+  And that's it. A simple proof that the algorithm for finding matching brackets is correct.
 </p>
 
  [1]: http://loominate.net/2012/03/19/brainmess-extract-jump-methods/ "Brainmess: Extract Jump Methods"

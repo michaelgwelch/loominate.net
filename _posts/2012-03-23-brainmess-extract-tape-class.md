@@ -13,7 +13,7 @@ tags:
   - brainmess
   - refactoring
 ---
-Last time I worked on extracting out the methods related to fetching instructions and jump instructions into a `Program` class. I&#8217;m going to use a similar pattern today to extract out methods related to the tape. Currently the tape is implemented as an array of integers and a tape counter. I want to replace all of that with a `Tape` class.
+Last time I worked on extracting out the methods related to fetching instructions and jump instructions into a `Program` class. I'm going to use a similar pattern today to extract out methods related to the tape. Currently the tape is implemented as an array of integers and a tape counter. I want to replace all of that with a `Tape` class.
 
 <!--more-->
 

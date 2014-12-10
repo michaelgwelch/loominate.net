@@ -31,7 +31,7 @@ It installed without a hitch. But the first time I tested a command it puked:
      'usr/local/bin/git-extras: line 5: `update() {
     
 
-I understood it was a dos vs unix vs mac line endings issue. And I quickly realized that its because I have the following setting: `core.autocrlf=true` set. So I was stuck. I didn&#8217;t want to unset that globally. And I had no idea how to clone a git repository and specify an option on the command line. So I just brute forced it. I cloned the repository:
+I understood it was a dos vs unix vs mac line endings issue. And I quickly realized that its because I have the following setting: `core.autocrlf=true` set. So I was stuck. I didn't want to unset that globally. And I had no idea how to clone a git repository and specify an option on the command line. So I just brute forced it. I cloned the repository:
 
     git clone https://github.com/visionmedia/git-extras.git 
     
