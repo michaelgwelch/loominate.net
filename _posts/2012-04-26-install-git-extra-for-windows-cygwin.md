@@ -8,12 +8,11 @@ categories:
 tags:
   - git
 ---
-I recently discovered git-extras when searching to see if the brew package manager (for Mac) had a package for git
-
-    > brew search git
-    
+I recently discovered git-extras when searching to see if the brew package manager (for Mac) had a package for git.
 
 <!--more-->
+    > brew search git
+
 
 Once I looked at it and read the documentation on github, I decided it would be nice to have. https://github.com/visionmedia/git-extras
 

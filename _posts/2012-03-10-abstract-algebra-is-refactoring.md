@@ -11,6 +11,8 @@ tags:
   - refactoring
 ---
 In my previous [post][1] I presented a little introduction to abstract algebra. The easiest way for me to explain abstract algebra to a software developer is that it's a lot like refactoring.  
+
+ [1]: {{site.baseurl}}{% post_url  2012-03-07-what-is-abstract-algebra %} "What is Abstract Algebra"
 <!--more-->
 
   
@@ -20,7 +22,7 @@ Maybe, it's just me (or maybe this is a well known concept in the world of tenur
 
 Let's assume that I want to print out the elements of two lists. The first list is a linked list so the psuedocode looks something like this:
 
-{% highlight csharp %}
+{% highlight csharp linenos %}
 node = list.FirstNode;
 while (node != null)
 {
@@ -28,6 +30,10 @@ while (node != null)
     node = node.Next;
 }
 {% endhighlight %}
+
+or like this
+
+{% gist 4ebc56c79954f3b3f096 %}
 
 The second list is an array based list and so the psuedocode looks something like this:
 
@@ -49,7 +55,7 @@ The key things we need to be able to do for this example are the following:
   3. If there are more elements, traverse to the next one
   4. After traversing to a new element, request it's value
 
-In fact in C# this pattern is already formalized. The traversal of a collection is formalized by the `IEnumerator` interface which fulfills the last 3 points, and any collection which allows traversal implements the `IEnumerable` interface which fulfills the first point. The code for traversing any type of list in C# is the following<sup class='footnote'><a href='http://loominate.net/2012/03/10/abstract-algebra-is-refactoring/#fn-124-1' id='fnref-124-1' onclick='return fdfootnote_show(124)'>1</a></sup>.
+In fact in C# this pattern is already formalized. The traversal of a collection is formalized by the `IEnumerator` interface which fulfills the last 3 points, and any collection which allows traversal implements the `IEnumerable` interface which fulfills the first point. The code for traversing any type of list in C# is the following[^f1].
 
 {% highlight csharp %}
 // Assume a list of ints
@@ -76,4 +82,5 @@ In the previous post we created an abstract concept called a group. I listed the
 
 In this post I identified some abstract concepts (interfaces) which are named `IEnumerator` and `IEnumerable` (and `Collection` and `Iterator` in Java). We then wrote routines that only relied on the methods defined by those interfaces. Since both the `LinkedList` and `List` classes of .Net implement these interfaces we know that the routine works for instances of both classes. And the same goes for the `ArrayList` and `LinkedList` classes in Java which both implement `Collection`.
 
- [1]: http://www.loominate.net/2012/03/07/what-is-abstract-algebra/
+
+ [^f1]: Yes, you can also just use the foreach syntax but behind the scenes it uses the `IEnumerable` and `IEnumerator` interfaces. Well sorta. Instead of implementing those interfaces you can also just make your objects look like they implement those interfaces. See [C# Spec](http://msdn.microsoft.com/en-us/library/aa664754(v=vs.71).aspx)

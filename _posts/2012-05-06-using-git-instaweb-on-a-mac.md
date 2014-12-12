@@ -10,8 +10,7 @@ tags:
   - brew
   - git
 ---
-Today I discovered `git instaweb`. This is a very cool feature that allows you to instantly view your local repository (the one in your current working directory) in a web browser. It was incredibly easy to setup on my Mac. I did some googling and found out not everyone thinks it is so easy to setup. This is because they either don't have a web server installed or the web server that is installed (apache2) isn't installed on a Mac the way `git instaweb` expects.  
-<!--more-->
+Today I discovered `git instaweb`. This is a very cool feature that allows you to instantly view your local repository (the one in your current working directory) in a web browser. <!--more--> It was incredibly easy to setup on my Mac. I did some googling and found out not everyone thinks it is so easy to setup. This is because they either don't have a web server installed or the web server that is installed (apache2) isn't installed on a Mac the way `git instaweb` expects.  
 
 As you will see shortly, I was in good shape to use this feature because I was already using the [Homebrew Package Manager][1].
 

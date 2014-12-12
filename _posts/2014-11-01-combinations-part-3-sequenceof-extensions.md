@@ -10,8 +10,9 @@ tags:
   - collections
   - immutable
   - swift
+
 ---
-I want to continue on with my implementation of Combinations. But first, when working on this problem I determined I really needed some helper methods on SequenceOf. Initially these were very complicated but as my comfort level increased I figured out how to simplify some of them so much that they hardly provide any value anymore. Let's take a look.
+I want to continue on with my implementation of Combinations. But first, when working on this problem I determined I really needed some helper methods on SequenceOf. <!--more--> Initially these were very complicated but as my comfort level increased I figured out how to simplify some of them so much that they hardly provide any value anymore. Let's take a look.
 
 First I wanted some way to create an empty sequence. This would play the same role as Enumerable.Empty() in .Net. I couldn't find any such built in method. I did find something analogous for generators as there exists a GeneratorOfOne structure that can be used to create GeneratorTypes that yield 0 or 1 elements. However, generators are not what I want. I want sequences. The differences are subtle but basically the difference is that everytime you call generate on a Sequence you get a &#8220;fresh&#8221; generator starting from the beginning of your sequence. This is not necessarily true of generators which are not required to &#8220;reset&#8221; back to the beginning. Anyway see [Airspeed Velocity][1] for more info. 
 

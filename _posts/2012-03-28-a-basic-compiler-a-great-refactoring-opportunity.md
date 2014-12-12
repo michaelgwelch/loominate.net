@@ -13,6 +13,7 @@ tags:
 ---
 Years ago (2006) I wrote a [compiler][1] for TI BASIC, the dialect of BASIC that I learned on my TI 99/4A (many many years earlier). This is an &#8220;ancient&#8221; computer language and one of the first that I learned. (I had a few years of experience with Apple Basic on Apple IIe before getting a TI.)
 
+ [1]: https://github.com/michaelgwelch/mbasic99 "TI BASIC Compiler"
 <!--more-->
 
 I was reminded of this project tonight when I added my github repositories to my LinkedIn profile. There is now a slightly larger chance that someone might actually see this code. Which leads me to my point: there is a lot of bad code in that repository. I hadn't really seen the &#8220;refactoring light&#8221; at that point in my career and there are large chunks of that code base that are badly in need of it.
@@ -154,5 +155,5 @@ Actually, this isn't nearly as bad as it was &#8220;back in the day&#8221;. I tu
 
 It was a lot of fun learning to program in TI BASIC, but boy I sure don't miss it.
 
- [1]: https://github.com/michaelgwelch/mbasic99 "TI BASIC Compiler"
+
  [2]: http://en.wikiquote.org/wiki/Programming_languages#BASIC "Wikiquote"

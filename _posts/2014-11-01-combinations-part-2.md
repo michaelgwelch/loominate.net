@@ -9,6 +9,7 @@ tags:
   - collections
   - immutable
   - swift
+excerpt: ""
 ---
 Last time I started working on the combinations problem that Eric Lippert wrote about: [][1]
 

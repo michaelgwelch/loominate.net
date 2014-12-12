@@ -15,6 +15,10 @@ tags:
 ---
 Today, I'd like to address the issue of &#8220;data clumping&#8221; in the [original][1] implementation of Brainmess. (See all previous posts: [testing][2], [explanation][3] and [extract methods][4].)
 
+ [1]: {{site.baseurl}}{% post_url 2012-03-13-brainmess %} "Brainmess"
+ [2]: {{site.baseurl}}{% post_url 2012-03-14-brainmess-part-2 %} "Brainmess: Part 2"
+ [3]: {{site.baseurl}}{% post_url 2012-03-15-brainmess-commentary %} "Brainmess: Commentary"
+ [4]: {{site.baseurl}}{% post_url 2012-03-19-brainmess-extract-jump-methods %} "Brainmess: Extract Jump Methods"
 <!--more-->
 
 As was pointed out in an earlier post, the variables `program` and `pc` are generally used together, but not used with other variables. This suggests a tighter relationship between these two. Because of this, I want to extract them into their own class named `Program`.
@@ -370,10 +374,7 @@ Finally, the new methods &#8220;document&#8221; the code. In the `Run` method, y
 
 Next time, we'll do a similar thing with the tape related statements.
 
- [1]: http://www.loominate.net/2012/03/13/brainmess/ "Brainmess"
- [2]: http://www.loominate.net/2012/03/14/brainmess-part-2/ "Brainmess: Part 2"
- [3]: http://www.loominate.net/2012/03/15/brainmess-commentary/ "Brainmess: Commentary"
- [4]: http://www.loominate.net/2012/03/19/brainmess-extract-jump-methods/ "Brainmess: Extract Jump Methods"
+
  [5]: https://github.com/michaelgwelch/brainmess/commit/51f4330605395edd0d023215f873e66dbe2edb91 "Convert to Instance Methods and Fields"
  [6]: https://github.com/michaelgwelch/brainmess/commit/dbad7a86b5f5e850e11f897364d876c01ec8ae47
  [7]: https://github.com/michaelgwelch/brainmess/commit/8f6ee036182c9584d639f58456476aefb62b8701

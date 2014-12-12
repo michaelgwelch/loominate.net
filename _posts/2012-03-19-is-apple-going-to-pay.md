@@ -5,6 +5,7 @@ layout: post
 permalink: /2012/03/19/is-apple-going-to-pay/
 categories:
   - Apple
+excerpt_separator: ""
 ---
 [Apple Conference Call][1]
 

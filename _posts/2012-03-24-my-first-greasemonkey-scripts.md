@@ -18,9 +18,11 @@ tags:
 
 I'm using Github and Pivotal Tracker. You can easily [configure][1] Github to notify Pivotal Tracker of commits. Once you have done that, then whenever you want to commit something that is related to a story you simply embed the tracker story id in your commit message. Something like:
 
-<pre>> git commit -m "[#87654321] Finish the new story"</pre>
+ [1]: https://www.pivotaltracker.com/help/api?version=v3#github_hooks "Configure post-commit hooks on Github"
 
 <!--more-->
+
+<pre>> git commit -m "[#87654321] Finish the new story"</pre>
 
 It's necessary that you put it in square brackets and use the pound sign. If you do this, then a comment will be added to your Pivotal Tracker story with a url that links back to the commit. This is cool.
 
@@ -102,5 +104,5 @@ Here's a screenshot of my commits in my mbasic99 project. The most recent commit
   </p>
 </div>
 
- [1]: https://www.pivotaltracker.com/help/api?version=v3#github_hooks "Configure post-commit hooks on Github"
+
  [2]: http://userscripts.org/scripts/show/129133

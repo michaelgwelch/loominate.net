@@ -14,6 +14,8 @@ tags:
 ---
 Today I wanted to step back and explain the implementation of Brainmess that I presented in my first [post][1] on this subject. I recommend you click on the link and have the implementation open in another window as you read this post as I'll be referring to line numbers.
 
+ [1]: {{site.baseurl}}{% post_url 2012-03-13-brainmess %} "Brainmess"
+
 <!--more-->
 
 ## Main Method
@@ -52,4 +54,4 @@ Every other character is treated as a &#8220;No Operation&#8221; instruction.
 
 That is the complete program. I hope that it is clear what is going on. Please leave questions below in the comments.
 
- [1]: http://www.loominate.net/2012/03/13/brainmess/ "Brainmess"
+

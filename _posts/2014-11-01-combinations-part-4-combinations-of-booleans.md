@@ -11,7 +11,7 @@ tags:
   - immutable
   - swift
 ---
-In this article we'll implement the combinations function from Eric Lippert's post. Here he implements a function that returns all the combinations of `n` booleans with `k` of them set to true. See [part 3][1] of his series.
+In this article we'll implement the combinations function from Eric Lippert's post. Here he implements a function that returns all the combinations of `n` booleans with `k` of them set to true. <!--more--> See [part 3][1] of his series.
 
 Let's implement in parts like Eric did, starting with some preliminaries and the signature
 

@@ -14,6 +14,8 @@ tags:
 ---
 In my last [post][1] I introduced you to Brainmess and presented an &#8220;all-in-one&#8221; implementation of an interpreter for it. In this post I'm going to begin the process of refactoring to address some of the concerns I had in the initial implementation.
 
+ [1]: http://www.loominate.net/2012/03/13/brainmess/ "Brainmess Part 1"
+ 
 <!--more-->
 
 # First Things First! Get Some Tests In Place
@@ -104,4 +106,4 @@ public void RunDoubleWith2Expect4()
 
 Now that we have at least some tests in place we can begin refactoring. In the next post, I'm going to address the while loops in the switch statement for the &#8216;[&#8216; and &#8216;]' instructions.
 
- [1]: http://www.loominate.net/2012/03/13/brainmess/ "Brainmess Part 1"
+

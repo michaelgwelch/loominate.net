@@ -9,6 +9,7 @@ tags:
   - collections
   - immutable
   - swift
+excerpt: Follow along in the use of Swift collection types to implement graph traversal.
 ---
 I've had a difficult time trying to understand the collections in the Swift programming language from Apple. In particular, I've been trying to identify the analog of the IEnumerable type from C#. I don't think there is one. As an exercise, I thought I'd try to port the C# code Eric Lippert wrote about Combinations. Here's a link to the start of his series: [Eric Lippert on Combinations][1]
 

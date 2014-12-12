@@ -8,6 +8,8 @@ categories:
 ---
 This is just a quick update. My last [refactoring][1] on Brainmess was to extract out the tape class. While reviewing that code today, I noticed some artifacts left over from the refactoring process. These were cleaned up in commit [836a96][2]
 
+ [1]: {{site.baseurl}}{% post_url 2012-03-23-brainmess-extract-tape-class %} "Brainmess: Extract Tape Class"
+ [2]: http://github.com/michaelgwelch/brainmess/commit/836a96877b7ffa3b04a75d73f66063dfef9dcbc2 "Cleanup Tape Class"
 <!--more-->
 
 Four of the methods: `MoveForward`, `MoveBackward`, `Increment`, `Decrement` still had return values that were not needed. For example before we extracted out the tape class, this is what the `MoveForward` method looked like:

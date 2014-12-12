@@ -15,6 +15,7 @@ tags:
   
 It occurred to me that since the [links][1] I've provided so far include a NSFW word, I should take the time to describe the Brainmess language on my blog so readers need not click on those links. This description is obviously not going to be completely original as I've stolen most of it from Mark Chu-Carroll's blog and Wikipedia.
 
+ [1]: {{site.baseurl}}{% post_url 2012-03-13-brainmess %} "Brainmess"
 <!--more-->
 
 The Brainmess language has 8 instructions each represented by a single character. Every other character in a Brainmess program is ignored and can be used for comments. 
@@ -251,4 +252,4 @@ The following table presents the eight instructions.
                       While this appears to be correct to me, it is actually a little different than the Brainmess specification. Brainmess specifies that the <code>]</code> instruction test the current cell. This C implementation doesn't do that. It just jumps back to the beginning of the loop and relies on the fact that the current cell will be tested as part of the <code>while</code> condition.
                     </p>
 
- [1]: http://www.loominate.net/2012/03/13/brainmess/ "Brainmess"
+

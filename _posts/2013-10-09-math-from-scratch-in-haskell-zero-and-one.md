@@ -9,11 +9,11 @@ tags:
   - Haskell
   - math
   - software development
+excerpt: Follow along as I implement natural numbers from scratch in Haskell, using Eric Lippert's posts as a guide.
 ---
 I've been following a set of posts written by [Eric Lippert][1] where he is implementing arbitrary size Naturals and the corresponding arithmetic in C#. As I follow along I'm writing an implementation in Haskell (one that I hope is idiomatic to Haskell).  
-<!--more-->
 
-  
+
 In [part one][2] and [part two][3] of the series he develops a representation of Naturals and exposes two public members: Zero and One. Read those two posts to understand his implementation.
 
 Here is my implementation
@@ -48,6 +48,6 @@ The definitions of zero and one are straightforward as well. That's it.
 
 I'll continue to add posts that follow Eric's posts. The next post will show how to implement addition.
 
- [1]: http://ericlippert.com
+ [1]: http://ericlippert.com "Eric Lippert"
  [2]: http://ericlippert.com/2013/09/16/math-from-scratch-part-one/
  [3]: http://ericlippert.com/2013/09/19/math-from-scratch-part-two/

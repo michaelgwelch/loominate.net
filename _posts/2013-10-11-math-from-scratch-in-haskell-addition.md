@@ -8,6 +8,8 @@ categories:
 ---
 [Last time][1] I developed a representation of Natural numbers following Eric Lippert's lead. In this post I'll continue to [follow him][2] and implement addition.
 
+ [1]: {{site.baseurl}}{% post_url 2013-10-09-math-from-scratch-in-haskell-zero-and-one %} "Math from scratch in Haskell: zero and one"
+ [2]: http://ericlippert.com/2013/09/23/math-from-scratch-part-three/
 <!--more-->
 
 Eric did all the hard work of explaining the recursive algorithm for addition. 
@@ -88,5 +90,4 @@ natInc :: Natural -> Natural
 natInc = natAdd one
 {% endhighlight %}
 
- [1]: http://loominate.net/2013/10/09/math-from-scratch-in-haskell-zero-and-one/ "Math from scratch in Haskell: zero and one"
- [2]: http://ericlippert.com/2013/09/23/math-from-scratch-part-three/
+

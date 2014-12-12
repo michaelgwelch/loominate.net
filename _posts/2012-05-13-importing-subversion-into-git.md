@@ -8,19 +8,21 @@ categories:
 tags:
   - git
   - svn
+excerpt: Learn how to import your subversion repositories (with history) into git.
 ---
 Over the years I've accumulated some Subversion repositories. I used Subversion to control the source code I wrote for my masters courses. These repositories are sprinkled around a couple of computers I own. Now that I have accounts on GitHub and Bitbucket I decided it was time to import the old code into git and push it to the cloud. This allows me to clean up all the old repositories and easily access it from any computer.
 
-<!--more-->
+
 
 The process was really easy. First I reminded myself what was in each repository. This was actually the &#8220;hardest&#8221; part as I haven't used Subversion in at least 4 or 5 years and couldn't remember how to list the contents of a repository. Turns out you need to use a URL even if it's a local file system repository.
 
+The following will return me a list of directories like
+
+```shell
 $ svn list file:///Users/welch/mysvn
-
-Which would then return me a list of directories like
-
 cs732/  
 cs838/
+```
 
 These are two of the courses I took that I wanted to import into my coursework repository on GitHub.
 

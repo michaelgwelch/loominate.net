@@ -11,8 +11,11 @@ tags:
 ---
 I've recently begun a study of abstract algebra (also known as modern algebra) using the text&nbsp;&nbsp;[A Book of Abstract Algebra][1] by Charles C. Pinter. 
 
-I'll give you a brief introduction to abstract algebra by way of an example. I will write two simple proofs. The first is a proof about addition of real numbers. The second is a proof about the exclusive or operation on Boolean[^f1] values. The proofs will attempt to prove similar looking things, however, the initial proofs will look completely different from one another. Then I'll identify some common traits about the two "[algebraic structures][2]" and show you how the same proof can be applied to both problems. This is one of the things abstract algebra is about: identifying common traits between different "algebraic structures".  
+ [1]: http://www.amazon.com/Book-Abstract-Algebra-Edition-Mathematics/dp/0486474178/ref=sr_1_1?ie=UTF8&qid=1330805123&sr=8-1
 <!--more-->
+
+I'll give you a brief introduction to abstract algebra by way of an example. I will write two simple proofs. The first is a proof about addition of real numbers. The second is a proof about the exclusive or operation on Boolean[^f1] values. The proofs will attempt to prove similar looking things, however, the initial proofs will look completely different from one another. Then I'll identify some common traits about the two "[algebraic structures][2]" and show you how the same proof can be applied to both problems. This is one of the things abstract algebra is about: identifying common traits between different "algebraic structures".  
+
 
 ## Addition of Reals
 
@@ -146,7 +149,7 @@ It turns out that this proof works for any set of elements, $$S$$, and any opera
   \end{align*}  
   $$
 
- [1]: http://www.amazon.com/Book-Abstract-Algebra-Edition-Mathematics/dp/0486474178/ref=sr_1_1?ie=UTF8&qid=1330805123&sr=8-1
+
  [2]: http://en.wikipedia.org/wiki/Algebraic_structure
  [3]: http://en.wikipedia.org/wiki/Exclusive_or
  [4]: http://en.wikipedia.org/wiki/Boolean_algebra

@@ -10,7 +10,9 @@ tags:
   - immutable
   - swift
 ---
-The original problem as posed by Eric Lippert was to write a function to produce all the combinations of k elements from a collection of n elements. So far I've ported the code to product all the combinations of k true booleans in a collection of n booleans where k <= n.
+The original problem as posed by Eric Lippert was to write a function to produce all the combinations of k elements from a collection of n elements. So far I've ported the code to product all the combinations of k true booleans in a collection of n booleans where $$k <= n$$.
+
+<!--more-->
 
 We can use the work we've done so far to solve the original problem. See [Lippert Part 3][1] to follow along with his post.
 

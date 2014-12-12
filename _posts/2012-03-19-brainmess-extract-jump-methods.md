@@ -16,6 +16,10 @@ tags:
 ---
 Today, I'll start to refactor the Brainmess program. In the first [post][1] I gave an &#8220;all-in-one&#8221; solution. [Next][2] I added some automated tests to give me some confidence that I don't break anything during the process. The last [time][3] that I spoke about Brainmess, I just explained my implementation.
 
+ [1]: {{site.baseurl}}{% post_url 2012-03-13-brainmess %} "Brainmess"
+ [2]: {{site.baseurl}}{% post_url 2012-03-14-brainmess-part-2 %} "Brainmess Add Tests"
+ [3]: {{site.baseurl}}{% post_url 2012-03-15-brainmess-commentary %} "Brainmess: Commentary"
+
 <!--more-->
 
 Notice that in the switch statement every case, except the last two cases, is one line of code (followed by a `break`). The last two cases are several lines long. These two are prime candidates for <emph>Extract Method</emph>. Why? The first reason is to reduce the length and nesting level of the program. The second is that I suspect these methods which are concerned with finding matching brackets are good candidates for unit testing. So I extract out the `JumpForward` and `JumpBackward` methods. The main method now looks like this:
@@ -200,8 +204,6 @@ of increment and then delegates to the private one. All the code for this change
 
 Finally, I reran all my tests and they passed.
 
- [1]: http://www.loominate.net/2012/03/13/brainmess/ "Brainmess"
- [2]: http://www.loominate.net/2012/03/14/brainmess-part-2/ "Brainmess Add Tests"
- [3]: http://www.loominate.net/2012/03/15/brainmess-commentary/ "Brainmess: Commentary"
+
  [4]: https://github.com/michaelgwelch/brainmess/commit/4b15b4caf3eeeaef4da1eba9fcfd78071a8ed51a#diff-1 "Commit"
  [5]: https://github.com/michaelgwelch/brainmess/commit/abe37577309037c5d7c41a7e097293437b56486b "abe37577"

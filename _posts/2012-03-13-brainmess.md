@@ -16,9 +16,14 @@ tags:
 ---
 I was introduced to a language with a NSFW name a few years ago. Mark Chu-Carroll [posted][1] about it. It is also documented at [Wikipedia][2] (Note, the name of the article I linked to is NSFW due to language). [Updated 3/31/2012: I've now described [Brainmess][3] on my own blog so one need not click the links above while at work.]
 
-I've sanitized the name and used it as the basis of a simple programming assignment for use in study groups at work.
+ [1]: http://scienceblogs.com/goodmath/2009/09/the_one_the_only_brainfck.php
+ [2]: http://en.wikipedia.org/wiki/Brainfuck
+ [3]: {{site.baseurl}}{% post_url 2012-03-31-brainmess-description %} "Brainmess Description"
 
 <!--more-->
+
+I've sanitized the name and used it as the basis of a simple programming assignment for use in study groups at work.
+
 
 I've run study groups on &#8220;clean code&#8221;, refactoring and unit testing. In each of these groups, it's useful to have some programming assignment as a basis for learning the topic. I ask developers to write an interpreter for Brainmess programs. It's a rather simple program to write. It takes most developers just a few hours (or less) to complete. But I ask them to think about how they would test it. I ask them to think about maintainability/readability.
 
@@ -30,7 +35,8 @@ This project (along with other implementations) can be downloaded from [Brainmes
 
 Here it is all in one method (except for the reading from a file):
 
-<pre class="brush: csharp; title: ; notranslate" title="">using System;
+{% highlight csharp linenos %}
+using System;
 using System.IO;
 
 namespace BrainmessShort
@@ -107,7 +113,7 @@ namespace BrainmessShort
         }
     }
 }
-</pre>
+{% endhighlight %}
 
 So I've run a couple of Brainmess scripts thru this interpreter and it seems to work. So what (if anything) is wrong with this implementation? In some sense there is nothing wrong with it. It works and if you take some time to review it, it's not to hard to understand.
 
@@ -131,7 +137,5 @@ I do agree that this example is simple enough that you don't need to &#8220;over
 
 In future posts I'll refactor this code. Perhaps I'll eventually take it too far just to see where the limits of are.
 
- [1]: http://scienceblogs.com/goodmath/2009/09/the_one_the_only_brainfck.php
- [2]: http://en.wikipedia.org/wiki/Brainfuck
- [3]: http://www.loominate.net/2012/03/31/brainmess-description/ "Brainmess Description"
+
  [4]: https://github.com/michaelgwelch/brainmess "GitHub Brainmess"

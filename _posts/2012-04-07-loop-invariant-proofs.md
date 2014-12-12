@@ -12,11 +12,10 @@ tags:
   - loop invariant
   - proof
 ---
-Sometime last year I ran across a blog talking about loop invariant proofs. At the time it seemed like a new concept to me. My undergraduate degree was not in computer science, and my graduate degree in computer science was done part time over the course of many many years. Tonight I got out my graduate text on algorithms, and sure enough there on page 17 is loop invariants. I had learned it and then sometime later forgot I had ever seen it. (Even though looking at the text I can see I would have had to write loop invariant proofs for the course.)
+Sometime last year I ran across a blog talking about loop invariant proofs. <!--more--> At the time it seemed like a new concept to me. My undergraduate degree was not in computer science, and my graduate degree in computer science was done part time over the course of many many years. Tonight I got out my graduate text on algorithms, and sure enough there on page 17 is loop invariants. I had learned it and then sometime later forgot I had ever seen it. (Even though looking at the text I can see I would have had to write loop invariant proofs for the course.)
+
 
 Today, I want to use the technique of loop invariant to prove the correctness of the `FindMatch` algorithm used in [Brainmess][1].
-
-<!--more-->
 
 The purpose of `FindMatch` is to find the matching bracket in a string of characters, given the index of a bracket (either left or right).
 
