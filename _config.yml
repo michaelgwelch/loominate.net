@@ -16,3 +16,5 @@ kramdown:
   input: GFM
 
 excerpt_separator: "<!--more-->"
+
+theme: jekyll-theme-minimal
