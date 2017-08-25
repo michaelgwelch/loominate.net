@@ -61,7 +61,7 @@ func combinations<S:SequenceType>(s:S,k:UInt) -> SequenceOf<SequenceOf<S.Generat
 }
 {% endhighlight %}
 
-See all code
+See all the code
 
 {% gist 989b555de95b4dd06962 %}
 
