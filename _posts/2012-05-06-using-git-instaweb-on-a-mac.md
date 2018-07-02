@@ -65,4 +65,4 @@ That was it. The next time I ran `git instaweb` it started up the web server and
 ![git instaweb screenshot][2]
 
  [1]: http://mxcl.github.com/homebrew/ "Homebrew Package Manager"
- [2]: bin/git-instaweb-screenshot.png "Screenshot of my local repository"
+ [2]: {{ page.url | /bin/git-instaweb-screenshot.png }} "Screenshot of my local repository"
