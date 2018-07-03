@@ -11,7 +11,7 @@ tags:
 
 <!-- cSpell:ignore readonly typeparam Linq -->
 
-The `IEnumerator` interface of C# is usually fine for visiting a collection of elements. However, often times when I'm doing something more complicated I want to split up the functionality of `MoveNext`<sup id='a1'>[1](#f1)</a></sup>. In this post I'll define a new interface and show how to employ the Adapter pattern to implement it.
+The `IEnumerator` interface of C# is usually fine for visiting a collection of elements. However, often times when I'm doing something more complicated I want to split up the functionality of `MoveNext`<sup id='a1'>[1](#f1)</sup>. In this post I'll define a new interface and show how to employ the Adapter pattern to implement it.
 
 <!--more-->
 
