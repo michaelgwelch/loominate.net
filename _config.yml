@@ -17,5 +17,4 @@ kramdown:
 
 excerpt_separator: "<!--more-->"
 
-# theme: jekyll-theme-minimal
-remote_theme: daattali/beautiful-jekyll
+theme: jekyll-theme-minimal
