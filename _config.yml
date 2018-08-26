@@ -9,6 +9,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://loominate.net"  # the base hostname & protocol for your site
 twitter_username: my_kl
 github_username:  michaelgwelch
+mastodon_username: @mgwelch@greenpencil.social
 
 # Build settings
 markdown: kramdown
