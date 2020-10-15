@@ -8,6 +8,8 @@ error: gpg failed to sign the data
 fatal: failed to write commit object
 ```
 
+<!--more-->
+
 I know that I successfully committed something yesterday and couldn't think of any tooling changes since then.
 
 I attempted a few things without success:
