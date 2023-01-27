@@ -19,3 +19,4 @@ kramdown:
 excerpt_separator: "<!--more-->"
 
 theme: jekyll-theme-minimal
+include: ["/.well-known" ]
