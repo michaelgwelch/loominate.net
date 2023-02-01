@@ -9,28 +9,30 @@ tags:
   - abstract algebra
   - modern algebra
 ---
-I've recently begun a study of abstract algebra (also known as modern algebra) using the text&nbsp;&nbsp;[A Book of Abstract Algebra][1] by Charles C. Pinter. 
+I've recently begun a study of abstract algebra (also known as modern algebra) using the text&nbsp;&nbsp;[A Book of Abstract Algebra][1] by Charles C. Pinter.
 
  [1]: http://www.amazon.com/Book-Abstract-Algebra-Edition-Mathematics/dp/0486474178/ref=sr_1_1?ie=UTF8&qid=1330805123&sr=8-1
 <!--more-->
 
-I'll give you a brief introduction to abstract algebra by way of an example. I will write two simple proofs. The first is a proof about addition of real numbers. The second is a proof about the exclusive or operation on Boolean[^f1] values. The proofs will attempt to prove similar looking things, however, the initial proofs will look completely different from one another. Then I'll identify some common traits about the two "[algebraic structures][2]" and show you how the same proof can be applied to both problems. This is one of the things abstract algebra is about: identifying common traits between different "algebraic structures".  
+I'll give you a brief introduction to abstract algebra by way of an example. I will write two simple proofs. The first is a proof about addition of real numbers. The second is a proof about the exclusive or operation on Boolean[^f1] values. The proofs will attempt to prove similar looking things, however, the initial proofs will look completely different from one another. Then I'll identify some common traits about the two "[algebraic structures][2]" and show you how the same proof can be applied to both problems. This is one of the things abstract algebra is about: identifying common traits between different "algebraic structures".
 
 
 ## Addition of Reals
 
-Let's consider the addition operation on the set of real numbers and prove the if 
-$$ A + B = A + C $$ then $$ B = C $$. This can be accomplished in several simple steps: 
+Let's consider the addition operation on the set of real numbers and prove the if
+<div> $$ A + B = A + C $$ </div> then <div> $$ B = C $$ </div>. This can be accomplished in several simple steps:
 
-$$  
-\begin{align}  
-(A + B) &= (A + C) && \text{Given} \tag{1} \\  
--A + (A + B) &= -A + (A + C) \tag{2} \\  
-(-A + A) + B &= (-A + A) + C && \text{Associativity (2)} \tag{3} \\  
-0 + B &= 0 + C && \tag{4} \\  
-B &= C \tag{5}  
-\end{align}  
+<div>
 $$
+\begin{align}
+(A + B) &= (A + C) && \text{Given} \tag{1} \\
+-A + (A + B) &= -A + (A + C) \tag{2} \\
+(-A + A) + B &= (-A + A) + C && \text{Associativity (2)} \tag{3} \\
+0 + B &= 0 + C && \tag{4} \\
+B &= C \tag{5}
+\end{align}
+$$
+</div>
 
 ## Exclusive Or
 
@@ -59,7 +61,7 @@ We have considered every possible case and in each case we have concluded that $
 
 ## Comparison of Proofs
 
-So I have proved that for addition of reals $$ A + B = A + C$$ implies $$ B = C$$ and that for the exclusive or operation with Boolean values that $$ A \oplus B = A \oplus C$$ implies $$ B = C$$. It is less than elegant however that the proofs look completely different. Is it possible to identify some traits between the two scenarios and then use this information to write one proof that works for both? Indeed there is, and that is what abstract algebra allows us to do. 
+So I have proved that for addition of reals $$ A + B = A + C$$ implies $$ B = C$$ and that for the exclusive or operation with Boolean values that $$ A \oplus B = A \oplus C$$ implies $$ B = C$$. It is less than elegant however that the proofs look completely different. Is it possible to identify some traits between the two scenarios and then use this information to write one proof that works for both? Indeed there is, and that is what abstract algebra allows us to do.
 
 So what are the traits? I'll use the first example to call out some of the necessary traits of addition of reals that made the first proof work.
 
@@ -91,32 +93,32 @@ If you examine the truth table you'll see that the only way to fulfill these two
 
 We see that the identity element, $$ \bot $$, combines with the other elements properly
 
-$$  
-\begin{align*}  
-\bot \oplus \bot &= \bot \\  
-\bot \oplus \top = \top \oplus \bot &= \top  
-\end{align*}  
-$$  
+$$
+\begin{align*}
+\bot \oplus \bot &= \bot \\
+\bot \oplus \top = \top \oplus \bot &= \top
+\end{align*}
+$$
 
 and each element combined with it's inverse (itself) equals the identity element.
 
-$$  
-\begin{align*}  
-\bot \oplus \bot^{-1} = \bot \oplus \bot = \bot \\  
-\top \oplus \top^{-1} = \top \oplus \top = \bot  
-\end{align*}  
+$$
+\begin{align*}
+\bot \oplus \bot^{-1} = \bot \oplus \bot = \bot \\
+\top \oplus \top^{-1} = \top \oplus \top = \bot
+\end{align*}
 $$
 
 Now we can redo the second proof.
 
-$$  
-\begin{align*}  
-(A \oplus B) &= (A \oplus C) && \text{Given} \tag{1} \\  
-A^{-1} \oplus (A \oplus B) &= A^{-1} \oplus (A \oplus C) \tag{2} \\  
-(A^{-1} \oplus A) \oplus B &= (A^{-1} \oplus A) \oplus C && \text{Associativity (2)}\tag{3} \\  
-\bot \oplus B &= \bot \oplus C \tag{4} \\  
-B &= C \tag{5}  
-\end{align*}  
+$$
+\begin{align*}
+(A \oplus B) &= (A \oplus C) && \text{Given} \tag{1} \\
+A^{-1} \oplus (A \oplus B) &= A^{-1} \oplus (A \oplus C) \tag{2} \\
+(A^{-1} \oplus A) \oplus B &= (A^{-1} \oplus A) \oplus C && \text{Associativity (2)}\tag{3} \\
+\bot \oplus B &= \bot \oplus C \tag{4} \\
+B &= C \tag{5}
+\end{align*}
 $$
 
 On line 3, remember that the inverse of $$A$$ is $$A$$ and then consult the truth table to see that $$\bot \oplus \bot = \bot$$ and $$\top \oplus \top = \bot$$. So no matter what $$A$$ is we know the result is $$\bot$$. On line 4, remember that we've already shown that $$\bot$$ combined with any element results in that element.
@@ -129,24 +131,24 @@ This proof only works when the constraints from the previous sections apply to t
 
 ## The Generic Proof
 
-It turns out that this proof works for any set of elements, $$S$$, and any operation[^f2], $$\circ$$, if the following is true. 
+It turns out that this proof works for any set of elements, $$S$$, and any operation[^f2], $$\circ$$, if the following is true.
 
   1. The operation $$\circ$$ is associative.
-  2. There is an element $$e \in S$$ such that $$a \circ e = e \circ a = a$$ for every element $$a \in S$$. 
+  2. There is an element $$e \in S$$ such that $$a \circ e = e \circ a = a$$ for every element $$a \in S$$.
   3. Every element $$a \in S$$ has an inverse $$a^{-1} \in S$$ such that $$a \circ a^{-1} = a^{-1} \circ a = e$$.
 
   If all these rules are true then we call the pair $$(S,\circ)$$ a [group][7]. A group is one of the fundamental algebraic structures. I'm on Chapter 8 of the text and we are still just discussing groups. The two groups discussed in this post are $$(\mathbb{R},+$$) and $$(\mathbb{B},\oplus$$) where $$\mathbb{R}$$ is the set of real numbers and $$\mathbb{B}$$ is the set of Boolean values.
-  
+
   As you might guess the generic proof looks like the following:
-  
-  $$  
-  \begin{align*}  
-  (A \circ B) &= (A \circ C) && \text{Given} \tag{1} \\  
-  A^{-1} \circ (A \circ B) &= A^{-1} \circ (A \circ C) \tag{2} \\  
-  (A^{-1} \circ A) \circ B &= (A^{-1} \circ A) \circ C && \text{Associativity (2)}\tag{3} \\  
-  e \circ B &= e \circ C && \text{Definition of inverse (3)} \tag{4} \\  
-  B &= C && \text{Definition of identity (4)} \tag{5}  
-  \end{align*}  
+
+  $$
+  \begin{align*}
+  (A \circ B) &= (A \circ C) && \text{Given} \tag{1} \\
+  A^{-1} \circ (A \circ B) &= A^{-1} \circ (A \circ C) \tag{2} \\
+  (A^{-1} \circ A) \circ B &= (A^{-1} \circ A) \circ C && \text{Associativity (2)}\tag{3} \\
+  e \circ B &= e \circ C && \text{Definition of inverse (3)} \tag{4} \\
+  B &= C && \text{Definition of identity (4)} \tag{5}
+  \end{align*}
   $$
 
 
