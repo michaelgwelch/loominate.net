@@ -1,0 +1,24 @@
+{
+    "subject": "acct:michael@mast.mmwelch.net",
+    "aliases": [
+        "https://mast.mmwelch.net/@michael",
+        "https://mast.mmwelch.net/users/michael"
+    ],
+    "links": [
+        {
+            "rel": "http://webfinger.net/rel/profile-page",
+            "type": "text/html",
+            "href": "https://mast.mmwelch.net/@michael"
+        },
+        {
+            "rel": "self",
+            "type": "application/activity+json",
+            "href": "https://mast.mmwelch.net/users/michael"
+        },
+        {
+            "rel": "http://ostatus.org/schema/1.0/subscribe",
+            "template": "https://mast.mmwelch.net/authorize_interaction?uri={uri}"
+        }
+    ]
+}
+
