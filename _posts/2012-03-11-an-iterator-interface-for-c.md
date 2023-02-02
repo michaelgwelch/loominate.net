@@ -1,6 +1,5 @@
 ---
 title: 'An Iterator Interface for C#'
-author: Michael
 layout: post
 permalink: /2012/03/11/an-iterator-interface-for-c/
 categories:
@@ -125,6 +124,8 @@ namespace CollectionsExtensions
     }
 }
 ```
+
+
 
 And now we can request an iterator for an enumerable object as shown in the next trivial example.
 
