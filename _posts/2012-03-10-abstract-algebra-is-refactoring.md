@@ -31,11 +31,6 @@ while (node != null)
 }
 ```
 
-<!--
-or like this
-
-{% gist 4ebc56c79954f3b3f096 %} -->
-
 The second list is an array based list and so the psuedocode looks something like this:
 
 ```csharp
