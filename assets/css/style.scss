@@ -1,0 +1,18 @@
+---
+---
+$tab-count: {{ site.tabs | size | plus: 1 }}; // plus 1 for home tab
+
+@import "{{ site.theme }}";
+
+/* append your custom style below */
+
+.code-header::before {
+  content: "";
+  display: inline-block;
+  margin-left: 1rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: #ff5f57;
+  box-shadow: 1.25rem 0 0 #ffbd3c, 2.5rem 0 0 #13cc4d;
+}
