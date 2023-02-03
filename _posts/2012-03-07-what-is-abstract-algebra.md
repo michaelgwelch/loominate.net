@@ -159,23 +159,3 @@ It turns out that this proof works for any set of elements, $$S$$, and any opera
  [7]: http://en.wikipedia.org/wiki/Group_(mathematics)
  [^f1]: My text editor was informing me that I should capitalize Boolean. I Googled this and found confirmation. The odd thing is that the first hit was from Eric Lippert from [Fabulous Adventures in Coding.](http://blogs.msdn.com/b/ericlippert/archive/2006/10/31/boolean-or-or-boolean-or.aspx) It’s a blog I’ve subscribed to for years. Although I don’t ever recall this particular post. If you are a C# developer I highly recommend his blog.
  [^f2]:Note, I haven’t really defined operation. Formally, if $$A$$ is a set, then an operation $$\circ$$ on $$A$$ is a rule which assigns to each ordered pair $$(a,b)$$ of elements in $$A$$ exactly one element $$a \circ b \in A$$.
-
-<div id="disqus_thread"></div>
-<script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://loominate.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
