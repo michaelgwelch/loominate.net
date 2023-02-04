@@ -1,6 +1,5 @@
 ---
 title: 'Brainmess: Commentary'
-
 layout: post
 permalink: /2012/03/15/brainmess-commentary/
 keywords:
@@ -22,7 +21,9 @@ Today I wanted to step back and explain the implementation of Brainmess that I p
 
 The `Main` method expects that the path to a script is passed in as the first argument to the program. So the expected usage of this program is to invoke it from the command line with one parameter that is the script to execute:
 
-<pre>> brainmess script.bm</pre>
+```bash
+> brainmess script.bm
+```
 
 So in the preceding case, brainmess would attempt to open up a file named `script.bm` and interpret it as a Brainmess program.
 
@@ -30,11 +31,11 @@ The `Main` method simply opens up the file, reads all of its contents, and passe
 
 ## Run Method
 
-There are 2 variables used for the program. The first is named `program` and it is a string that contains the entire Brainmess program. As you can see on line 15, this is passed in as a parameter. The second variable used in conjunction with the program is `pc` which is short for program counter. It is the zero-based index that tells us what is the next instruction in the program to "fetch". It is initially set to 0 so that I start fetching the first instruction.
+There are 2 variables used for the program. The first is named `program` and it is a string that contains the entire Brainmess program. As you can see on line 15, this is passed in as a parameter. The second variable used in conjunction with the program is `pc` which is short for program counter. It is the zero-based index that tells us what is the next instruction in the program to fetch. It is initially set to 0 so that I start fetching the first instruction.
 
-There are also 2 variables (lines 18 and 19) that are used for the tape (the tape serves as our memory). The first is named `tape` and it is an array of integers. The variable `tc` is our "tape counter". It is the zero-based index into the tape. Six of the Brainmess instructions make reference to the current cell on the tape, and `tc` tells us what the current cell is. I initialize it to the middle of the array so that it is legal for a program to move in either direction. (This is not a requirement for Brainmess interpreters.)
+There are also 2 variables (lines 18 and 19) that are used for the tape (the tape serves as our memory). The first is named `tape` and it is an array of integers. The variable `tc` is our tape counter. It is the zero-based index into the tape. Six of the Brainmess instructions make reference to the current cell on the tape, and `tc` tells us what the current cell is. I initialize it to the middle of the array so that it is legal for a program to move in either direction. (This is not a requirement for Brainmess interpreters.)
 
-The `Run` method is a big while loop. It runs a "fetch/execute"cycle. That is, on each iteration of the loop it fetches the next instruction from the program and then executes it. On lines 23 and 24 is where the fetch happens. During a fetch it reads the next instruction and then increment the program counter so that it is ready for the next iteration. This loop continues until it reaches the end of the program.
+The `Run` method is a big while loop. It runs a "fetch/execute" cycle. That is, on each iteration of the loop it fetches the next instruction from the program and then executes it. On lines 23 and 24 is where the fetch happens. During a fetch it reads the next instruction and then increments the program counter so that it is ready for the next iteration. This loop continues until it reaches the end of the program.
 
 On lines 25-73 I have a large switch statement that switches on the current instruction and that has a case for every valid instruction character.
 
@@ -50,8 +51,6 @@ Line 45 is the "Test and Jump Forward" instruction. This instruction must look a
 
 Line 58 is the "Test and Jump Backward" instruction. This instruction must look at the value of the current cell of the tape and if it is NOT 0 jump backward to the matching '[' character, otherwise it does nothing. The algorithm is the same except we are searching in the reverse order and that as we move to the left every '[' character decreases the nest level and every ']' increases the nest level. Also, to initialize the algorithm correctly we must on line 61 decrease the program counter by 2. This moves the pc to one character before the ']' instruction and guarantees that the nest level starts at 1.
 
-Every other character is treated as a "No Operation" instruction.
+Every other character is treated as a &#8220;No Operation&#8221; instruction.
 
 That is the complete program. I hope that it is clear what is going on. Please leave questions below in the comments.
-
-
