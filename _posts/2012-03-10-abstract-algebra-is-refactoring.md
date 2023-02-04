@@ -10,12 +10,12 @@ tags:
   - abstract algebra
   - refactoring
 ---
-In my previous [post][1] I presented a little introduction to abstract algebra. The easiest way for me to explain abstract algebra to a software developer is that it's a lot like refactoring.  
+In my previous [post][1] I presented a little introduction to abstract algebra. The easiest way for me to explain abstract algebra to a software developer is that it's a lot like refactoring.
 
  [1]: {{site.baseurl}}{% post_url  2012-03-07-what-is-abstract-algebra %} "What is Abstract Algebra"
 <!--more-->
 
-  
+
 What do I mean by this? Well in my last post I proved two propositions that looked very similar. However, initially, the two proofs were completely different. By stepping back and looking at what the two algebraic structures had in common I was able to demonstrate one proof that applied to both propositions.
 
 Maybe, it's just me (or maybe this is a well known concept in the world of tenured mathematicians and computer scientists) but this feels an awful lot like the process a developer uses when he's refactoring to remove duplicated code or refactoring to generalize some concept.
@@ -46,7 +46,7 @@ for (int i = 0; i < list.Count; i++)
 
 The two examples are close enough for us to realize there is a pattern. We are visiting each element in the list one time and in some order appropriate for the list. And for each element in the list we print its value.
 
-So just like in the abstract algebra example from last time we formally identify the common traits and &#8220;abstract&#8221; them out and give them a name. In an object orientated language this is often accomplished by defining an interface with a well chosen name. In abstract algebra we formally state that an algebraic structure has certain traits (by demonstration or perhaps by a proof). In code we formally state that a class has some well defined set of traits by implementing the interface that defines the traits. 
+So just like in the abstract algebra example from last time we formally identify the common traits and &#8220;abstract&#8221; them out and give them a name. In an object orientated language this is often accomplished by defining an interface with a well chosen name. In abstract algebra we formally state that an algebraic structure has certain traits (by demonstration or perhaps by a proof). In code we formally state that a class has some well defined set of traits by implementing the interface that defines the traits.
 
 The key things we need to be able to do for this example are the following:
 
@@ -76,7 +76,7 @@ while(iterator.hasNext()) {
 }
 {% endhighlight %}
 
-To me, the ability to refactor two different routines into one common routine by the use of interfaces, feels very much like the process of replacing two different proofs with one common proof by the use of abstract properties of algebraic structures. Hence my claim that abstract algebra is refactoring. 
+To me, the ability to refactor two different routines into one common routine by the use of interfaces, feels very much like the process of replacing two different proofs with one common proof by the use of abstract properties of algebraic structures. Hence my claim that abstract algebra is refactoring.
 
 In the previous post we created an abstract concept called a group. I listed the properties of a group. Then I proved a proposition that only relied on the properties of a group. I also demonstrated how both $$ (\mathbb{R},+)$$ and $$(\mathbb{B},\oplus) $$ have the properties of a group and therefore the proof applies to them.
 
