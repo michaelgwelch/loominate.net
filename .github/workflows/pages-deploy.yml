@@ -4,7 +4,7 @@ on:
     branches:
       # - main
       # - master
-      - gh-pages-chirpy
+      - main
     paths-ignore:
       - .gitignore
       - README.md
