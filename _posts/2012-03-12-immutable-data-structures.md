@@ -1,6 +1,6 @@
 ---
 title: Immutable Data Structures
-
+author: Michael
 layout: post
 permalink: /2012/03/12/immutable-data-structures/
 categories:
@@ -16,13 +16,15 @@ During the last few years I've become more familiar with functional languages. M
 
 I plan to talk a little bit about immutable data structures on this blog. But to introduce you to the topic I first wanted to just provide a list of links to posts I've previously read by other bloggers.
 
-Eric Lippert blogs at Fabulous Adventures in Coding and has a whole host of posts tagged with [immutability][1]. A good starting is his blog on how to implement an [immutable stack][2]. I recommend you read the others as well.
+Eric Lippert blogs at [Fabulous Adventures in Coding][fic] and has a whole host of posts tagged with [immutability][1]. A good starting is his blog on how to implement an [immutable stack][2]. I recommend you read the others as well.
 
-Mark Chu-Carroll writes at "Good Math Bad Math" and has done posts on zippers and finger trees among many other structures. Here's a post on [zippers][3].
+Mark Chu-Carroll writes at [Good Math/Bad Math][gmbm] and has done posts on zippers and finger trees among many other structures. Here's a post on [zippers][3].
 
-And from Edward Z. Yang another perspective on [zippers][4]. I especially like the template "You could have invented ..." that he employs.
+And from Edward Z. Yang another perspective on [zippers][4]. I especially like the template "You could have invented" that he employs.
 
- [1]: http://blogs.msdn.com/b/ericlippert/archive/tags/immutability/
- [2]: http://blogs.msdn.com/b/ericlippert/archive/2007/12/04/immutability-in-c-part-two-a-simple-immutable-stack.aspx
- [3]: http://scientopia.org/blogs/goodmath/2010/01/13/zippers-making-functional-updates-efficient/
+ [1]: https://ericlippert.com/tag/immutability/
+ [2]: https://ericlippert.com/2007/12/04/immutability-in-c-part-two-a-simple-immutable-stack/
+ [3]: http://www.goodmath.org/blog/2010/01/13/zippers-making-functional-updates-efficient/
  [4]: http://blog.ezyang.com/2010/04/you-could-have-invented-zippers/
+ [fic]: https://ericlippert.com
+ [gmbm]: http://www.goodmath.org/blog/
