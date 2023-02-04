@@ -96,7 +96,7 @@ The following table presents the eight instructions.
                   </td>
 
                   <td>
-                    Test the value of the current cell. If it <em>is</em> $$0$$ then move the program ahead to the instruction immediately after the <em>matching</em> <code>]</code>. (Note the emphases on the word &#8216;matching'. Nested brackets are supported and a Brainmess program should have balanced brackets.)
+                    Test the value of the current cell. If it <em>is</em> $$0$$ then move the program ahead to the instruction immediately after the <em>matching</em> <code>]</code>. (Note the emphases on the word 'matching'. Nested brackets are supported and a Brainmess program should have balanced brackets.)
                   </td>
                 </tr>
 
@@ -109,7 +109,7 @@ The following table presents the eight instructions.
                     Test the value of the current cell. If it <em>is not</em> $$0$$ then move the program back to the matching <code>[</code> instruction.<br /> </tr> </table>
 
                     <p>
-                      And that's it! Here is a &#8216;Hello, World' program written in Brainmess. (Remember any character besides the 8 instructions can be used as a comment.
+                      And that's it! Here is a 'Hello, World' program written in Brainmess. (Remember any character besides the 8 instructions can be used as a comment.
                     </p>
 
                     <pre>

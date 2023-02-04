@@ -1,5 +1,5 @@
 ---
-title: 'Combinations Part 5 &#8211; (wrapping it up)'
+title: 'Combinations Part 5 - (wrapping it up)'
 
 layout: post
 permalink: /2014/11/01/combinations-part-5-wrapping-it-up/

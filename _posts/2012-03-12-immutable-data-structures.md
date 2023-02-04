@@ -20,7 +20,7 @@ Eric Lippert blogs at Fabulous Adventures in Coding and has a whole host of post
 
 Mark Chu-Carroll writes at "Good Math Bad Math" and has done posts on zippers and finger trees among many other structures. Here's a post on [zippers][3].
 
-And from Edward Z. Yang another perspective on [zippers][4]. I especially like the template "You could have invented &#8230;" that he employs.
+And from Edward Z. Yang another perspective on [zippers][4]. I especially like the template "You could have invented ..." that he employs.
 
  [1]: http://blogs.msdn.com/b/ericlippert/archive/tags/immutability/
  [2]: http://blogs.msdn.com/b/ericlippert/archive/2007/12/04/immutability-in-c-part-two-a-simple-immutable-stack.aspx

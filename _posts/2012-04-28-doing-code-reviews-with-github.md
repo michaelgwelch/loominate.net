@@ -28,7 +28,7 @@ My process requires that I do the following (in addition to checking that, you k
 
 (We are currently using TeamCity, but this is a new tool for me and therefore I'm not used to letting it do most of this work for me. It's currently doing continuous builds and running the units test. I'm just not used to checking it for results. Eventually, I may just check the logs to see that most of this is in place.)
 
-Of course git and GitHub allow me to do this easily. I've added a remote for each member of my team. Assuming I need a remote for a developer named &#8216;William' I just make sure that I've create a remote at some point
+Of course git and GitHub allow me to do this easily. I've added a remote for each member of my team. Assuming I need a remote for a developer named 'William' I just make sure that I've create a remote at some point
 
     $ git remote add bill https://github.com/bill/project.git
 
@@ -38,7 +38,7 @@ Then when he creates a pull request I view it on GitHub. I can see the descripti
     $ git fetch bill
 
 
-We use remote branches (rather than master) for new work. This allows team members to have more than one outstanding pull request (if necessary &#8211; perhaps they have a new task, and one or more bugs that they've fixed). So when I inspect the branches for bill I may see something like the following:
+We use remote branches (rather than master) for new work. This allows team members to have more than one outstanding pull request (if necessary&#8212;perhaps they have a new task and one or more bugs that they've fixed). So when I inspect the branches for bill I may see something like the following:
 
     $ git branch -r | grep bill
     bill/fixBug17
@@ -84,6 +84,6 @@ and now I'm looking at the code for the next code review. While the fist author 
 
 Now 5 seconds after starting this process I'm looking at the first code review again, with the latest changes.
 
-Rational Synergy requires about 5 &#8211; 20 minutes depending on the network speed, the size of the repository, the size of the code-base for this project, etc. 5 minutes versus 5 seconds!!!!!!!
+Rational Synergy requires about 5 - 20 minutes depending on the network speed, the size of the repository, the size of the code-base for this project, etc. 5 minutes versus 5 seconds!!!!!!!
 
  [1]: http://www-01.ibm.com/software/awdtools/synergy/

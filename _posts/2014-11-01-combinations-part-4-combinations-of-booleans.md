@@ -1,5 +1,5 @@
 ---
-title: 'Combinations &#8211; Part 4 (combinations of booleans)'
+title: 'Combinations - Part 4 (combinations of booleans)'
 
 layout: post
 permalink: /2014/11/01/combinations-part-4-combinations-of-booleans/

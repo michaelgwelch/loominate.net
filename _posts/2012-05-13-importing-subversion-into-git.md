@@ -34,7 +34,7 @@ mgwelch = Michael Welch <myemail@email.com>
 
 Then I cloned the cs732 directory:
 
-$ git svn clone -A users.txt &#8211;no-metadata file:///Users/welch/mysvn/cs732
+$ git svn clone -A users.txt -no-metadata file:///Users/welch/mysvn/cs732
 
 Then I changed directory to my git repository named coursework.
 

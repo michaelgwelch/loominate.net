@@ -1,5 +1,5 @@
 ---
-title: 'Combinations &#8211; Part 3 (SequenceOf extensions)'
+title: 'Combinations - Part 3 (SequenceOf extensions)'
 
 layout: post
 permalink: /2014/11/01/combinations-part-3-sequenceof-extensions/

@@ -1,5 +1,5 @@
 ---
-title: 'A Basic Compiler &#8211; A Great Refactoring Opportunity'
+title: 'Basic Compiler: A Great Refactoring Opportunity'
 
 layout: post
 permalink: /2012/03/28/a-basic-compiler-a-great-refactoring-opportunity/
@@ -22,7 +22,7 @@ The one saving grace is that there are actual tests included with the project. I
 
 So this means that I can be fairly confident in refactoring some of this code 6 years later. I hardly know where to start however. I think the best thing to do is to just dive into the `Main` method and starting performing lots of `ExtractMethod`.
 
-## Switching Topics &#8211; About BASIC Badness
+## Switching Topics: About BASIC Badness
 
 Grade school and high school gave me about 9 years of programming in BASIC. I arrived at college with years of programming experience and yet had never heard of a compiler. I recall snickering to myself about how archaic any language must be that requires a compiler (a whole separate tool) before it could be run. I couldn't fathom the purpose of such a tool. (At this time we didn't have the plethora of scripting languages that also have this great feature of my original BASIC.)
 
@@ -80,7 +80,7 @@ I didn't really understand what was meant. It had been years since I had studied
 3040 STACKVAL$ = ""
 3050 GOTO 3080
 3060 STACKVAL$ = STACK$(STACKIDX)
-3070 STACKIDX = STACKIDX &#8211; 1
+3070 STACKIDX = STACKIDX - 1
 3080 RETURN
 4000 REM
 4010 REM
@@ -94,7 +94,7 @@ Actually, this isn't nearly as bad as it was "back in the day". I turned on a li
 [VB]
 
 100 REM Checks a string for matching brackets
-101 REM &#8216;(&#8216;, &#8216;)', &#8216;[&#8216;, &#8216;]', &#8216;{&#8216;, &#8216;}'
+101 REM '(', ')', '[', ']', '{', '}'
 
 108 DIM STACK$(100)
 
@@ -142,7 +142,7 @@ Actually, this isn't nearly as bad as it was "back in the day". I turned on a li
 3040 STACKVAL$ = ""
 3050 GOTO 3080
 3060 STACKVAL$ = STACK$(STACKIDX)
-3070 STACKIDX = STACKIDX &#8211; 1
+3070 STACKIDX = STACKIDX - 1
 3080 RETURN
 
 4000 REM This routine updates STACKCOUNT with the number

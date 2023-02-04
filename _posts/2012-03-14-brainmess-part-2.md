@@ -56,7 +56,7 @@ in. That string will need to contain all of the characters necessary for the suc
 
 ## Test Cases
 
-I have three scripts that I'm going to use for testing<sup class='footnote'><a href='http://loominate.net/2012/03/14/brainmess-part-2/#fn-195-1' id='fnref-195-1' onclick='return fdfootnote_show(195)'>1</a></sup>. The first script is `hello.bm` which is a "Hello World!" program. The second script is `fibonacci.bm` and it prints out the fibonacci sequence up to 89. Finally, I have a script called `double.bm` which knows how to read in one character, treat it as a number, double it, and then output the result. So for example if the input was the character &#8216;2', the program would read it in, convert it to the number 2, double it, convert the result back to a character (in this case &#8216;4') and then output the result.
+I have three scripts that I'm going to use for testing<sup class='footnote'><a href='http://loominate.net/2012/03/14/brainmess-part-2/#fn-195-1' id='fnref-195-1' onclick='return fdfootnote_show(195)'>1</a></sup>. The first script is `hello.bm` which is a "Hello World!" program. The second script is `fibonacci.bm` and it prints out the fibonacci sequence up to 89. Finally, I have a script called `double.bm` which knows how to read in one character, treat it as a number, double it, and then output the result. So for example if the input was the character '2', the program would read it in, convert it to the number 2, double it, convert the result back to a character (in this case '4') and then output the result.
 
 Here is the Hello World test case (Note: I have an explicit dependency on the location of the script. I could remove this by embedding the program right in the test case. This is the case for each of my tests.)
 
@@ -83,7 +83,7 @@ public void RunFibonacci()
 }
 </pre>
 
-Here are the test cases for `double.bm`. The new wrinkle is the use of the `SetIn` method. On line 5 (in the first case) I set the input to contain the string "0". When the program is run, it reads in a single character doubles it and outputs the result. The second case asserts that the program reads in a &#8216;2' and writes out a &#8216;4'.
+Here are the test cases for `double.bm`. The new wrinkle is the use of the `SetIn` method. On line 5 (in the first case) I set the input to contain the string "0". When the program is run, it reads in a single character doubles it and outputs the result. The second case asserts that the program reads in a '2' and writes out a '4'.
 
 <pre class="brush: csharp; title: ; notranslate" title="">[Test]
 public void RunDoubleWith0Expect0()
@@ -104,6 +104,6 @@ public void RunDoubleWith2Expect4()
 }
 </pre>
 
-Now that we have at least some tests in place we can begin refactoring. In the next post, I'm going to address the while loops in the switch statement for the &#8216;[&#8216; and &#8216;]' instructions.
+Now that we have at least some tests in place we can begin refactoring. In the next post, I'm going to address the while loops in the switch statement for the '[' and ']' instructions.
 
 
