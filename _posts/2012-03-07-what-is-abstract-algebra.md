@@ -10,12 +10,12 @@ tags:
   - abstract algebra
   - modern algebra
 ---
-I've recently begun a study of abstract algebra (also known as modern algebra) using the text&nbsp;&nbsp;[A Book of Abstract Algebra][1] by Charles C. Pinter.
+I've recently begun a study of abstract algebra (also known as modern algebra) using the text[A Book of Abstract Algebra][1] by Charles C. Pinter.
 
  [1]: http://www.amazon.com/Book-Abstract-Algebra-Edition-Mathematics/dp/0486474178/ref=sr_1_1?ie=UTF8&qid=1330805123&sr=8-1
 <!--more-->
 
-I'll give you a brief introduction to abstract algebra by way of an example. I will write two simple proofs. The first is a proof about addition of real numbers. The second is a proof about the exclusive or operation on Boolean[^f1] values. The proofs will attempt to prove similar looking things, however, the initial proofs will look completely different from one another. Then I'll identify some common traits about the two "[algebraic structures][2]" and show you how the same proof can be applied to both problems. This is one of the things abstract algebra is about: identifying common traits between different "algebraic structures".
+I'll give you a brief introduction to abstract algebra by way of an example. I will write two simple proofs. The first is a proof about addition of real numbers. The second is a proof about the exclusive or operation on Boolean[^f1] values. The proofs will attempt to prove similar looking things, however, the initial proofs will look completely different from one another. Then I'll identify some common traits about the two "[algebraic structures][2]" and show you how the same proof can be applied to both problems. This is one of the things abstract algebra is about: identifying common traits between different algebraic structures.
 
 
 ## Addition of Reals
@@ -84,9 +84,9 @@ The inverse of any real number (except 0) with respect to multiplication is it's
 
 So let's be a little more precise. First I'll introduce some nomenclature. We use the symbol, $$ \circ$$, to stand for any operation when we aren't talking about any specific operation. The inverse of an element $$ A$$ we generically write as $$ A^{-1}$$. The identity element we generically write as $$ e$$. When choosing an inverse function and a neutral element we insist that the following holds:
 
-$$ e \circ A = A \circ e = A$$ (The identity element combined with another element results in the other element)
+- $$ e \circ A = A \circ e = A$$ (The identity element combined with another element results in the other element)
 
-$$ A \circ A^{-1} = A^{-1} \circ A = e$$ (The combination of an element and its inverse is always the identity element)
+- $$ A \circ A^{-1} = A^{-1} \circ A = e$$ (The combination of an element and its inverse is always the identity element)
 
 If you examine the truth table you'll see that the only way to fulfill these two requirements is to choose $$ e = \bot$$ and $$ A^{-1} = A$$. Let's double check.
 
