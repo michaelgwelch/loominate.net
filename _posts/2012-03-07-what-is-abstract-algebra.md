@@ -1,8 +1,9 @@
 ---
 title: What is Abstract Algebra?
-author: Michael Welch
+#author: Michael Welch
 layout: post
 permalink: /2012/03/07/what-is-abstract-algebra/
+math: true
 categories:
   - mathematics
 tags:
@@ -20,9 +21,8 @@ I'll give you a brief introduction to abstract algebra by way of an example. I w
 ## Addition of Reals
 
 Let's consider the addition operation on the set of real numbers and prove the if
-<div> $$ A + B = A + C $$ </div> then <div> $$ B = C $$ </div>. This can be accomplished in several simple steps:
+ $$ A + B = A + C $$  then  $$ B = C $$. This can be accomplished in several simple steps:
 
-<div>
 $$
 \begin{align}
 (A + B) &= (A + C) && \text{Given} \tag{1} \\
@@ -32,7 +32,6 @@ $$
 B &= C \tag{5}
 \end{align}
 $$
-</div>
 
 ## Exclusive Or
 
