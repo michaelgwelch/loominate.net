@@ -1,4 +1,13 @@
-# Fixing git Commit Signing
+---
+title: Fixing Git Commit Signing
+
+layout: post
+categories:
+  - software development
+tags:
+  - git
+  - gpg
+---
 
 Today I went to commit something to a repo and this happened:
 
