@@ -1,25 +1,29 @@
 #  The contact options.
+# NOTE TO SELF:
+# Michael you copied this file from the gem. You found it by
+# using the directions at https://github.com/cotes2020/chirpy-starter
+# which told you to do a
+# bundle info --path jekyll-theme-chirpy
 
--
-  type: github
-  icon: 'fab fa-github'
--
-#   type: twitter
-#   icon: 'fab fa-twitter'
-# -
-#   type: email
-#   icon: 'fas fa-envelope'
-#   noblank: true            # open link in current tab
-# -
+# Once the file was copied into this working directory, you commented out
+# email and twitter and uncommented out the mastodon link
+
+- type: mastodon
+  icon: "fab fa-mastodon" # icons powered by <https://fontawesome.com/>
+  url: "https://mast.mmwelch.net/@michael" # Fill with your Mastodon account page, rel="me" will be applied for verification
+- type: github
+  icon: "fab fa-github"
+- #   type: twitter
+  #   icon: 'fab fa-twitter'
+  # -
+  #   type: email
+  #   icon: 'fas fa-envelope'
+  #   noblank: true            # open link in current tab
+  # -
   type: rss
-  icon: 'fas fa-rss'
+  icon: "fas fa-rss"
   noblank: true
-
 # Uncomment and complete the url below to enable more contact options
--
-  type: mastodon
-  icon: 'fab fa-mastodon'   # icons powered by <https://fontawesome.com/>
-  url:  'https://mast.mmwelch.net/@michael'                  # Fill with your Mastodon account page, rel="me" will be applied for verification
 # -
 #   type: linkedin
 #   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
