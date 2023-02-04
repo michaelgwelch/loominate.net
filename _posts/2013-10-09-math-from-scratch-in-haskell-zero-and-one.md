@@ -1,6 +1,6 @@
 ---
 title: 'Math from scratch in Haskell: zero and one'
-author: Michael
+
 layout: post
 permalink: /2013/10/09/math-from-scratch-in-haskell-zero-and-one/
 categories:
@@ -11,7 +11,7 @@ tags:
   - software development
 excerpt: Follow along as I implement natural numbers from scratch in Haskell, using Eric Lippert's posts as a guide.
 ---
-I've been following a set of posts written by [Eric Lippert][1] where he is implementing arbitrary size Naturals and the corresponding arithmetic in C#. As I follow along I'm writing an implementation in Haskell (one that I hope is idiomatic to Haskell).  
+I've been following a set of posts written by [Eric Lippert][1] where he is implementing arbitrary size Naturals and the corresponding arithmetic in C#. As I follow along I'm writing an implementation in Haskell (one that I hope is idiomatic to Haskell).
 
 
 In [part one][2] and [part two][3] of the series he develops a representation of Naturals and exposes two public members: Zero and One. Read those two posts to understand his implementation.
@@ -21,15 +21,15 @@ Here is my implementation
 {% highlight haskell linenos %}
 module Natural (Natural, zero, one) where
 
-data Bit = ZeroBit | OneBit 
+data Bit = ZeroBit | OneBit
 
-data Natural = Zero | Nat Bit Natural 
+data Natural = Zero | Nat Bit Natural
 
 zero = Zero
 one = Nat OneBit Zero
 
--- Creates a natural number. Keeps the invariant that 
--- Naturals always end with Zero and never end with 
+-- Creates a natural number. Keeps the invariant that
+-- Naturals always end with Zero and never end with
 -- a ZeroBit followed by Zero
 createNatural :: Natural -> Bit -> Natural
 createNatural Zero ZeroBit = Zero
@@ -44,7 +44,7 @@ I define two new types: Bit and Natural. The definition of Bit is straightforwar
 
 Like Eric's implementation I use a helper function to maintain the invariant he mentions that a Natural never ends in a ZeroBit followed by a Zero.
 
-The definitions of zero and one are straightforward as well. That's it. 
+The definitions of zero and one are straightforward as well. That's it.
 
 I'll continue to add posts that follow Eric's posts. The next post will show how to implement addition.
 

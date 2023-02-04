@@ -1,6 +1,6 @@
 ---
 title: 'Brainmess: Extract Tape Class'
-author: Michael
+
 layout: post
 permalink: /2012/03/23/brainmess-extract-tape-class/
 description:

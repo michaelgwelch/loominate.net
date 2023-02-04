@@ -1,6 +1,6 @@
 ---
 title: 'Math from scratch in Haskell: addition'
-author: Michael
+
 layout: post
 permalink: /2013/10/11/math-from-scratch-in-haskell-addition/
 categories:
@@ -12,7 +12,7 @@ categories:
  [2]: http://ericlippert.com/2013/09/23/math-from-scratch-part-three/
 <!--more-->
 
-Eric did all the hard work of explaining the recursive algorithm for addition. 
+Eric did all the hard work of explaining the recursive algorithm for addition.
 
 First thing I'll need is an equality operator for Bit. I'll just derive that by adding &#8220;deriving Eq&#8221; to the Bit definition.
 

@@ -1,6 +1,6 @@
 ---
 title: My First Greasemonkey Script
-author: Michael
+
 layout: post
 permalink: /2012/03/24/my-first-greasemonkey-scripts/
 categories:
@@ -34,7 +34,7 @@ For easy install you can go to http://userscripts.org to install my script.
 
 [Link a commit to its tracker story][2]
 
-The code is stored in a gist at Github (Note, this gist may have been updated since this post was written. Click thru to see the latest):  
+The code is stored in a gist at Github (Note, this gist may have been updated since this post was written. Click thru to see the latest):
 
 
 <noscript>
@@ -98,7 +98,7 @@ Here's a screenshot of my commits in my mbasic99 project. The most recent commit
 
 <div id="attachment_324" style="width: 1025px" class="wp-caption aligncenter">
   <a href="http://www.loominate.net/wp-content/uploads/2012/03/LinkToStory.png"><img class="size-full wp-image-324" title="LinkToStory" src="http://www.loominate.net/wp-content/uploads/2012/03/LinkToStory.png" alt="Shows Pivotal Tracker icon and URL to Pivotal Tracker" width="1015" height="633" /></a>
-  
+
   <p class="wp-caption-text">
     The Pivotal Tracker icon links back to the story identified in the commit.
   </p>

@@ -1,6 +1,6 @@
 ---
 title: 'Brainmess: Extract Tape Class (Cleanup)'
-author: Michael
+
 layout: post
 permalink: /2012/03/31/brainmess-extract-tape-class-cleanup/
 categories:
@@ -25,7 +25,7 @@ and this is how it was called from the `Run` method:
 <pre class="brush: csharp; title: ; notranslate" title="">switch(instruction)
 // ... snip
 {
-case '>': 
+case '>':
     MoveForward();
     break;
 
@@ -40,27 +40,27 @@ Similar changes can be made for the other three methods so that we get this for 
 {
     private readonly int[] tape = new int[5000];
     private int tc = 2500;
-    
+
     public void MoveForward()
     {
         tc++;
     }
-    
+
     public void MoveBackward()
     {
         tc--;
     }
-    
+
     public void Increment()
     {
         tape[tc]++;
     }
-    
+
     public void Decrement()
     {
         tape[tc]--;
     }
-    
+
     public int Current
     {
         get

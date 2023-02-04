@@ -1,6 +1,6 @@
 ---
 title: Doing Code Reviews with GitHub
-author: Michael
+
 layout: post
 permalink: /2012/04/28/doing-code-reviews-with-github/
 categories:
@@ -23,7 +23,7 @@ My process requires that I do the following (in addition to checking that, you k
   * Check that the changes compile
   * Check that there are no warnings (compiler, FxCop, or ReSharper)
   * Manually inspect for &#8220;green&#8221; code files (ReSharper again)
-  * Check the unit tests pass 
+  * Check the unit tests pass
   * Run the code and do a cursory test to make sure everything still works.
 
 (We are currently using TeamCity, but this is a new tool for me and therefore I'm not used to letting it do most of this work for me. It's currently doing continuous builds and running the units test. I'm just not used to checking it for results. Eventually, I may just check the logs to see that most of this is in place.)
@@ -31,12 +31,12 @@ My process requires that I do the following (in addition to checking that, you k
 Of course git and GitHub allow me to do this easily. I've added a remote for each member of my team. Assuming I need a remote for a developer named &#8216;William' I just make sure that I've create a remote at some point
 
     $ git remote add bill https://github.com/bill/project.git
-    
+
 
 Then when he creates a pull request I view it on GitHub. I can see the description of the pull request. I can view the commits. I can view the diff for each individual commit (if there is more than one, hopefully not), or a diff of all the commits together. But in addition I can grab the changes:
 
     $ git fetch bill
-    
+
 
 We use remote branches (rather than master) for new work. This allows team members to have more than one outstanding pull request (if necessary &#8211; perhaps they have a new task, and one or more bugs that they've fixed). So when I inspect the branches for bill I may see something like the following:
 
@@ -44,7 +44,7 @@ We use remote branches (rather than master) for new work. This allows team membe
     bill/fixBug17
     bill/fixBug19
     bill/impelementFeature3
-    
+
 
 I know which branch to look at by looking at the pull request information on GitHub. Assume it is fixBug17.
 
@@ -53,8 +53,8 @@ I have several options for seeing this code. Here's what I normally do now.
 Make sure that *master* is clean and up to date. Then I do
 
     $ git checkout -b mergeFixBug17 // creates a new branch based off of the latest to merge the changes into
-    $ git merge bill/fixBug17       // merges bill's changes into my branch    
-    
+    $ git merge bill/fixBug17       // merges bill's changes into my branch
+
 
 Then I open up Visual Studio and do my inspection. How do I log issues? Well there are many ways to log issues and I'm still playing around to figure out the *best* way.
 
@@ -73,14 +73,14 @@ Oh, and did I mention this process is really fast. Most of the teams at my emplo
 I can easily swap between the branches used for multiple code reviews in 2 seconds. Let's say I've got 5 code reviews to do. I pull down all the changes and create the branches as described above. I start the first code review and add my comments. Then I simply do a
 
     $ git checkout branchForNextPullRequest
-    
+
 
 and now I'm looking at the code for the next code review. While the fist author responds to my comments I can be working on the next review. When the first author is finished fixing the code I can just do the following
 
     $ git checkout firstPullRequest // go back to the first code review
     $ git fetch bill                // fetch bill's latest code
     $ git merge bill/fixBug17       // assuming bill is still working on branch fixBug17
-    
+
 
 Now 5 seconds after starting this process I'm looking at the first code review again, with the latest changes.
 

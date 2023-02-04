@@ -1,6 +1,6 @@
 ---
 title: 'Combinations &#8211; Part 2'
-author: Michael
+
 layout: post
 permalink: /2014/11/01/combinations-part-2/
 categories:
@@ -52,7 +52,7 @@ It says that I need to define a type alias for a type that implements GeneratorT
 
 Finally we see an &#8220;element&#8221; type mentioned. The `GeneratorType` protocol defines an associated type for elements and we can see that this type is used as the return type of the `next` method.
 
-Now I didn't define any type aliases, so what is going on? Using inference the compiler can often figure out what the associated type is, even if the developer doesn't specify it. In my case the return type of my `generate` method is `GeneratorOf(T)`, and therefore the compiler knows that the associated type for my stack is `GeneratorOf(T)`. If you then look at the signature for `GeneratorOf(T)` you'll see that it has a next method that returns a `T?`. 
+Now I didn't define any type aliases, so what is going on? Using inference the compiler can often figure out what the associated type is, even if the developer doesn't specify it. In my case the return type of my `generate` method is `GeneratorOf(T)`, and therefore the compiler knows that the associated type for my stack is `GeneratorOf(T)`. If you then look at the signature for `GeneratorOf(T)` you'll see that it has a next method that returns a `T?`.
 
 <pre class="brush: swift; title: ; notranslate" title="">struct GeneratorOf<T> : GeneratorType, SequenceType {
     init(_ nextElement: () -> T?)

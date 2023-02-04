@@ -1,6 +1,6 @@
 ---
 title: What is Abstract Algebra?
-#author: Michael Welch
+
 layout: post
 permalink: /2012/03/07/what-is-abstract-algebra/
 math: true

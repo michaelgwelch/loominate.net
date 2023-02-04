@@ -1,6 +1,6 @@
 ---
 title: 'A Basic Compiler &#8211; A Great Refactoring Opportunity'
-author: Michael
+
 layout: post
 permalink: /2012/03/28/a-basic-compiler-a-great-refactoring-opportunity/
 categories:
@@ -36,119 +36,119 @@ Later in life I heard many of the famous quotes by [Edsger W. Dijkstra][2] like
 
 I didn't really understand what was meant. It had been years since I had studied/used BASIC but couldn't recall it being bad. Well, when I started the compiler project that is the topic of this post I got to become reacquainted with BASIC and see it in a fresh light. It is truly frightening and I wonder how I ever got any program to work. Here is just one small example program (no indentation, no &#8220;structure&#8221;, no white space, no symbolic names for objects or methods to help explain what is going on):
 
-[VB]  
-100 REM  
-101 REM  
-108 DIM STACK$(100)  
-109 REM  
-110 GOSUB 1000  
-130 INPUT &#8220;String: &#8220;:STRING$  
-140 FOR I = 1 TO LEN(STRING$)  
-150 CHAR$ = SEG$(STRING$, I, 1)  
-151 STACKVAL$ = CHAR$  
-155 LEFTBRACKET = (CHAR$=&#8221;(&#8220;) + (CHAR$=&#8221;[&#8220;) + (CHAR$=&#8221;{&#8220;)  
-156 RIGHTBRACKET = (CHAR$=&#8221;)&#8221;) + (CHAR$=&#8221;]&#8221;) + (CHAR$=&#8221;}&#8221;)  
-160 IF LEFTBRACKET THEN 180  
-170 IF RIGHTBRACKET THEN 190  
-175 GOTO 250  
-180 GOSUB 2000  
-185 GOTO 250  
-190 GOSUB 3000  
-195 MATCH = ((STACKVAL$=&#8221;(&#8220;)\*(CHAR$=&#8221;)&#8221;) + (STACKVAL$=&#8221;[&#8220;)\*(CHAR$=&#8221;]&#8221;) + (STACKVAL$=&#8221;{&#8220;)*(CHAR$=&#8221;}&#8221;))  
-200 IF MATCH=0 THEN 300  
-250 NEXT I  
-260 GOSUB 4000  
-270 IF STACKCOUNT<>0 THEN 300  
-280 PRINT &#8220;Match&#8221;  
-290 GOTO 301  
-300 PRINT &#8220;No match detected at pos &#8220;&STR$(I)  
-301 INPUT &#8220;Another String (Y or N): &#8220;:AGAIN$  
-302 IF (AGAIN$=&#8221;Y&#8221;) THEN 110  
-310 END  
-999 REM  
-1000 STACKIDX = -1  
-1010 STACKVAL$ = &#8220;&#8221;  
-1020 RETURN  
-1999 REM  
-2000 STACKIDX = STACKIDX + 1  
-2010 STACK$(STACKIDX) = STACKVAL$  
-2020 RETURN  
-3000 REM  
-3010 REM  
-3020 REM  
-3030 IF (STACKIDX > -1) THEN 3060  
-3040 STACKVAL$ = &#8220;&#8221;  
-3050 GOTO 3080  
-3060 STACKVAL$ = STACK$(STACKIDX)  
-3070 STACKIDX = STACKIDX &#8211; 1  
-3080 RETURN  
-4000 REM  
-4010 REM  
-4020 REM  
-4030 STACKCOUNT = STACKIDX + 1  
-4040 RETURN  
+[VB]
+100 REM
+101 REM
+108 DIM STACK$(100)
+109 REM
+110 GOSUB 1000
+130 INPUT &#8220;String: &#8220;:STRING$
+140 FOR I = 1 TO LEN(STRING$)
+150 CHAR$ = SEG$(STRING$, I, 1)
+151 STACKVAL$ = CHAR$
+155 LEFTBRACKET = (CHAR$=&#8221;(&#8220;) + (CHAR$=&#8221;[&#8220;) + (CHAR$=&#8221;{&#8220;)
+156 RIGHTBRACKET = (CHAR$=&#8221;)&#8221;) + (CHAR$=&#8221;]&#8221;) + (CHAR$=&#8221;}&#8221;)
+160 IF LEFTBRACKET THEN 180
+170 IF RIGHTBRACKET THEN 190
+175 GOTO 250
+180 GOSUB 2000
+185 GOTO 250
+190 GOSUB 3000
+195 MATCH = ((STACKVAL$=&#8221;(&#8220;)\*(CHAR$=&#8221;)&#8221;) + (STACKVAL$=&#8221;[&#8220;)\*(CHAR$=&#8221;]&#8221;) + (STACKVAL$=&#8221;{&#8220;)*(CHAR$=&#8221;}&#8221;))
+200 IF MATCH=0 THEN 300
+250 NEXT I
+260 GOSUB 4000
+270 IF STACKCOUNT<>0 THEN 300
+280 PRINT &#8220;Match&#8221;
+290 GOTO 301
+300 PRINT &#8220;No match detected at pos &#8220;&STR$(I)
+301 INPUT &#8220;Another String (Y or N): &#8220;:AGAIN$
+302 IF (AGAIN$=&#8221;Y&#8221;) THEN 110
+310 END
+999 REM
+1000 STACKIDX = -1
+1010 STACKVAL$ = &#8220;&#8221;
+1020 RETURN
+1999 REM
+2000 STACKIDX = STACKIDX + 1
+2010 STACK$(STACKIDX) = STACKVAL$
+2020 RETURN
+3000 REM
+3010 REM
+3020 REM
+3030 IF (STACKIDX > -1) THEN 3060
+3040 STACKVAL$ = &#8220;&#8221;
+3050 GOTO 3080
+3060 STACKVAL$ = STACK$(STACKIDX)
+3070 STACKIDX = STACKIDX &#8211; 1
+3080 RETURN
+4000 REM
+4010 REM
+4020 REM
+4030 STACKCOUNT = STACKIDX + 1
+4040 RETURN
 [/VB]
 
 Actually, this isn't nearly as bad as it was &#8220;back in the day&#8221;. I turned on a little syntax highlighting. Also, before I copied this code I removed the REMARKS and just left placeholders for where they should go. Also, I actually did try to structure this program. Try to see if you can figure out what it is doing and then look at this version with remarks and a little white space.
 
 [VB]
 
-100 REM Checks a string for matching brackets  
+100 REM Checks a string for matching brackets
 101 REM &#8216;(&#8216;, &#8216;)', &#8216;[&#8216;, &#8216;]', &#8216;{&#8216;, &#8216;}'
 
 108 DIM STACK$(100)
 
-109 REM Initialize Stack  
-110 GOSUB 1000  
+109 REM Initialize Stack
+110 GOSUB 1000
 130 INPUT &#8220;String: &#8220;:STRING$
 
-140 FOR I = 1 TO LEN(STRING$)  
-150 CHAR$ = SEG$(STRING$, I, 1)  
-151 STACKVAL$ = CHAR$  
-155 LEFTBRACKET = (CHAR$=&#8221;(&#8220;) + (CHAR$=&#8221;[&#8220;) + (CHAR$=&#8221;{&#8220;)  
-156 RIGHTBRACKET = (CHAR$=&#8221;)&#8221;) + (CHAR$=&#8221;]&#8221;) + (CHAR$=&#8221;}&#8221;)  
-160 IF LEFTBRACKET THEN 180  
-170 IF RIGHTBRACKET THEN 190  
-175 GOTO 250  
-180 GOSUB 2000  
-185 GOTO 250  
-190 GOSUB 3000  
-195 MATCH = ((STACKVAL$=&#8221;(&#8220;)\*(CHAR$=&#8221;)&#8221;) + (STACKVAL$=&#8221;[&#8220;)\*(CHAR$=&#8221;]&#8221;) + (STACKVAL$=&#8221;{&#8220;)*(CHAR$=&#8221;}&#8221;))  
-200 IF MATCH=0 THEN 300  
-250 NEXT I  
-260 GOSUB 4000  
-270 IF STACKCOUNT<>0 THEN 300  
-280 PRINT &#8220;Match&#8221;  
-290 GOTO 301  
-300 PRINT &#8220;No match detected at pos &#8220;&STR$(I)  
-301 INPUT &#8220;Another String (Y or N): &#8220;:AGAIN$  
-302 IF (AGAIN$=&#8221;Y&#8221;) THEN 110  
+140 FOR I = 1 TO LEN(STRING$)
+150 CHAR$ = SEG$(STRING$, I, 1)
+151 STACKVAL$ = CHAR$
+155 LEFTBRACKET = (CHAR$=&#8221;(&#8220;) + (CHAR$=&#8221;[&#8220;) + (CHAR$=&#8221;{&#8220;)
+156 RIGHTBRACKET = (CHAR$=&#8221;)&#8221;) + (CHAR$=&#8221;]&#8221;) + (CHAR$=&#8221;}&#8221;)
+160 IF LEFTBRACKET THEN 180
+170 IF RIGHTBRACKET THEN 190
+175 GOTO 250
+180 GOSUB 2000
+185 GOTO 250
+190 GOSUB 3000
+195 MATCH = ((STACKVAL$=&#8221;(&#8220;)\*(CHAR$=&#8221;)&#8221;) + (STACKVAL$=&#8221;[&#8220;)\*(CHAR$=&#8221;]&#8221;) + (STACKVAL$=&#8221;{&#8220;)*(CHAR$=&#8221;}&#8221;))
+200 IF MATCH=0 THEN 300
+250 NEXT I
+260 GOSUB 4000
+270 IF STACKCOUNT<>0 THEN 300
+280 PRINT &#8220;Match&#8221;
+290 GOTO 301
+300 PRINT &#8220;No match detected at pos &#8220;&STR$(I)
+301 INPUT &#8220;Another String (Y or N): &#8220;:AGAIN$
+302 IF (AGAIN$=&#8221;Y&#8221;) THEN 110
 310 END
 
-999 REM SUBROUTINE 1000 Initializes the stack to be empty  
-1000 STACKIDX = -1  
-1010 STACKVAL$ = &#8220;&#8221;  
+999 REM SUBROUTINE 1000 Initializes the stack to be empty
+1000 STACKIDX = -1
+1010 STACKVAL$ = &#8220;&#8221;
 1020 RETURN
 
-1999 REM This subroutine pushes STACKVAL$ onto stack  
-2000 STACKIDX = STACKIDX + 1  
-2010 STACK$(STACKIDX) = STACKVAL$  
+1999 REM This subroutine pushes STACKVAL$ onto stack
+2000 STACKIDX = STACKIDX + 1
+2010 STACK$(STACKIDX) = STACKVAL$
 2020 RETURN
 
-3000 REM This subroutine pops a value off of the stack  
-3010 REM and puts it into variable STACKVAL$. If the  
-3020 REM stack is empty then STACKVAL$ will get the empty string  
-3030 IF (STACKIDX > -1) THEN 3060  
-3040 STACKVAL$ = &#8220;&#8221;  
-3050 GOTO 3080  
-3060 STACKVAL$ = STACK$(STACKIDX)  
-3070 STACKIDX = STACKIDX &#8211; 1  
+3000 REM This subroutine pops a value off of the stack
+3010 REM and puts it into variable STACKVAL$. If the
+3020 REM stack is empty then STACKVAL$ will get the empty string
+3030 IF (STACKIDX > -1) THEN 3060
+3040 STACKVAL$ = &#8220;&#8221;
+3050 GOTO 3080
+3060 STACKVAL$ = STACK$(STACKIDX)
+3070 STACKIDX = STACKIDX &#8211; 1
 3080 RETURN
 
-4000 REM This routine updates STACKCOUNT with the number  
-4010 REM of items in the STACK. STACKCOUNT is only reliable  
-4020 REM if this subroutine is called before inspecting it.  
-4030 STACKCOUNT = STACKIDX + 1  
+4000 REM This routine updates STACKCOUNT with the number
+4010 REM of items in the STACK. STACKCOUNT is only reliable
+4020 REM if this subroutine is called before inspecting it.
+4030 STACKCOUNT = STACKIDX + 1
 4040 RETURN
 
 [/VB]

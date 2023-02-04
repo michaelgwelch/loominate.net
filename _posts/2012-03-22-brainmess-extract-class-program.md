@@ -1,6 +1,6 @@
 ---
 title: 'Brainmess: Extract Class Program'
-author: Michael
+
 layout: post
 permalink: /2012/03/22/brainmess-extract-class-program/
 description:
@@ -35,19 +35,19 @@ So I created a constructor and converted them to instance variables. I left Main
     private int pc = 0;
     private readonly int[] tape = new int[5000];
     private int tc = 2500;
-    public Brainmess(string program) 
+    public Brainmess(string program)
     {
         this.program = program;
     }
-    
+
     public static void Main(string[] args)
-    {       
+    {
         var reader = File.OpenText(args[0]);
         new Brainmess(reader.ReadToEnd()).Run();
         reader.Close();
     }
-    
-    public void Run() 
+
+    public void Run()
     {
         while(pc < program.Length)
         {
@@ -55,7 +55,7 @@ So I created a constructor and converted them to instance variables. I left Main
             pc++;
             switch(instruction)
             {
-            case '>': 
+            case '>':
                 tc++;
                 break;
             case '<':
@@ -125,14 +125,14 @@ bool EndOfProgram
 
 And this is the new Run method:
 
-<pre class="brush: csharp; title: ; notranslate" title="">public void Run() 
+<pre class="brush: csharp; title: ; notranslate" title="">public void Run()
 {
     while(!EndOfProgram)
     {
         char instruction = Fetch();
         switch(instruction)
         {
-        case '>': 
+        case '>':
             tc++;
             break;
         case '<':
@@ -181,13 +181,13 @@ namespace BrainmessShort
     {
         private readonly string program;
         private int pc;
-        
+
         public Program(string program)
         {
             this.program = program;
             pc = 0;
         }
-        
+
         public bool EndOfProgram
         {
             get
@@ -195,7 +195,7 @@ namespace BrainmessShort
                 return pc >= program.Length;
             }
         }
-        
+
         public char Fetch()
         {
             var instruction = program[pc];
@@ -226,29 +226,29 @@ namespace BrainmessShort
    public class Brainmess
    {
         private readonly Program _program;
-        
+
         private readonly int[] tape = new int[5000];
         private int tc = 2500;
-        public Brainmess(string programString) 
+        public Brainmess(string programString)
         {
             _program = new Program(programString);
         }
-        
+
         public static void Main(string[] args)
-        {       
+        {
             var reader = File.OpenText(args[0]);
             new Brainmess(reader.ReadToEnd()).Run();
             reader.Close();
         }
-        
-        public void Run() 
+
+        public void Run()
         {
             while(!_program.EndOfProgram)
             {
                 char instruction = _program.Fetch();
                 switch(instruction)
                 {
-                case '>': 
+                case '>':
                     tc++;
                     break;
                 case '<':
@@ -318,8 +318,8 @@ namespace BrainmessShort
     {
         // White box testing. Each method only needs one test because there are no alternative paths.
         // The "hard" testing is done for StringExtensions.FindMatch
-        
-        
+
+
         [Test]
         public void JumpForward()
         {

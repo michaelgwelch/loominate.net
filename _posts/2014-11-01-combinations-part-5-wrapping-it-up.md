@@ -1,6 +1,6 @@
 ---
 title: 'Combinations Part 5 &#8211; (wrapping it up)'
-author: Michael
+
 layout: post
 permalink: /2014/11/01/combinations-part-5-wrapping-it-up/
 categories:
@@ -22,7 +22,7 @@ First I'll create a zipWhere method like he did.
 
 {% highlight swift %}
 extension SequenceOf {
-    func zipWhere<S:SequenceType where S.Generator.Element == Bool>(bools:S) 
+    func zipWhere<S:SequenceType where S.Generator.Element == Bool>(bools:S)
       -> SequenceOf<T> {
 
         return SequenceOf { () -> GeneratorOf<T> in
@@ -38,7 +38,7 @@ extension SequenceOf {
                         next = generator.next()
                     }
                 }
-                
+
                 return nil
             }
         }

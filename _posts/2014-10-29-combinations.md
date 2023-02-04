@@ -1,6 +1,6 @@
 ---
 title: 'Combinations &#8211 Part 1'
-author: Michael
+
 layout: post
 permalink: /2014/10/29/combinations/
 categories:
@@ -15,12 +15,12 @@ I've had a difficult time trying to understand the collections in the Swift prog
 
 I'm going to start with defining Stacks like he does.
 
-Right off the bat we run into problems. Swift doesn't have abstract classes, nor does it support nested generic classes. So I did away with the abstract class and made the parent class ImmutableStack play the role of EmptyStack. 
+Right off the bat we run into problems. Swift doesn't have abstract classes, nor does it support nested generic classes. So I did away with the abstract class and made the parent class ImmutableStack play the role of EmptyStack.
 
 It's not that big of a deal that nested classes aren't supported. I can mark the subclass private or leave it module scope. It accomplishes the same thing as consumers of this stack will not know of its existence.
 
-UPDATE 11/17/2014  
-I just was reminded that I don't need semicolons everywhere. 
+UPDATE 11/17/2014
+I just was reminded that I don't need semicolons everywhere.
 
 {% highlight  swift linenos %}
 

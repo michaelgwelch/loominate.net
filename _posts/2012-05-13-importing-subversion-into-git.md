@@ -1,6 +1,6 @@
 ---
 title: Importing Subversion Into Git
-author: Michael
+
 layout: post
 permalink: /2012/05/13/importing-subversion-into-git/
 categories:
@@ -20,7 +20,7 @@ The following will return me a list of directories like
 
 ```shell
 $ svn list file:///Users/welch/mysvn
-cs732/  
+cs732/
 cs838/
 ```
 
@@ -48,11 +48,11 @@ $ git fetch cs732remote
 
 And then rebased it onto master and merged
 
-$ git checkout -b cs732 cs732remote/master  
-$ git rebase master  
-$ git checkout master  
-$ git merge cs732  
-$ git push 
+$ git checkout -b cs732 cs732remote/master
+$ git rebase master
+$ git checkout master
+$ git merge cs732
+$ git push
 
 At which point all of the commits from the old repositories were added to master. (In hindsight it would have made more sense to rebase in the other direction so that all of the old commits from cs732 came before all of the new commits that were already in my coursework repository.)
 

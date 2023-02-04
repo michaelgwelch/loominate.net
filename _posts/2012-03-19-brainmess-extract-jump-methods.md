@@ -1,6 +1,6 @@
 ---
 title: 'Brainmess: Extract Jump Methods'
-author: Michael
+
 layout: post
 permalink: /2012/03/19/brainmess-extract-jump-methods/
 description:
@@ -87,9 +87,9 @@ private static int JumpBackward(string program, int pc)
 
 You can see the change I made (and the full files) by visiting my GitHub repository and viewing commit [4b15b4ca][4]. After I made these changes, I ran my tests and found that they still passed.
 
-Now, I'm not totally satisfied with the new methods. The first problem I want to address is that the two methods look almost identical. The main differences between the two is whether we increment or decrement a variable. 
+Now, I'm not totally satisfied with the new methods. The first problem I want to address is that the two methods look almost identical. The main differences between the two is whether we increment or decrement a variable.
 
-The second problem has to do with the `pc -= 2` in the `JumpBackward` method. What is going on there? And why is the `nestLevel` initialized to 1 in both cases? 
+The second problem has to do with the `pc -= 2` in the `JumpBackward` method. What is going on there? And why is the `nestLevel` initialized to 1 in both cases?
 
 In the `Run` method we always increment the `pc` variable before executing the instruction. Therefore, when we go to execute the jump instructions the `pc` variable is pointing to the instruction immediately after the jump instruction. In the case of `JumpForward` this means that the `nestLevel` is indeed 1. We are nested one level deep relative to the current jump instruction. In the case of the `JumpBackward` we are in the same position, but only if we back up two instructions.
 
@@ -199,7 +199,7 @@ namespace BrainmessShort
 }
 </pre>
 
-You can see that there is one public version of `FindMatch` that determines the value  
+You can see that there is one public version of `FindMatch` that determines the value
 of increment and then delegates to the private one. All the code for this change can be found at commit [abe37577][5].
 
 Finally, I reran all my tests and they passed.

@@ -1,6 +1,6 @@
 ---
 title: Abstract Algebra is Refactoring
-author: Michael
+
 layout: post
 permalink: /2012/03/10/abstract-algebra-is-refactoring/
 categories:

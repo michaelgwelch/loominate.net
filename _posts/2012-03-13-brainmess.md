@@ -1,6 +1,6 @@
 ---
 title: Brainmess
-author: Michael
+
 layout: post
 permalink: /2012/03/13/brainmess/
 keywords:
@@ -27,7 +27,7 @@ I've sanitized the name and used it as the basis of a simple programming assignm
 
 I've run study groups on &#8220;clean code&#8221;, refactoring and unit testing. In each of these groups, it's useful to have some programming assignment as a basis for learning the topic. I ask developers to write an interpreter for Brainmess programs. It's a rather simple program to write. It takes most developers just a few hours (or less) to complete. But I ask them to think about how they would test it. I ask them to think about maintainability/readability.
 
-I've actually implemented the Brainmess interpreter many different ways in 4 different languages so far (Java, C#, Haskell, and C). I try different things so that I can consider the questions of readability and testability. 
+I've actually implemented the Brainmess interpreter many different ways in 4 different languages so far (Java, C#, Haskell, and C). I try different things so that I can consider the questions of readability and testability.
 
 In this post I'll present the quick and dirty all in one method implementation and in future posts I'll discuss refactoring, readability and testability.
 
@@ -44,13 +44,13 @@ namespace BrainmessShort
    public class Brainmess
    {
         public static void Main(string[] args)
-        {       
+        {
             var reader = File.OpenText(args[0]);
             Run(reader.ReadToEnd());
             reader.Close();
         }
-        
-        public static void Run(string program) 
+
+        public static void Run(string program)
         {
             int pc = 0;
             int[] tape = new int[5000];
@@ -62,7 +62,7 @@ namespace BrainmessShort
                 pc++;
                 switch(instruction)
                 {
-                case '>': 
+                case '>':
                     tc++;
                     break;
                 case '<':
@@ -117,13 +117,13 @@ namespace BrainmessShort
 
 So I've run a couple of Brainmess scripts thru this interpreter and it seems to work. So what (if anything) is wrong with this implementation? In some sense there is nothing wrong with it. It works and if you take some time to review it, it's not to hard to understand.
 
-In another sense there is a lot wrong with it. 
+In another sense there is a lot wrong with it.
 
-**It doesn't convey any design.** What do I mean by that? It's not obvious what the different components of the solution are. There are at least 4 components that I normally call out in a more verbose solution: Tape, Program, Input, Output. They are all in this solution, but they are all thrown together and their relationships (if any) to one another are not clear. 
+**It doesn't convey any design.** What do I mean by that? It's not obvious what the different components of the solution are. There are at least 4 components that I normally call out in a more verbose solution: Tape, Program, Input, Output. They are all in this solution, but they are all thrown together and their relationships (if any) to one another are not clear.
 
-Related to this we have &#8220;data clumps&#8221;. The `tape` and `tc` variables are always used together. But they are never used with other variables. Same with `program` and `pc`. (Hint: It's almost as if they should be their own objects). 
+Related to this we have &#8220;data clumps&#8221;. The `tape` and `tc` variables are always used together. But they are never used with other variables. Same with `program` and `pc`. (Hint: It's almost as if they should be their own objects).
 
-**Not unit testable.** How do you test this? Well, you can do like I did and run some scripts thru it. I actually did pretty good. I wrote this version from scratch with only one defect in it (as far as I know &#8211; since it's not unit testable). The problem with running scripts is that they may not exercise every scenario. For example, can I guarantee that after a &#8220;Test and Jump Backward&#8221; instruction that the program counter is currently pointing at the matching &#8216;[&#8216; character? Can I guarantee that nested loops work correctly? 
+**Not unit testable.** How do you test this? Well, you can do like I did and run some scripts thru it. I actually did pretty good. I wrote this version from scratch with only one defect in it (as far as I know &#8211; since it's not unit testable). The problem with running scripts is that they may not exercise every scenario. For example, can I guarantee that after a &#8220;Test and Jump Backward&#8221; instruction that the program counter is currently pointing at the matching &#8216;[&#8216; character? Can I guarantee that nested loops work correctly?
 
 What we often want to do is test the individual components in a controlled environment with a series of automated unit tests. There are several issues when it comes time to try to write unit tests for this. As stated before the components are not isolated. The are all linked together and there are no &#8220;access points&#8221;. In addition, this program is hard-coded to the console for I/O so we can't even control the unit test environment without manually watching the tests run.
 

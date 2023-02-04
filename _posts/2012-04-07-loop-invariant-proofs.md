@@ -1,6 +1,6 @@
 ---
 title: Loop Invariant Proofs
-author: Michael
+
 layout: post
 permalink: /2012/04/07/loop-invariant-proofs/
 keywords:
@@ -73,7 +73,7 @@ The real work is done in the private `FindMatch` method. Starting with the speci
 
 As we move to the right, as we encounter &#8216;[&#8216; characters the nestLevel increases and as we encounter &#8216;]' characters the nestLevel decreases. When the nestLevel hits 0 we know we have moved past the matching &#8216;] character. Conversely, if need to move to the left, each &#8216;]' character increases the nest level and each &#8216;[&#8216; character decreases the nest level.
 
-**The Invariant**  
+**The Invariant**
 The invariant in our algorithm is that the `nestLevel` variables always tells us how many levels deep we are nested within matching brackets (relative to the starting bracket). So if `nestLevel == 2` then we are nested within two levels of matching brackets.
 
 For example, assume we have the following string
@@ -85,15 +85,15 @@ For example, assume we have the following string
 
 And assume we call `FindMatch` with an index of 3. The public method will determine that we need to search right with an `increment=1` and will call the private `FindMatch`. This method will move the index to 4 and set the `nestLevel` equal to 1. This means we are 1 level deep relative to the bracket at index 3. Note if we look at the entire string we can see that at index 4 we are actually nested 2 levels deep because there is an opening bracket at position 0 and position 3. We don't care about the nesting level globally. Just relative to the starting bracket.
 
-**Initialization**  
+**Initialization**
 In the first two lines of the private `FindMatch` method we move the index 1 position (either forward or backward depending on the value of `increment`). This means that we are nested within one pair of matching brackets. (relative to the starting bracket). So we know that the invariant is true before the first iteration and after initialization is complete.
 
-**Maintenance**  
+**Maintenance**
 Assuming that the `nestLevel` is correct at the beginning of an iteration we want to show that it is correct at the end of an iteration. This will tell us that we are properly maintaining the invariant.
 
 In this algorithm we examine the character pointed to by the current index value, examine it to see what to do with the nestLevel, and then increment the index. We increment the nest level if we encounter a new `[` character and we decrement the nest level if we encounter a new `]` character. In this way we guarantee that `nestLevel` always reflects the nesting level relative to the starting bracket.
 
-**Termination**  
+**Termination**
 Now we have to prove that the loop eventually terminates. For this algorithm it is trivial. On every iteration of the loop we modify the index by 1 (if we are searching forward) or -1 (if we are searching backward). Assuming that the brackets are matched properly then we will eventually find the match and the nestLevel will equal 0 and we terminate.
 
 Notice I said, *if the brackets are matched*. Even if the brackets aren't matched we are guaranteed to terminate. Eventually we'll get an index out of bounds exception which will terminate the algorithm. But the point is, the algorithm will terminate and return the right result if the inputs are good. So it's important that we state a pre-condition of our method is that the brackets must be matched. It doesn't really make sense to ask for the matching bracket if we aren't even sure there is a matching bracket.

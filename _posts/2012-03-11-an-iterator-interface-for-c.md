@@ -1,6 +1,6 @@
 ---
 title: 'An Iterator Interface for C#'
-author: Michael
+
 layout: post
 permalink: /2012/03/11/an-iterator-interface-for-c/
 categories:

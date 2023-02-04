@@ -1,6 +1,6 @@
 ---
 title: Is Apple Going To Pay?
-author: Michael
+
 layout: post
 permalink: /2012/03/19/is-apple-going-to-pay/
 categories:

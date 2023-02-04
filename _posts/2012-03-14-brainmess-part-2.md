@@ -1,6 +1,6 @@
 ---
 title: 'Brainmess: Part 2'
-author: Michael
+
 layout: post
 permalink: /2012/03/14/brainmess-part-2/
 keywords:
@@ -15,7 +15,7 @@ tags:
 In my last [post][1] I introduced you to Brainmess and presented an &#8220;all-in-one&#8221; implementation of an interpreter for it. In this post I'm going to begin the process of refactoring to address some of the concerns I had in the initial implementation.
 
  [1]: http://www.loominate.net/2012/03/13/brainmess/ "Brainmess Part 1"
- 
+
 <!--more-->
 
 # First Things First! Get Some Tests In Place
@@ -24,7 +24,7 @@ Last time I stated that we couldn't write any automated tests for this program. 
 
 As I mentioned last time I have a handful of Brainmess scripts that I manually run to check to see if the interpreter is working. I'm going to use the NUnit framework to allow me to write some automated tests. (You could also write some bash scripts or &#8220;DOS&#8221; scripts as well.) What allows me to use NUnit is the fact that the `System.Console` class has methods that allows me to redirect standard input and standard output.
 
-So here is my plan for my automated tests. In each test that just does output, I'm going to  
+So here is my plan for my automated tests. In each test that just does output, I'm going to
 redirect the output to a `TextWriter` that writes to a `StringBuilder`. Then when the program is done running (and I know what the program is supposed to do), I assert that the string produced by the `StringBuilder` matches what was expected.
 
 For programs that also require input, I'll use a similar trick to specify the data that should be passed into standard input. Then I can assert what the output should be based on the input.
@@ -44,8 +44,8 @@ I can redirect the standard output with the following method that redirects the 
 
 ## Redirecting Input
 
-I can redirect the standard input with the following method that allows me to pass a string  
-in. That string will need to contain all of the characters necessary for the successful completion of whatever program I'm running. I then wrap that string in a `StringReader` (line 3) which I can then pass to the `SetIn` method on line 4. 
+I can redirect the standard input with the following method that allows me to pass a string
+in. That string will need to contain all of the characters necessary for the successful completion of whatever program I'm running. I then wrap that string in a `StringReader` (line 3) which I can then pass to the `SetIn` method on line 4.
 
 <pre class="brush: csharp; title: ; notranslate" title="">private static void SetInput(string input)
 {
@@ -78,7 +78,7 @@ public void RunFibonacci()
 {
     var builder = RedirectOutput();
     Brainmess.Main(new[] {"../../../../scripts/fibonacci.bm"});
-    Assert.AreEqual("1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89", 
+    Assert.AreEqual("1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89",
         builder.ToString());
 }
 </pre>

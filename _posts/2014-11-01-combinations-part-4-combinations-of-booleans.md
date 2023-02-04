@@ -1,6 +1,6 @@
 ---
 title: 'Combinations &#8211; Part 4 (combinations of booleans)'
-author: Michael
+
 layout: post
 permalink: /2014/11/01/combinations-part-4-combinations-of-booleans/
 categories:
@@ -24,7 +24,7 @@ func combinations(n:UInt, k:UInt) -> SequenceOf<BoolStack> {
 
 I'm going to use a type alias to reduce slightly the amount of typing I need to do to get an ImmutableStack<Bool>. Next I'm going to define some variables for sequences that will be used in base cases of our recursion. The first is a singleton sequence that contains one empty boolean stack. The second is a completely empty sequence.
 
-I changed the signature slightly to take UInts rather than Ints. This just reduces one error case I need to check for. We are going to return a sequence of boolean stacks. 
+I changed the signature slightly to take UInts rather than Ints. This just reduces one error case I need to check for. We are going to return a sequence of boolean stacks.
 
 I'm going to follow the exact same algorithm, so I have the first two simple base cases.
 
@@ -39,10 +39,10 @@ if (n < k) {
 
 Note that we don't have a yield statement so we need to return a &#8220;full sequence&#8221;.
 
-Now the base cases are done. Like Eric we have two cases left to handle. The first are the cases where we are going to enumerate the combinations(n-1,k-1) and push a true on to them. 
+Now the base cases are done. Like Eric we have two cases left to handle. The first are the cases where we are going to enumerate the combinations(n-1,k-1) and push a true on to them.
 
-<pre class="brush: swift; title: ; notranslate" title="">let seq1 = (k>0) 
-        ? SequenceOf(lazy(combinations(n-1, k-1)).map({$0.push(true)})) 
+<pre class="brush: swift; title: ; notranslate" title="">let seq1 = (k>0)
+        ? SequenceOf(lazy(combinations(n-1, k-1)).map({$0.push(true)}))
         : emptySequenceOfBoolStack;
 </pre>
 
@@ -81,7 +81,7 @@ Again, note that are code is a little more difficult because we can't take advan
 
 That's it for this function.
 
-Here is is with the built-in lazy functions 
+Here is is with the built-in lazy functions
 
 <pre class="brush: swift; title: ; notranslate" title="">func combinations(n:UInt, k:UInt) -> SequenceOf<BoolStack> {
     if (k == 0 && n == 0) {
@@ -92,8 +92,8 @@ Here is is with the built-in lazy functions
         return emptySequenceOfBoolStack;
     }
 
-    let seq1 = (k>0) 
-        ? SequenceOf(lazy(combinations(n-1, k-1)).map({$0.push(true)})) 
+    let seq1 = (k>0)
+        ? SequenceOf(lazy(combinations(n-1, k-1)).map({$0.push(true)}))
         : emptySequenceOfBoolStack;
     return seq1.extend(
         SequenceOf(lazy(combinations(n-1, k)).map({$0.push(false)})));

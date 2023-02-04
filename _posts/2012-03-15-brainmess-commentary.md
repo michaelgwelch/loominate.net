@@ -1,6 +1,6 @@
 ---
 title: 'Brainmess: Commentary'
-author: Michael
+
 layout: post
 permalink: /2012/03/15/brainmess-commentary/
 keywords:

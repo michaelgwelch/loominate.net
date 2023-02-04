@@ -1,6 +1,6 @@
 ---
 title: Haack on ASP.NET MVC Open Source News
-author: Michael
+
 layout: post
 permalink: /2012/03/28/haack-on-asp-net-mvc-open-source-news/
 categories:

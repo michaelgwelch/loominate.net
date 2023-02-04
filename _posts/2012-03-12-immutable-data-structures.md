@@ -1,6 +1,6 @@
 ---
 title: Immutable Data Structures
-author: Michael
+
 layout: post
 permalink: /2012/03/12/immutable-data-structures/
 categories:

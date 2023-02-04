@@ -1,12 +1,12 @@
 ---
 title: Apple Story Retractions
-author: Michael
+
 layout: post
 permalink: /2012/03/16/retractions-about-apple-story/
 categories:
   - Apple
 ---
-Rob Schmitz reporting for Marketplace catches Mike Daisey in flat out lies about what he saw during his visit to China. Daisey claims it was theater not journalism. Seems he should have thought of that before going on dozens of television programs to lie about what he saw. Listen to the Marketplace piece [here][1]. 
+Rob Schmitz reporting for Marketplace catches Mike Daisey in flat out lies about what he saw during his visit to China. Daisey claims it was theater not journalism. Seems he should have thought of that before going on dozens of television programs to lie about what he saw. Listen to the Marketplace piece [here][1].
 
  [1]: http://www.marketplace.org/topics/life/ieconomy/acclaimed-apple-critic-made-details "Schmitz busts Daisey"
 <!--more-->
