@@ -1,0 +1,64 @@
+<!--
+ Post sharing snippet
+-->
+
+<script>
+
+// TODO: Consider using this library
+// instead: https://github.com/Aly-ve/Mastodon-share-button
+/* Generate a share link for the user's Mastodon domain */
+function MastodonShare(e){
+
+// Get the source text
+title = e.attributes["data-title"].nodeValue;
+url = e.attributes["data-url"].nodeValue;
+
+// Get the Mastodon domain
+domain = prompt("Enter your Mastodon domain", "mastodon.social");
+
+if (domain == "" || domain == null){
+    return;
+}
+
+// Build the URL
+url = "https://" + domain + "/share?text=" + title + "&url=" + url;
+
+// Open a window on the share page
+window.open(url, '_blank');
+}
+</script>
+
+<div class="share-wrapper">
+    <span class="share-label text-muted mr-1">{{ site.data.locales[site.lang].post.share }}</span>
+    <span class="share-icons">
+      {% capture title %}{{ page.title }} - {{ site.title }}{% endcapture %}
+      {% assign title = title | uri_escape %}
+      {% assign url = page.url | absolute_url | url_encode %}
+
+      <a onClick="MastodonShare(this);"
+        title="Mastodon"
+        data-toggle="tooltip"
+        data-placement="top"
+        rel="noopener"
+        aria-label="Mastodon"
+        data-title="{{ title }}"
+        data-url="{{ url }}">
+        <i class="fa-fw fab fa-mastodon"></i>
+      </a>
+
+      {% for share in site.data.share.platforms %}
+        {% assign link = share.link | replace: 'TITLE', title | replace: 'URL', url %}
+          <a href="{{ link }}" data-toggle="tooltip" data-placement="top"
+            title="{{ share.type }}" target="_blank" rel="noopener" aria-label="{{ share.type }}">
+            <i class="fa-fw {{ share.icon }}"></i>
+          </a>
+      {% endfor %}
+
+      <i id="copy-link" class="fa-fw fas fa-link small"
+          data-toggle="tooltip" data-placement="top"
+          title="{{ site.data.locales[site.lang].post.button.share_link.title }}"
+          data-title-succeed="{{ site.data.locales[site.lang].post.button.share_link.succeed }}">
+      </i>
+
+    </span>
+  </div>
