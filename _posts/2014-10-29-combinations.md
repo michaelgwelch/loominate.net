@@ -1,5 +1,5 @@
 ---
-title: 'Combinations &#8211 Part 1'
+title: 'Combinations - Part 1'
 
 layout: post
 permalink: /2014/10/29/combinations/
