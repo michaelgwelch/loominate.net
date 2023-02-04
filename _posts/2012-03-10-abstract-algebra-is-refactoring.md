@@ -1,6 +1,5 @@
 ---
 title: Abstract Algebra is Refactoring
-
 layout: post
 permalink: /2012/03/10/abstract-algebra-is-refactoring/
 categories:
@@ -9,6 +8,7 @@ categories:
 tags:
   - abstract algebra
   - refactoring
+math: true
 ---
 In my previous [post][1] I presented a little introduction to abstract algebra. The easiest way for me to explain abstract algebra to a software developer is that it's a lot like refactoring.
 
@@ -22,31 +22,27 @@ Maybe, it's just me (or maybe this is a well known concept in the world of tenur
 
 Let's assume that I want to print out the elements of two lists. The first list is a linked list so the psuedocode looks something like this:
 
-{% highlight csharp linenos %}
+```csharp
 node = list.FirstNode;
 while (node != null)
 {
     print node.Data;
     node = node.Next;
 }
-{% endhighlight %}
-
-or like this
-
-{% gist 4ebc56c79954f3b3f096 %}
+```
 
 The second list is an array based list and so the psuedocode looks something like this:
 
-{% highlight csharp %}
+```csharp
 for (int i = 0; i < list.Count; i++)
 {
     print list[i]
 }
-{% endhighlight %}
+```
 
 The two examples are close enough for us to realize there is a pattern. We are visiting each element in the list one time and in some order appropriate for the list. And for each element in the list we print its value.
 
-So just like in the abstract algebra example from last time we formally identify the common traits and &#8220;abstract&#8221; them out and give them a name. In an object orientated language this is often accomplished by defining an interface with a well chosen name. In abstract algebra we formally state that an algebraic structure has certain traits (by demonstration or perhaps by a proof). In code we formally state that a class has some well defined set of traits by implementing the interface that defines the traits.
+So just like in the abstract algebra example from last time we formally identify the common traits and "abstract" them out and give them a name. In an object orientated language this is often accomplished by defining an interface with a well chosen name. In abstract algebra we formally state that an algebraic structure has certain traits (by demonstration or perhaps by a proof). In code we formally state that a class has some well defined set of traits by implementing the interface that defines the traits.
 
 The key things we need to be able to do for this example are the following:
 
@@ -57,24 +53,24 @@ The key things we need to be able to do for this example are the following:
 
 In fact in C# this pattern is already formalized. The traversal of a collection is formalized by the `IEnumerator` interface which fulfills the last 3 points, and any collection which allows traversal implements the `IEnumerable` interface which fulfills the first point. The code for traversing any type of list in C# is the following[^f1].
 
-{% highlight csharp %}
+```csharp
 // Assume a list of ints
 IEnumerator<int> enumerator = list.GetEnumerator();
 while(enumerator.MoveNext())
 {
     Console.WriteLine(enumerator.Current);
 }
-{% endhighlight %}
+```
 
 In Java we have a very similar formalization. The ability to request a list traversal object is formalized in the `Collection` interface which defines a method named `iterator` that returns an instance of an object that implements the `Iterator` interface. So the code to traverse and print a list in Java looks like the following.
 
-{% highlight java %}
+```java
 // Assume a list of ints
 Iterator<Integer> iterator = list.iterator();
 while(iterator.hasNext()) {
     System.out.println(iterator.next());
 }
-{% endhighlight %}
+```
 
 To me, the ability to refactor two different routines into one common routine by the use of interfaces, feels very much like the process of replacing two different proofs with one common proof by the use of abstract properties of algebraic structures. Hence my claim that abstract algebra is refactoring.
 
