@@ -7,6 +7,7 @@ $ git commit
 error: gpg failed to sign the data
 fatal: failed to write commit object
 ```
+{: .nolineno }
 
 <!--more-->
 
