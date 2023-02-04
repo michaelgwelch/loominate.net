@@ -16,15 +16,14 @@ Eric did all the hard work of explaining the recursive algorithm for addition.
 
 First thing I'll need is an equality operator for Bit. I'll just derive that by adding "deriving Eq" to the Bit definition.
 
-
-{% highlight haskell %}
+```haskell
 data Bit = ZeroBit | OneBit deriving Eq
-{% endhighlight %}
-
+```
+{: .nolineno }
 
 Here is the implementation of natural addition:
 
-{% highlight haskell linenos %}
+```haskell
 natAdd :: Natural -> Natural -> Natural
 natAdd n Zero = n
 natAdd Zero n = n
@@ -32,12 +31,11 @@ natAdd n1@(Nat h1 t1) n2@(Nat h2 t2)
   | h1 == ZeroBit = createNatural (natAdd t1 t2) h2
   | h2 == ZeroBit = createNatural (natAdd t1 t2) h1
   | otherwise = createNatural (natAdd one (natAdd t1 t2)) ZeroBit
-{% endhighlight %}
-
+```
 
 Then like Eric I added the ability to convert a Natural to a string. In Haskell this is done by implementing instance of Show. I do this for both Bit and Natural:
 
-{% highlight haskell linenos %}
+```haskell
 instance Show Bit where
   show ZeroBit = "0"
   show OneBit = "1"
@@ -45,11 +43,11 @@ instance Show Bit where
 instance Show Natural where
   show Zero = "0"
   show (Nat h t) = show t ++ show h
-{% endhighlight %}
+```
 
 Finally I added an increment method and exposed the new functions. The whole implementation now looks like this:
 
-{% highlight haskell linenos %}
+```haskell
 module Natural (Natural, zero, one, natAdd, natInc) where
 
 data Bit = ZeroBit | OneBit deriving Eq
@@ -88,6 +86,4 @@ instance Show Natural where
 -- bug guy meets math from scratch: added increment
 natInc :: Natural -> Natural
 natInc = natAdd one
-{% endhighlight %}
-
-
+```
