@@ -13,7 +13,7 @@ tags:
   - brainmess
   - refactoring
 ---
-Today, I'd like to address the issue of &#8220;data clumping&#8221; in the [original][1] implementation of Brainmess. (See all previous posts: [testing][2], [explanation][3] and [extract methods][4].)
+Today, I'd like to address the issue of "data clumping" in the [original][1] implementation of Brainmess. (See all previous posts: [testing][2], [explanation][3] and [extract methods][4].)
 
  [1]: {{site.baseurl}}{% post_url 2012-03-13-brainmess %} "Brainmess"
  [2]: {{site.baseurl}}{% post_url 2012-03-14-brainmess-part-2 %} "Brainmess: Part 2"
@@ -23,7 +23,7 @@ Today, I'd like to address the issue of &#8220;data clumping&#8221; in the [orig
 
 As was pointed out in an earlier post, the variables `program` and `pc` are generally used together, but not used with other variables. This suggests a tighter relationship between these two. Because of this, I want to extract them into their own class named `Program`.
 
-We'll be doing this in several steps. The first one is to convert the `Run` method into an instance method. Why? Because, we'll be converting `program` and `pc` into member variables and we don't want them to be static variables. Why? Because static variables don't get &#8220;re-initialized&#8221; in between runs. I was reminded of this the hard way. The first time I started this refactoring I just converted them to static variables and ran my tests. Several of them failed because the `pc` variable was not reset back to 0 after every run. This reminded me that these should be instance variables.
+We'll be doing this in several steps. The first one is to convert the `Run` method into an instance method. Why? Because, we'll be converting `program` and `pc` into member variables and we don't want them to be static variables. Why? Because static variables don't get "re-initialized" in between runs. I was reminded of this the hard way. The first time I started this refactoring I just converted them to static variables and ran my tests. Several of them failed because the `pc` variable was not reset back to 0 after every run. This reminded me that these should be instance variables.
 
 ## Convert local variables to member variables
 
@@ -93,7 +93,7 @@ So I created a constructor and converted them to instance variables. I left Main
 
 ## Extract program related methods
 
-Now I'm going to perform a couple of &#8220;Extract Methods&#8221; on every location in which `program` or `pc` are used. In this way I'll be encapsulating all access to these variables.
+Now I'm going to perform a couple of "Extract Methods" on every location in which `program` or `pc` are used. In this way I'll be encapsulating all access to these variables.
 
 Here are the four new methods.
 
@@ -307,7 +307,7 @@ public static Program LoadState(string programString, int pc)
 
 With these changes, I can now test that the `Fetch`, `JumpForward` and `JumpBackward` methods all work as expected. The `LoadState` method allows me to create a `Program` instance in any state. The normal constructor always starts the program counter at the beginning. `LoadState` let's me choose any starting location for it to set up any test environment I want. The `ProgramCounter` property allows me to check the state of the program after a method is executed.
 
-Here are some examples of some tests I wrote. Note, the methods in this class only have one path and therefore really only require one unit test each. The real &#8220;hard&#8221; logic for the Jump instructions is buried in the `FindMatch` method and therefore that method has more tests.
+Here are some examples of some tests I wrote. Note, the methods in this class only have one path and therefore really only require one unit test each. The real "hard" logic for the Jump instructions is buried in the `FindMatch` method and therefore that method has more tests.
 
 <pre class="brush: csharp; title: ; notranslate" title="">using System;
 using NUnit.Framework;
@@ -370,7 +370,7 @@ namespace BrainmessShort
 
 Another benefit is that I can now change my implementation of `Program` at any time and not have to worry about breaking something in the rest of the Brainmess program. What is an example of a change? Well consider that we might want to run very large Brainmess programs and we don't want to load the whole program into memory. Then I could modify `Program` to read directly from a `Stream`, like perhaps a `FileStream`.
 
-Finally, the new methods &#8220;document&#8221; the code. In the `Run` method, you don't need any comments to explain one each program related activity is doing. The method name tells you what is going on. I think this greatly increases the readability.
+Finally, the new methods "document" the code. In the `Run` method, you don't need any comments to explain one each program related activity is doing. The method name tells you what is going on. I think this greatly increases the readability.
 
 Next time, we'll do a similar thing with the tape related statements.
 

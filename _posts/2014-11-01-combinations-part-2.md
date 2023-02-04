@@ -50,7 +50,7 @@ It says that I need to define a type alias for a type that implements GeneratorT
 }
 </pre>
 
-Finally we see an &#8220;element&#8221; type mentioned. The `GeneratorType` protocol defines an associated type for elements and we can see that this type is used as the return type of the `next` method.
+Finally we see an "element" type mentioned. The `GeneratorType` protocol defines an associated type for elements and we can see that this type is used as the return type of the `next` method.
 
 Now I didn't define any type aliases, so what is going on? Using inference the compiler can often figure out what the associated type is, even if the developer doesn't specify it. In my case the return type of my `generate` method is `GeneratorOf(T)`, and therefore the compiler knows that the associated type for my stack is `GeneratorOf(T)`. If you then look at the signature for `GeneratorOf(T)` you'll see that it has a next method that returns a `T?`.
 

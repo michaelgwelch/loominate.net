@@ -57,7 +57,7 @@ public static class StringExtensions
 
 # The Loop Invariant
 
-The loop invariant proof technique is useful when an algorithm involves looping. It requires that one identify some property about the loop that is true before the loop starts and is true after every iteration of the loop. This property is the &#8220;invariant&#8221;. Once you can prove that the property is actually invariant, then you use the property to prove the correctness of your algorithm. However, you must also prove that the algorithm terminates. So these are the three things we must show:
+The loop invariant proof technique is useful when an algorithm involves looping. It requires that one identify some property about the loop that is true before the loop starts and is true after every iteration of the loop. This property is the "invariant". Once you can prove that the property is actually invariant, then you use the property to prove the correctness of your algorithm. However, you must also prove that the algorithm terminates. So these are the three things we must show:
 
   1. Initialization: The property holds before executing the loop, after initialization is complete.
   2. Maintenance: The property holds after each iteration of the loop.

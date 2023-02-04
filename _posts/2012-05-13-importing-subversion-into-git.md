@@ -14,7 +14,7 @@ Over the years I've accumulated some Subversion repositories. I used Subversion 
 
 
 
-The process was really easy. First I reminded myself what was in each repository. This was actually the &#8220;hardest&#8221; part as I haven't used Subversion in at least 4 or 5 years and couldn't remember how to list the contents of a repository. Turns out you need to use a URL even if it's a local file system repository.
+The process was really easy. First I reminded myself what was in each repository. This was actually the "hardest" part as I haven't used Subversion in at least 4 or 5 years and couldn't remember how to list the contents of a repository. Turns out you need to use a URL even if it's a local file system repository.
 
 The following will return me a list of directories like
 

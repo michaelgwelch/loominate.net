@@ -37,7 +37,7 @@ if (n < k) {
 }
 </pre>
 
-Note that we don't have a yield statement so we need to return a &#8220;full sequence&#8221;.
+Note that we don't have a yield statement so we need to return a "full sequence".
 
 Now the base cases are done. Like Eric we have two cases left to handle. The first are the cases where we are going to enumerate the combinations(n-1,k-1) and push a true on to them.
 

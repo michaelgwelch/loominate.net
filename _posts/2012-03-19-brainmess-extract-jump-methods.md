@@ -14,7 +14,7 @@ tags:
   - clean code
   - refactoring
 ---
-Today, I'll start to refactor the Brainmess program. In the first [post][1] I gave an &#8220;all-in-one&#8221; solution. [Next][2] I added some automated tests to give me some confidence that I don't break anything during the process. The last [time][3] that I spoke about Brainmess, I just explained my implementation.
+Today, I'll start to refactor the Brainmess program. In the first [post][1] I gave an "all-in-one" solution. [Next][2] I added some automated tests to give me some confidence that I don't break anything during the process. The last [time][3] that I spoke about Brainmess, I just explained my implementation.
 
  [1]: {{site.baseurl}}{% post_url 2012-03-13-brainmess %} "Brainmess"
  [2]: {{site.baseurl}}{% post_url 2012-03-14-brainmess-part-2 %} "Brainmess Add Tests"
@@ -131,7 +131,7 @@ private static int FindMatch(string program, int pc, int increment)
 
 It solves the first problem because it takes a `increment` variable that indicates which way to search thru the program string. This allows us to have just one method that knows how to find matching strings. (I still don't like this exactly, but I'll talk more about this later.)
 
-It solves the second and third problems by stating the fact that it expects `pc` to point to an actual bracket. This method then finds the matching bracket. Like before we know that the `nestLevel` is 1. This is only true however, because on the next line we either move forward (or backward) to get &#8220;inside&#8221; of the loop.
+It solves the second and third problems by stating the fact that it expects `pc` to point to an actual bracket. This method then finds the matching bracket. Like before we know that the `nestLevel` is 1. This is only true however, because on the next line we either move forward (or backward) to get "inside" of the loop.
 
 I then updated the jump methods to delegate to `FindMatch`. They pass in 1 or -1 as appropriate for the `increment` parameter. In addition they don't pass in the current `pc` value. They pass in `pc - 1` which makes sure we are telling FindMatch to start with a bracket.
 

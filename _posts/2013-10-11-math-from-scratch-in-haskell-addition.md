@@ -14,7 +14,7 @@ categories:
 
 Eric did all the hard work of explaining the recursive algorithm for addition.
 
-First thing I'll need is an equality operator for Bit. I'll just derive that by adding &#8220;deriving Eq&#8221; to the Bit definition.
+First thing I'll need is an equality operator for Bit. I'll just derive that by adding "deriving Eq" to the Bit definition.
 
 
 {% highlight haskell %}
