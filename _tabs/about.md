@@ -5,8 +5,10 @@ order: 4
 ---
 <!-- markdownlint-disable first-line-h1 -->
 
+![Your Host](/assets/images/mgwelch2_small_cicle_on_transparent.png){: w="200" h="200" .right }
 Hello There! Welcome to my blog! I'm so bad at writing About pages. So I present to you my chatGPT generated about page.
 All the text following the prompt below was AI generated.
+
 
 It's so much more grandiose in its ambitions than I actually am. In actuality, I just want to try
 to write about things I've found interesting and have fun learning about how to actually get
