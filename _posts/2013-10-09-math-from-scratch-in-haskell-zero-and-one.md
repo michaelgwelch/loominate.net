@@ -18,7 +18,7 @@ In [part one][2] and [part two][3] of the series he develops a representation of
 
 Here is my implementation
 
-{% highlight haskell linenos %}
+```haskell
 module Natural (Natural, zero, one) where
 
 data Bit = ZeroBit | OneBit
@@ -35,7 +35,7 @@ createNatural :: Natural -> Bit -> Natural
 createNatural Zero ZeroBit = Zero
 createNatural Zero OneBit = one
 createNatural n b = Nat b n
-{% endhighlight %}
+```
 
 
 On line 1 we expose the new type and two public values: zero and one.
