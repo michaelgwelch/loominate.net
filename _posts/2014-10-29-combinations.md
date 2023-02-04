@@ -22,8 +22,7 @@ It's not that big of a deal that nested classes aren't supported. I can mark the
 UPDATE 11/17/2014
 I just was reminded that I don't need semicolons everywhere.
 
-{% highlight  swift linenos %}
-
+```swift
 public class ImmutableStack<T> {
 
     let top:T? = nil
@@ -71,13 +70,11 @@ private class NonEmptyStack<T> : ImmutableStack<T> {
     }
 
 }
-
-{% endhighlight %}
+```
 
 To make our stack `enumerable` we need to make it implement SequenceType. I've chosen to do this in the same file but took advantage of Swift extensions. I need to implement the `generate` method. Since Swift doesn't yet have a `yield` keyword, we need to manually write our generation code. There is a helper structure named `GeneratorOf`. It has a constructor that takes a closure. This closure is used to return the &#8220next&#8221 element.
 
-{% highlight swift linenos %}
-
+```swift
 extension ImmutableStack : SequenceType {
     public func generate() -> GeneratorOf<T> {
         var stack = self
@@ -93,8 +90,6 @@ extension ImmutableStack : SequenceType {
         }
     }
 }
-
-{% endhighlight %}
-
+```
 
  [1]: http://ericlippert.com/2014/10/13/producing-combinations-part-one/ "Eric Lippert on Combinations"
