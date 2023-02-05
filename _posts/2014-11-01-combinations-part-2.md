@@ -13,7 +13,7 @@ excerpt: ""
 ---
 
 Last time I started working on the combinations problem that Eric Lippert wrote
-about: [Collections](1)
+about: [Collections][1]
 
 We'll be working a lot with `SequenceType`, `SequenceOf`, `GeneratorType` and
 `GeneratorOf`. I'm more familiar with the enumerating type of C# (`IEnumerable`
