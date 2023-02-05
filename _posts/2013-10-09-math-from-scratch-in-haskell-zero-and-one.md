@@ -1,5 +1,5 @@
 ---
-title: 'Math from scratch in Haskell: zero and one'
+title: "Math from scratch in Haskell: zero and one"
 
 layout: post
 permalink: /2013/10/09/math-from-scratch-in-haskell-zero-and-one/
@@ -9,15 +9,23 @@ tags:
   - Haskell
   - math
   - software development
-excerpt: Follow along as I implement natural numbers from scratch in Haskell, using Eric Lippert's posts as a guide.
+excerpt:
+  Follow along as I implement natural numbers from scratch in Haskell, using
+  Eric Lippert's posts as a guide.
 ---
-I've been following a set of posts written by [Eric Lippert][1] where he is implementing arbitrary size Naturals and the corresponding arithmetic in C#. As I follow along I'm writing an implementation in Haskell (one that I hope is idiomatic to Haskell).
 
+I've been following a set of posts written by [][1] where he is implementing
+arbitrary size naturals and the corresponding arithmetic in C#. As I follow
+along I'm writing an implementation in Haskell (one that I hope is idiomatic to
+Haskell).
 
-In [part one][2] and [part two][3] of the series he develops a representation of Naturals and exposes two public members: Zero and One. Read those two posts to understand his implementation.
+In [part one][2] and [part two][3] of the series he develops a representation of
+Naturals and exposes two public members: Zero and One. Read those two posts to
+understand his implementation.
 
 Here is my implementation
 
+<!-- prettier-ignore-start -->
 ```haskell
 module Natural (Natural, zero, one) where
 
@@ -36,18 +44,27 @@ createNatural Zero ZeroBit = Zero
 createNatural Zero OneBit = one
 createNatural n b = Nat b n
 ```
-
+<!-- prettier-ignore-end -->
 
 On line 1 we expose the new type and two public values: zero and one.
 
-I define two new types: Bit and Natural. The definition of Bit is straightforward. I simply define two constructors: ZeroBit and OneBit. Likewise the definition of Natural follows directly from the recursive definition given by Eric. I can construct a Natural by using the Zero constructor or by using the Nat constructor (which adds a new least significant bit onto an existing Natural).
+I define two new types: Bit and Natural. The definition of Bit is
+straightforward. I simply define two constructors: ZeroBit and OneBit. Likewise
+the definition of Natural follows directly from the recursive definition given
+by Eric. I can construct a Natural by using the Zero constructor or by using the
+Nat constructor (which adds a new least significant bit onto an existing
+Natural).
 
-Like Eric's implementation I use a helper function to maintain the invariant he mentions that a Natural never ends in a ZeroBit followed by a Zero.
+Like Eric's implementation I use a helper function to maintain the invariant he
+mentions that a Natural never ends in a ZeroBit followed by a Zero.
 
 The definitions of zero and one are straightforward as well. That's it.
 
-I'll continue to add posts that follow Eric's posts. The next post will show how to implement addition.
+I'll continue to add posts that follow Eric's posts. The next post will show how
+to implement addition.
 
- [1]: http://ericlippert.com "Eric Lippert"
- [2]: http://ericlippert.com/2013/09/16/math-from-scratch-part-one/
- [3]: http://ericlippert.com/2013/09/19/math-from-scratch-part-two/
+<!-- prettier-ignore-start -->
+[1]: http://ericlippert.com "Eric Lippert"
+[2]: http://ericlippert.com/2013/09/16/math-from-scratch-part-one/ "Math from scratch, part one"
+[3]: http://ericlippert.com/2013/09/19/math-from-scratch-part-two/ "Math from scratch, part two: zero and one"
+<!-- prettier-ignore-end -->
