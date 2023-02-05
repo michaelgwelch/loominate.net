@@ -21,8 +21,8 @@ addition.
 
 Eric did all the hard work of explaining the recursive algorithm for addition.
 
-First thing I'll need is an equality operator for Bit. I'll just derive that by
-adding "deriving Eq" to the Bit definition.
+First thing I'll need is an equality operator for `Bit`. I'll just derive that by
+adding `deriving Eq` to the `Bit` definition.
 
 <!-- prettier-ignore-start -->
 ```haskell
@@ -46,9 +46,9 @@ natAdd n1@(Nat h1 t1) n2@(Nat h2 t2)
 {: .nolineno }
 <!-- prettier-ignore-end -->
 
-Then like Eric I added the ability to convert a Natural to a string. In Haskell
-this is done by implementing instance of Show. I do this for both Bit and
-Natural:
+Then like Eric I added the ability to convert a `Natural` to a `string`. In
+Haskell this is done by implementing instance of `Show`. I do this for both
+`Bit` and `Natural`:
 
 <!-- prettier-ignore-start -->
 ```haskell
