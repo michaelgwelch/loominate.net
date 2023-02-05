@@ -28,43 +28,49 @@ it implements `SequenceType`.
 
 Let's look at the code from last time again:
 
-<pre class="brush: swift; title: ; notranslate" title="">extension ImmutableStack : SequenceType {
-    public func generate() -> GeneratorOf<T> {
-        var stack = self;
+```swift
+extension ImmutableStack: SequenceType {
+  public func generate() -> GeneratorOf<T> {
+    var stack = self
 
-        return GeneratorOf {
-            if (stack.isEmpty()) {
-                return nil;
-            } else {
-                let result = stack.top;
-                stack = stack.pop()!;
-                return result;
-            }
-        };
+    return GeneratorOf {
+      if stack.isEmpty() {
+        return nil
+      } else {
+        let result = stack.top
+        stack = stack.pop()!
+        return result
+      }
     }
+  }
 }
-</pre>
+```
+{: .nolineno }
 
 How does a user of this stack know that it enumerates `T` values? Well, in
 addition to the `generate` method, a `SequenceType` defines an associated type
 as well via a type alias. Here is the signature of `SequenceType`
 
-<pre class="brush: swift; title: ; notranslate" title="">protocol SequenceType : _Sequence_Type {
-    typealias Generator : GeneratorType
-    func generate() -> Generator
+```swift
+protocol SequenceType : _Sequence_Type {
+  typealias Generator : GeneratorType
+  func generate() -> Generator
 }
-</pre>
+```
+{: .nolineno }
 
 It says that I need to define a type alias for a type that implements
-GeneratorType; and I must use this type as the return type of my generate
+`GeneratorType`; and I must use this type as the return type of my `generate`
 method. However, I still don't see any element type mentioned. Let's look at
 `GeneratorType`:
 
-<pre class="brush: swift; title: ; notranslate" title="">protocol GeneratorType {
-    typealias Element
-    mutating func next() -> Element?
+```swift
+protocol GeneratorType {
+  typealias Element
+  mutating func next() -> Element?
 }
-</pre>
+```
+{: .nolineno }
 
 Finally we see an "element" type mentioned. The `GeneratorType` protocol defines
 an associated type for elements and we can see that this type is used as the
@@ -73,21 +79,23 @@ return type of the `next` method.
 Now I didn't define any type aliases, so what is going on? Using inference the
 compiler can often figure out what the associated type is, even if the developer
 doesn't specify it. In my case the return type of my `generate` method is
-`GeneratorOf(T)`, and therefore the compiler knows that the associated type for
-my stack is `GeneratorOf(T)`. If you then look at the signature for
-`GeneratorOf(T)` you'll see that it has a next method that returns a `T?`.
+`GeneratorOf<T>`, and therefore the compiler knows that the associated type for
+my stack is `GeneratorOf<T>`. If you then look at the signature for
+`GeneratorOf<T>` you'll see that it has a next method that returns a `T?`.
 
-<pre class="brush: swift; title: ; notranslate" title="">struct GeneratorOf<T> : GeneratorType, SequenceType {
+```swift
+struct GeneratorOf<T> : GeneratorType, SequenceType {
     init(_ nextElement: () -> T?)
     init<G : GeneratorType where T == T>(_ base: G)
     mutating func next() -> T?
     func generate() -> GeneratorOf<T>
 }
-</pre>
+```
+{: .nolineno }
 
-I'm allowed to use `GeneratorOf(T)` as my associated type in my ImmutableStack
-because it implements GeneratorType. Also the compiler infers that the Element
-associated type for GeneratorType is T.
+I'm allowed to use `GeneratorOf<T>` as my associated type in my `ImmutableStack`
+because it implements `GeneratorType`. Also the compiler infers that the `Element`
+associated type for `GeneratorType` is `T`.
 
 So putting it all together, it is now clear that my `ImmutableStack` enumerates
 `T` values.
