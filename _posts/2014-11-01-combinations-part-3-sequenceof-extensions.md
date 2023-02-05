@@ -30,23 +30,27 @@ sequence. This is not necessarily true of generators which are not required to
 
 So here is the method:
 
+```swift
 extension SequenceOf {
-    public static func empty() -> SequenceOf<T> {
-        return SequenceOf([]);
-    }
+  public static func empty() -> SequenceOf<T> {
+    return SequenceOf([]);
+  }
 }
-</pre>
+```
+{: .nolineno }
 
-Next, I wanted an extensions method for creating a singleton sequence.
+Next, I wanted an extension method for creating a singleton sequence.
 
-<pre class="brush: swift; title: ; notranslate" title="">extension SequenceOf {
-    public static func singleton(t:T) -> SequenceOf<T> {
-        return SequenceOf([t]);
-    }
+```swift
+extension SequenceOf {
+  public static func singleton(t:T) -> SequenceOf<T> {
+    return SequenceOf([t]);
+  }
 }
-</pre>
+```
+{: .nolineno }
 
-As you can see this are rather simple one liners. However, I still think they
+As you can see these are rather simple one liners. However, I still think they
 are useful because they make it clear when I use them what I'm trying to do. The
 one liners themselves are a little more confusing. Indeed, the first one seems
 to say to me that I'm creating a sequence that contains one element that is an
@@ -55,114 +59,119 @@ elements in the array.
 
 Both of these methods are static methods so here is how you would invoke them:
 
-<pre class="brush: swift; title: ; notranslate" title="">let emptySequence = SequenceOf<Int>.empty();
+```swift
+let emptySequence = SequenceOf<Int>.empty();
 let singletonSequence = SequenceOf<String>.singleton("hello");
-</pre>
+```
+{: .nolineno }
 
 Finally, I could not find anyway to concatenate two sequences. I looked for
-concat, append, join, extend methods. While these exist for arrays, collections,
-strings, etc. I couldn't find anything that applied to sequences; which seems
+`concat`, `append`, `join`, `extend` methods. While these exist for `arrays`, `collections`,
+`strings`, etc. I couldn't find anything that applied to sequences; which seems
 very strange to me. So I created the method. It's fairly simple but definitely
 provides value.
 
-<pre class="brush: swift; title: ; notranslate" title="">extension SequenceOf {
-    public func extend<S1:SequenceType where S1.Generator.Element == T>(s1:S1) -> SequenceOf<T> {
-        return SequenceOf{ () -> GeneratorOf<T> in
-            var g0 = self.generate();
-            var g1 = s1.generate();
-            return GeneratorOf {
-                g0.next() ?? g1.next();
-            }
-        }
-
+```swift
+public extension SequenceOf {
+  func extend<S1: SequenceType where S1.Generator.Element == T>(s1: S1) -> SequenceOf<T> {
+    return SequenceOf { () -> GeneratorOf<T> in
+      var g0 = self.generate()
+      var g1 = s1.generate()
+      return GeneratorOf {
+        g0.next() ?? g1.next()
+      }
     }
+  }
 }
-</pre>
+```
+{: .nolineno }
 
 This might take a little explanation for beginners.
 
 First, let's examine the signature. It's a generic method that takes one type
-parameter `S1`. Their are constraints placed on what S1 can be. First of all it
-must implement the SequenceType protocol. Next there is a _where_ clause that
-states that the Element type of S1 must be identical to T. What is T? Well it
-helps to recall that SequenceOf is a generic struct. T is the type parameter for
-SequenceOf. So what the constraints on S1 are saying is that S1 can be any
-SequenceType that has the same type of elements as the sequence this method is
-being called on. So we could.
+parameter `S1`. There are constraints placed on what `S1` can be. First of all it
+must implement the `SequenceType` protocol. Next there is a _where_ clause that
+states that the `Element` type of `S1` must be identical to `T`. What is `T`? Well it
+helps to recall that `SequenceOf` is a generic struct. `T` is the type parameter for
+`SequenceOf`. So what the constraints on `S1` are saying is that `S1` can be any
+`SequenceType` that has the same type of elements as the sequence this method is
+being called on.
 
-Next we see the arguments for this method. It takes one, s1 of type S1. Finally,
-the return type is SequenceOf<T>. This makes sense because it's the most
-fundamental SequenceType (except for maybe Array).
+Next we see the arguments for this method. It takes one, `s1` of type `S1`. Finally,
+the return type is `SequenceOf<T>`. This makes sense because it's the most
+fundamental `SequenceType` (except for maybe `Array`).
 
 The rest of the method is a little complicated so I'm going to rewrite the
-method and be explicit:
+method and be explicit in all the types:
 
-<pre class="brush: swift; title: ; notranslate" title="">func extend<S1:SequenceType where S1.Generator.Element == T>(s1:S1) -> SequenceOf<T> {
-
-    return SequenceOf<T>({ () -> GeneratorOf<T> in
-        var g0 = self.generate();
-        var g1 = s1.generate();
-        return GeneratorOf<T>({ () -> T? in
-            g0.next() ?? g1.next();
-        })
+```swift
+func extend<S1: SequenceType where S1.Generator.Element == T>(s1: S1) -> SequenceOf<T> {
+  return SequenceOf<T>({ () -> GeneratorOf<T> in
+    var g0 = self.generate()
+    var g1 = s1.generate()
+    return GeneratorOf<T>({ () -> T? in
+      g0.next() ?? g1.next()
     })
-
+  })
 }
-</pre>
 
-I'm instantiating and returning a SequenceOf. It has a constructor that takes a
+```
+{: .nolineno }
+
+I'm instantiating and returning a `SequenceOf`. It has a constructor that takes a
 closure. The closure it is expecting is one that takes no parameters and returns
-a GeneratorType. The implementation of this closure first calls generate on self
-and s1 and stores those generators in vars. (They must be vars since the next
+a `GeneratorType`. The implementation of this closure first calls `generate` on `self`
+and `s1` and stores those generators in vars. (They must be vars since the next
 method that will be called on them is mutating.) Then I instantiate and return a
-GeneratorOf. Now GeneratorOf also has a constructor that takes a closure. This
-closure is basically the "next" method you want the GeneratorOf to have. Our
+`GeneratorOf`. Now `GeneratorOf` also has a constructor that takes a closure. This
+closure is basically the `next` method you want the `GeneratorOf` to have. Our
 next method is pretty simple. It calls next on the first generator and if the
-result is nil then it calls next on the second generator.
+result is `nil` then it calls next on the second generator.
 
-NB: It's very important where I instantiated g0 and g1. If I would have
+NB: It's very important where I instantiated `g0` and `g1`. If I would have
 instantiated them outside of the closure, (for example if they were the first
-two lines in the extend method); then the generate methods would only be called
+two lines in the `extend` method); then the generate methods would only be called
 when the extend method was called. This means that the resulting sequence
 wouldn't reset when it's generate method is called.
 
-If I would have called generate on g0 and g1 inside the nested closure then the
-sequence would reset overtime next is called and always returns the first
-element of g0. Let me illustrate what I'm saying by actually making these
+If I would have called generate on `g0` and `g1` inside the nested closure then the
+sequence would reset every time `next` is called and always return the first
+element of `g0`. Let me illustrate what I'm saying by actually making these
 mistakes and then showing the results.
 
-<pre class="brush: swift; title: ; notranslate" title="">// Error #1. Sequence doesn't "reset" after it's been enumerated
+```swift
+// Error #1. Sequence doesn't "reset" after it's been enumerated
 extension SequenceOf {
-    func extend3<S1:SequenceType where S1.Generator.Element == T>(s1:S1) -> SequenceOf<T> {
+  func extend3<S1: SequenceType where S1.Generator.Element == T>(s1: S1) -> SequenceOf<T> {
+    var g0 = generate()
+    var g1 = s1.generate()
 
-        var g0 = self.generate();
-        var g1 = s1.generate();
-
-        return SequenceOf<T>({ () -> GeneratorOf<T> in
-            return GeneratorOf<T>({ () -> T? in
-                return g0.next() ?? g1.next();
-            })
-        })
-
-    }
+    return SequenceOf<T>({ () -> GeneratorOf<T> in
+      GeneratorOf<T>({ () -> T? in
+        g0.next() ?? g1.next()
+      })
+    })
+  }
 }
 
-var items = SequenceOf([1,2]).extend3([3]);
-var gen = items.generate();
-println(gen.next());
-println(gen.next());
-println(gen.next());
-println(gen.next());
-gen = items.generate();
-println(gen.next());
-println(gen.next());
-println(gen.next());
-println(gen.next());
-</pre>
+var items = SequenceOf([1, 2]).extend3([3])
+var gen = items.generate()
+println(gen.next())
+println(gen.next())
+println(gen.next())
+println(gen.next())
+gen = items.generate()
+println(gen.next())
+println(gen.next())
+println(gen.next())
+println(gen.next())
+```
+{: .nolineno }
 
 If you copy/paste this into a playground you'll see the output is
 
-<pre class="brush: plain; title: ; notranslate" title="">Optional(1)
+```swift
+Optional(1)
 Optional(2)
 Optional(3)
 nil
@@ -170,50 +179,53 @@ nil
 nil
 nil
 nil
-</pre>
+```
+{: file="playground" .nolineno }
 
 In other words you can see that once the sequence is exhausted it wasn't reset
-even after calling generate method again to get a fresh generator.
+even after calling the `generate` method again to get a fresh generator.
 
 Now let's try the other mistake
 
-<pre class="brush: swift; title: ; notranslate" title="">// Error #2, we never make any progress
+```swift
+// Error #2, we never make any progress
 extension SequenceOf {
-    func extend4<S1:SequenceType where S1.Generator.Element == T>(s1:S1) -> SequenceOf<T> {
-
-        return SequenceOf<T>({ () -> GeneratorOf<T> in
-            return GeneratorOf<T>({ () -> T? in
-                var g0 = self.generate();
-                var g1 = s1.generate();
-                return g0.next() ?? g1.next();
-            })
-        })
-
-    }
+  func extend4<S1: SequenceType where S1.Generator.Element == T>(s1: S1) -> SequenceOf<T> {
+    return SequenceOf<T>({ () -> GeneratorOf<T> in
+      GeneratorOf<T>({ () -> T? in
+        var g0 = self.generate()
+        var g1 = s1.generate()
+        return g0.next() ?? g1.next()
+      })
+    })
+  }
 }
 
-var items = SequenceOf([1,2]).extend4([3]);
-var gen = items.generate();
-println(gen.next());
-println(gen.next());
-println(gen.next());
-println(gen.next());
-</pre>
+var items = SequenceOf([1, 2]).extend4([3])
+var gen = items.generate()
+println(gen.next())
+println(gen.next())
+println(gen.next())
+println(gen.next())
+```
 
 You'll see the output is
 
-<pre class="brush: plain; title: ; notranslate" title="">Optional(1)
+```swift
 Optional(1)
 Optional(1)
 Optional(1)
-</pre>
+Optional(1)
+```
+{: file="playground" .nolineno }
 
 Of course this makes sense because we reset the generator on the first sequence
-every time next is called so we never make any progress.
+every time `next` is called so we never make any progress.
 
-Now let's look at the original method:
+Now let's look at the results of the correct method:
 
-<pre class="brush: plain; title: ; notranslate" title="">Optional(1)
+```swift
+Optional(1)
 Optional(2)
 Optional(3)
 nil
@@ -221,7 +233,8 @@ Optional(1)
 Optional(2)
 Optional(3)
 nil
-</pre>
+```
+{: .nolineno }
 
 Ok, this post got long enough. Let's quit here.
 
