@@ -38,6 +38,14 @@ Please see the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy#d
 
 This work is published under [MIT][mit] License.
 
+## Notes to Self
+
+This is currently working just fine for me with
+
+- ruby 3.1.3
+- bundler 2.4.6
+- jekyll 4.3.2
+
 [gem]: https://rubygems.org/gems/jekyll-theme-chirpy
 [chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
 [use-template]: https://github.com/cotes2020/chirpy-starter/generate
