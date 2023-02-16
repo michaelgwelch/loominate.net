@@ -10,6 +10,8 @@ tags:
   - authentication
 ---
 
+<!-- markdownlint-disable-file blanks-around-fences -->
+
 I recently setup a Mastodon server on Digital Ocean. As part of the instructions
 you must disable password authentication via ssh on your server.
 
@@ -17,9 +19,12 @@ On Ubuntu 20.04 this required editing `/etc/ssh/sshd_config`, locating the entry
 `PasswordAuthentication`, uncommenting it if it was commented out, and setting
 the value to `no`. Then restarting ssh via
 
+<!-- prettier-ignore-start -->
 ```bash
 systemctl restart ssh.service
 ```
+{: .nolineno }
+<!-- prettier-ignore-end -->
 
 Today, I wanted to disable password authentication on a mac server. It's just
 about as easy but searching the internet for answers found many old answers that
