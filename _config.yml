@@ -42,7 +42,7 @@ social:
   # email: example@domain.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://mast.mmwelch.net/@michael
+    - https://mastodon.social/@mgwelch
 
 google_site_verification: # fill in to your verification string
 

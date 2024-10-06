@@ -10,7 +10,7 @@
 
 - type: mastodon
   icon: "fab fa-mastodon" # icons powered by <https://fontawesome.com/>
-  url: "https://mast.mmwelch.net/@michael" # Fill with your Mastodon account page, rel="me" will be applied for verification
+  url: "https://mastodon.social/@mgwelch" # Fill with your Mastodon account page, rel="me" will be applied for verification
 - type: github
   icon: "fab fa-github"
 - #   type: twitter
